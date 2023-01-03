@@ -15,7 +15,7 @@ except Exception as e:
 
 """
 cron: 12 */3 * * *
-new Env('拾米游 1-3')
+new Env('拾米游0.2')
 青龙变量 export smytoken="token@赠送游票ID@True"   
 第三个参数是开启赠送功能     多号换行
 版本0.2
