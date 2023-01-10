@@ -24,7 +24,7 @@ new Env('拾米游0.3')
 
 application = 'smytoken'    # 变量名
 bundled = True              # 是否绑定邀请码
-count_mew = 1000              # 默认每次赠送10      10的整数手续费最划算
+count_mew = 10              # 默认每次赠送10      10的整数手续费最划算
 token = ''                  # 调试token
 
 
