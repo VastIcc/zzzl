@@ -15,242 +15,231 @@ except Exception as e:
 
 """
 cron: 12 */3 * * *
-new Env('拾米游0.3')
+new Env('拾米游')
 青龙变量 export smytoken="token@赠送游票ID@True"   
-第三个参数是开启赠送功能     多号换行
-版本0.3
+第三个参数是开启赠送功能  True为赠送   False为不赠送   多号换行
+版本0.4
 """
-
-
 application = 'smytoken'    # 变量名
 bundled = True              # 是否绑定邀请码
-count_mew = 10              # 默认每次赠送10      10的整数手续费最划算
 token = ''                  # 调试token
-
-
-
 # 绑定上级ID  随机绑就多填   不需要1000
 def bundled_def():
-    bundled_id_new = ['31676', '31689', '31815', '31817', '31818', '32056', '32896', '33151', '33153', '33158', '33160', '33162', '41727']
+    bundled_id_new = ['33162', '41727']
     return bundled_id_new[random.randint(0, len(bundled_id_new) - 1)]
+
 
 #####################################################下面不要动#####################################################
 cumulative_ticket =0 #line:1
 host ='https://api.shimiyou.com'#line:2
 git ='https://gitee.com'#line:3
-mobile =0 #line:4
-def start ():#line:5
-    try :#line:6
-        if update_the_validation ():#line:7
-            OO0000O0O0000O0OO =os_qinglong ()#line:8
-            print (f"==========共找到{len(OO0000O0O0000O0OO)}个账号==========")#line:9
-            for OO0O0O0000000O000 in OO0000O0O0000O0OO :#line:10
-                print (f"------------正在执行第{OO0000O0O0000O0OO.index(OO0O0O0000000O000) + 1}个账号------------")#line:11
-                OOO0OOO0OO0O0O0O0 =SwimUpM (OO0O0O0000000O000 )#line:12
-                if OOO0OOO0OO0O0O0O0 .base_info ():#line:14
-                    if bundled :#line:15
-                        OOO0OOO0OO0O0O0O0 .friend_center ()#line:17
-                    OOO0OOO0OO0O0O0O0 .lottery_activities ()#line:19
-                    OOO0OOO0OO0O0O0O0 .user_lottery_activity_records ()#line:21
-                    OOO0OOO0OO0O0O0O0 .lottery_center_index ()#line:23
-                    if OOO0OOO0OO0O0O0O0 .tickets :#line:24
-                        OOO0OOO0OO0O0O0O0 .tickets_give ()#line:26
-                    time .sleep (random .randint (8 ,15 ))#line:27
-                else :#line:28
-                    print ('token失效')#line:29
-            print (f"------------所有账号运行完毕正在统计每天收益------------")#line:30
-            print (f'【每天收益】：所有账号累计每天能中:{str(cumulative_ticket)[:6]}张游票')#line:31
-    except Exception as O00OOOO00OOOO0O00 :#line:32
-        print (O00OOOO00OOOO0O00 )#line:33
-class SwimUpM :#line:35
-    def __init__ (OO0OOO000O000O00O ,O0OOOO00OO000OOO0 ):#line:37
-        try :#line:38
-            OO0OOO000O000O00O .giving =O0OOOO00OO000OOO0 .split ("@")[1 ]#line:39
-            OO0OOO000O000O00O .tickets =O0OOOO00OO000OOO0 .split ("@")[2 ]#line:40
-            OO0OOO000O000O00O .headers ={'Authorization':'Basic bWlqaWF5b3U6NnpXa3l3ZmtmZ1NyVmNQdQ==','Http-X-Authentication-Token':O0OOOO00OO000OOO0 .split ("@")[0 ],'user-agent':'Mozilla/5.0 (Linux; Android 12; 2201122C Build/SKQ1.211006.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/95.0.4638.74 Mobile Safari/537.36 uni-app Html5Plus/1.0 (Immersed/30.857143)','Host':'api.shimiyou.com',}#line:41
-        except Exception as O000O0O000OO00000 :#line:42
-            print ('变量格式错误')#line:43
-    def base_info (OOO0O0O0O0000O0O0 ):#line:46
-        global mobile #line:47
-        try :#line:48
-            O0OOO00O0000OO000 =requests .request ('get',f'{host}/app_user/v1/users/base_info',headers =OOO0O0O0O0000O0O0 .headers ).json ()#line:49
-            if 'code'in O0OOO00O0000OO000 :#line:51
-                return False #line:52
-            if 'mobile'in O0OOO00O0000OO000 :#line:53
-                if O0OOO00O0000OO000 ['mobile']:#line:54
-                    mobile =O0OOO00O0000OO000 ['mobile']#line:55
-                else :#line:56
-                    mobile ='None'#line:57
-            if 'id'in O0OOO00O0000OO000 :#line:58
-                OOOOO0000O000O0O0 =O0OOO00O0000OO000 ['nick_name']#line:59
-                OO0O000OO000OOO00 =O0OOO00O0000OO000 ['card_no']#line:60
-                O000O00OOOO0O00OO =str (OO0O000OO000OOO00 )[4 :5 ]+'**'+str (OO0O000OO000OOO00 )[7 :]#line:61
-                O0O0OOO0O00OOOO0O =O0OOO00O0000OO000 ['ticket']['count']#line:62
-                try :#line:63
-                    if reversed (O0O0OOO0O00OOOO0O )!=0 :#line:64
-                        O0O0OOO0O00OOOO0O =str (O0O0OOO0O00OOOO0O ).split ('.')[0 ]#line:65
-                    else :#line:66
-                        O0O0OOO0O00OOOO0O =0 #line:67
-                except :#line:68
-                    O0O0OOO0O00OOOO0O =0 #line:69
-                print (f'【账号信息】：ID:{O000O00OOOO0O00OO}丨昵称:{OOOOO0000O000O0O0[:7]}丨游票:{O0O0OOO0O00OOOO0O}')#line:70
-                O0O0OOO00O0000OO0 =O0OOO00O0000OO000 ['avatar']['url']#line:71
-                if O0O0OOO00O0000OO0 :#line:72
-                    if 'NUokiQDoKCFD'in O0O0OOO00O0000OO0 :#line:73
-                        O0OOO0OO0O0O00O00 =re .findall ('/NUokiQDoKCFD(.*?).jpg',O0OOO00O0000OO000 ['avatar']['url'])[0 ].split ('NUokiQDoKCFD')[0 ].split ('-')[0 ]#line:74
-                        OOO0OOO00O000OO00 =(datetime .datetime .now ()-datetime .datetime (int (O0OOO0OO0O0O00O00 [:4 ]),int (O0OOO0OO0O0O00O00 [4 :6 ]),int (O0OOO0OO0O0O00O00 [6 :8 ]))).days #line:75
-                        print (f'【注册绑定】：注册:{O0OOO0OO0O0O00O00[:4]}-{O0OOO0OO0O0O00O00[4:6]}-{O0OOO0OO0O0O00O00[6:8]}丨距今:{OOO0OOO00O000OO00}天丨绑定:{mobile[7:]}')#line:76
-                        return True #line:77
-                    if 'avatar'in O0O0OOO00O0000OO0 :#line:78
-                        O0OOO0OO0O0O00O00 =re .findall ('/avatar(.*?).jpg',O0OOO00O0000OO000 ['avatar']['url'])[0 ].split ('avatar')[1 ].split ('-')[0 ]#line:79
-                        OOO0OOO00O000OO00 =(datetime .datetime .now ()-datetime .datetime (int (O0OOO0OO0O0O00O00 [:4 ]),int (O0OOO0OO0O0O00O00 [4 :6 ]),int (O0OOO0OO0O0O00O00 [6 :8 ]))).days #line:80
-                        print (f'【注册绑定】：注册:{O0OOO0OO0O0O00O00[:4]}-{O0OOO0OO0O0O00O00[4:6]}-{O0OOO0OO0O0O00O00[6:8]}丨距今:{OOO0OOO00O000OO00}天丨绑定:{mobile[7:]}')#line:81
-                        return True #line:82
-            return True #line:83
-        except Exception as O00OOOO00OOO0O000 :#line:84
-            print (O00OOOO00OOO0O000 )#line:85
-    def friend_center (O00OO000OOO000000 ):#line:89
-        OO0OOO0O0O00000O0 =requests .request ('get',f'{host}/app_user/v1/friend_center/index',headers =O00OO000OOO000000 .headers ).json ()#line:90
-        if 'parent_user'in OO0OOO0O0O00000O0 :#line:91
-            if OO0OOO0O0O00000O0 ['parent_user']:#line:92
-                pass #line:93
-            else :#line:94
-                OOO0OO0000O00O0OO ={"id":bundled_def ()}#line:95
-                requests .request ('put',f'{host}/app_user/v1/users/ancestry',headers =O00OO000OOO000000 .headers ,data =OOO0OO0000O00O0OO ).json ()#line:96
-    def user_lottery_activity_records (O0000O0O0O0O0O000 ):#line:99
-        global cumulative_ticket #line:100
-        O00O0000OOOO00OOO =0 #line:101
-        O000OO00OO0OOO00O =0 #line:102
-        try :#line:103
-            OOO0OO00O0OO0O0O0 =requests .request ('get',f'{host}/app_user/v1/users/user_lottery_activity_records?page=1&per_page=20',headers =O0000O0O0O0O0O000 .headers ).json ()#line:104
-            if 'user_lottery_activity_records'in OOO0OO00O0OO0O0O0 :#line:105
-                for OOO0OO0000OOO00OO in OOO0OO00O0OO0O0O0 ['user_lottery_activity_records']:#line:106
-                    if '7a468d93-aa43-4131-b414-b828b985e97e'==OOO0OO0000OOO00OO ['lottery_activity_id']:#line:107
-                        O00O0000OOOO00OOO =OOO0OO0000OOO00OO ['bet_on']#line:108
-                    if '94437862-d71c-4ff9-b2ff-343b094acd0d'==OOO0OO0000OOO00OO ['lottery_activity_id']:#line:109
-                        O000OO00OO0OOO00O =OOO0OO0000OOO00OO ['bet_on']#line:110
-                print (f'【参与抽奖】：普通奖券:{O000OO00OO0OOO00O}张丨高级奖券:{O00O0000OOOO00OOO}张')#line:111
-            if 'lottery_activity'in OOO0OO00O0OO0O0O0 :#line:112
-                for OOO0OO0000OOO00OO in OOO0OO00O0OO0O0O0 ['lottery_activity']:#line:113
-                    if OOO0OO0000OOO00OO ['topic']=='普通奖券抽游票':#line:114
-                        OOOO0OO00O0OO0OO0 =OOO0OO0000OOO00OO ['sum_bet_on']#line:115
-                        OO00O000O00O00OOO =2880 *34 /OOOO0OO00O0OO0OO0 *O000OO00OO0OOO00O #line:116
-                        cumulative_ticket +=OO00O000O00O00OOO #line:117
-                        print (f'【参与抽奖】：普通奖券预计每天能中:{str(OO00O000O00O00OOO)[:5]}')#line:118
-                    if OOO0OO0000OOO00OO ['topic']=='高级奖券抽游票':#line:119
-                        OOOO0OO00O0OO0OO0 =OOO0OO0000OOO00OO ['sum_bet_on']#line:120
-                        OO00O000O00O00OOO =2880 *313 /OOOO0OO00O0OO0OO0 *O00O0000OOOO00OOO #line:121
-                        cumulative_ticket +=OO00O000O00O00OOO #line:122
-                        print (f'【参与抽奖】：高级奖券预计每天能中:{str(OO00O000O00O00OOO)[:5]}')#line:123
-        except Exception as O0000O00O0O000O00 :#line:125
-            print (O0000O00O0O000O00 )#line:126
-    def tickets_give (O0O0O0O0O0O0OO0O0 ):#line:130
-        try :#line:131
-            O0000000O00OOOOO0 =requests .request ('get',f'{host}/app_user/v1/users/base_info',headers =O0O0O0O0O0O0OO0O0 .headers ).json ()#line:132
-            O00O00O00OO0OOOOO =str (O0000000O00OOOOO0 ['card_no'])[4 :]#line:133
-            if O0O0O0O0O0O0OO0O0 .giving !=O00O00O00OO0OOOOO :#line:134
-                OO0O000OO0OO0O0OO =O0000000O00OOOOO0 ['ticket']['count']#line:135
-                if float (OO0O000OO0OO0O0OO )==0 :#line:136
-                    print ('【赠送游票】：账号初始化中')#line:137
-                    return True #line:138
-                OO0OO00O0O00OO000 =str (OO0O000OO0OO0O0OO ).split ('.')[0 ]#line:139
-                if int (OO0OO00O0O00OO000 )>count_mew :#line:140
-                    OO0O0OOOOOO0O0000 ={"id":O0O0O0O0O0O0OO0O0 .giving ,"count":count_mew }#line:141
-                    OO0O00000OO00OOO0 =requests .put (f'{host}/app_user/v1/ticket_record/tickets_give',headers =O0O0O0O0O0O0OO0O0 .headers ,data =OO0O0OOOOOO0O0000 ).json ()#line:142
-                    if 'count'in OO0O00000OO00OOO0 :#line:143
-                        print (f'【赠送游票】：赠送10张游票给{O0O0O0O0O0O0OO0O0.giving}成功丨余额{str(OO0O00000OO00OOO0["count"])[:5]}')#line:144
-                    else :#line:145
-                        print ('【赠送游票】：失败')#line:146
-                else :#line:147
-                    print ('【赠送游票】：余额不足不执行操作')#line:148
-            else :#line:149
-                print ('【赠送游票】：赠送的ID是自己不执行操作')#line:150
-        except Exception as O000OOO0O000O0OO0 :#line:151
-            print (O000OOO0O000O0OO0 )#line:152
-    def lottery_activities (O00O0O00OOO000O00 ):#line:156
-        try :#line:157
-            OOOO0O0OO0O00OOO0 =requests .request ('get',f'{host}/app_user/v1/lottery_activities/lt_type/lottery/info',headers =O00O0O00OOO000O00 .headers ).json ()#line:158
-            if 'count'in OOOO0O0OO0O00OOO0 :#line:160
-                O0O0OO0OO0O0O00OO =OOOO0O0OO0O00OOO0 ['count']#line:161
-                print (f'【转盘抽奖】：剩余{O0O0OO0OO0O0O00OO}次抽奖')#line:162
-                if O0O0OO0OO0O0O00OO >0 :#line:163
-                    for O0OOO0000O00OOOO0 in range (O0O0OO0OO0O0O00OO ):#line:164
-                        OOOOOOO0000OO0000 =requests .request ('post',f'{host}/app_user/v1/lottery_activities/lt_type/lottery/info',headers =O00O0O00OOO000O00 .headers ).json ()#line:165
-                        if 'name'in OOOOOOO0000OO0000 :#line:166
-                            print (f'【转盘抽奖】：获得:{OOOOOOO0000OO0000["name"]}{OOOOOOO0000OO0000["prize_number"]}张')#line:167
-                        time .sleep (random .randint (15 ,30 )/10 )#line:168
-        except Exception as OOOO00000OO0O0OO0 :#line:169
-            print (OOOO00000OO0O0OO0 )#line:170
-    def lottery_center_index (O0OO000O00O0OOOOO ):#line:174
-        try :#line:175
-            O0000O000O00O0000 =requests .request ('get',f'{host}/app_user/v1/lottery_center/index?page=1&per_page=20',headers =O0OO000O00O0OOOOO .headers ).json ()#line:176
-            if 'tickets'in O0000O000O00O0000 :#line:177
-                for O000OOOO0OOO0000O in O0000O000O00O0000 ['tickets']:#line:178
-                    if O000OOOO0OOO0000O ['name']=='游票':#line:179
-                        print (f'【抽奖累计】：累计中了{str(O000OOOO0OOO0000O["total_count"])[:6]}张游票')#line:180
-            if 'cumulative_tickets'in O0000O000O00O0000 :#line:181
-                if O0000O000O00O0000 ['tickets']:#line:182
-                    for O000OOOO0OOO0000O in O0000O000O00O0000 ['tickets']:#line:183
-                        OOO00000OOOO00OO0 =O000OOOO0OOO0000O ['count']#line:184
-                        O00OOOOO00O0OOOOO =O000OOOO0OOO0000O ['lt_type']#line:185
-                        if O00OOOOO00O0OOOOO =='normal':#line:186
-                            O0OO0O00O00OO0OO0 ='94437862-d71c-4ff9-b2ff-343b094acd0d'#line:187
-                            if OOO00000OOOO00OO0 >'1':#line:188
-                                O0OO000O00O0OOOOO .add_lottery_ticket (OOO00000OOOO00OO0 ,O0OO0O00O00OO0OO0 )#line:189
-                                time .sleep (2 )#line:190
-                        if O00OOOOO00O0OOOOO =='advanced':#line:191
-                            O0OO0O00O00OO0OO0 ='7a468d93-aa43-4131-b414-b828b985e97e'#line:192
-                            if OOO00000OOOO00OO0 >'1':#line:193
-                                O0OO000O00O0OOOOO .add_lottery_ticket (OOO00000OOOO00OO0 ,O0OO0O00O00OO0OO0 )#line:194
-        except Exception as OOO0000O0OOO0O00O :#line:195
-            print (OOO0000O0OOO0O00O )#line:196
-    def add_lottery_ticket (O000O0000O0O0O00O ,O0O0O0O000OO00OO0 ,OO0OOOOO0O0O0OOO0 ):#line:200
-        try :#line:201
-            O0OOOO00OOO00O000 ={"bet_on":O0O0O0O000OO00OO0 .split ('.')[0 ],"operation":"in","lotteru_activity_id":OO0OOOOO0O0O0OOO0 }#line:202
-            O0OO000000000O000 =requests .request ('post',f'{host}/app_user/v1/lottery_center/activities',headers =O000O0000O0O0O00O .headers ,data =O0OOOO00OOO00O000 ).json ()#line:203
-            if 'bet_on'in O0OO000000000O000 :#line:204
-                print (f'【添加奖券】：添加{O0O0O0O000OO00OO0.split(".")[0]}张成功')#line:205
-        except Exception as O0OO0OO00O00OOO0O :#line:206
-            print (O0OO0OO00O00OOO0O )#line:207
-def version_of_the_validation ():#line:211
-    return str ((59 -56 )/10 )#line:212
-def gitee_validation ():#line:214
-    try :#line:215
-        return requests .get (f'{git}/vastzzzl/vastzzzl/raw/master/edition').json ()#line:216
-    except Exception as OOOO0OOO0OOOO00OO :#line:217
-        sys .exit (0 )#line:218
-def update_the_validation ():#line:222
-    try :#line:223
-        OO0O00O0O0OOO0OOO =gitee_validation ()#line:224
-        if version_of_the_validation ()<OO0O00O0O0OOO0OOO ['SwimUpM']['edition']:#line:225
-            print (f'当前版本=>> {version_of_the_validation()}'+f'丨远程版本=>> {OO0O00O0O0OOO0OOO["SwimUpM"]["edition"]}   ❌')#line:226
-            print (f'更新内容=>>{OO0O00O0O0OOO0OOO["SwimUpM"]["content"]}   👍')#line:227
-        else :#line:228
-            print (f'当前版本=>> {version_of_the_validation()}'+f'丨远程版本=>> {OO0O00O0O0OOO0OOO["SwimUpM"]["edition"]}   ✅')#line:229
-            print (f'更新内容=>> {OO0O00O0O0OOO0OOO["SwimUpM"]["content"]}   👍')#line:230
-            return True #line:231
-    except Exception as O00OO0OO00O0O00O0 :#line:232
-        print (O00OO0OO00O0O00O0 )#line:233
-def os_qinglong ():#line:236
-    if application in os .environ :#line:237
-        OO0OO0OO00OO00000 =os .environ [application ].split ('\n')#line:238
-        if len (OO0OO0OO00OO00000 )>0 :#line:239
-            return OO0OO0OO00OO00000 #line:240
-        else :#line:241
-            print (f"{application}变量未启用")#line:242
-            print ('脚本退出')#line:243
-            sys .exit (1 )#line:244
-    else :#line:245
-        print (f"{application}变量为空\n尝试使用内置变量")#line:246
-        return os_built ()#line:247
-def os_built ():#line:250
-    if token :#line:251
-        OO00OOO0O0OOOOO0O =token .split ('\n')#line:252
-        if len (OO00OOO0O0OOOOO0O )>0 :#line:253
-            return OO00OOO0O0OOOOO0O #line:254
-    else :#line:255
-        print (f"内置变量为空")#line:256
-        print ('脚本退出')#line:257
-        sys .exit (0 )#line:258
-if __name__ =='__main__':#line:261
-    start ()#line:262
+def start ():#line:4
+    try :#line:5
+        if update_the_validation ():#line:6
+            OOOOOOOOO0O0000OO =os_qinglong ()#line:7
+            print (f"==========共找到{len(OOOOOOOOO0O0000OO)}个账号==========")#line:8
+            for OO000O00O00OOOO0O in OOOOOOOOO0O0000OO :#line:9
+                print (f"------------正在执行第{OOOOOOOOO0O0000OO.index(OO000O00O00OOOO0O) + 1}个账号------------")#line:10
+                O0000OOO0O0OOO00O =SwimUpM (OO000O00O00OOOO0O )#line:11
+                if O0000OOO0O0OOO00O .base_info ():#line:13
+                    if bundled :#line:14
+                        O0000OOO0O0OOO00O .friend_center ()#line:16
+                    O0000OOO0O0OOO00O .lottery_activities ()#line:18
+                    O0000OOO0O0OOO00O .user_lottery_activity_records ()#line:20
+                    O0000OOO0O0OOO00O .lottery_center_index ()#line:22
+                    if O0000OOO0O0OOO00O .tickets :#line:23
+                        O0000OOO0O0OOO00O .tickets_give ()#line:25
+                    time .sleep (random .randint (8 ,15 ))#line:26
+                else :#line:27
+                    print ('token失效')#line:28
+            print (f"------------所有账号运行完毕正在统计每天收益------------")#line:29
+            print (f'【每天收益】：所有账号累计每天能中:{str(cumulative_ticket)[:6]}张游票')#line:30
+    except Exception as O0OO0000O0000OO00 :#line:31
+        print (O0OO0000O0000OO00 )#line:32
+class SwimUpM :#line:34
+    def __init__ (O00000OOO0000OOOO ,OOO00OOO00O0OO00O ):#line:36
+        try :#line:37
+            O00000OOO0000OOOO .giving =OOO00OOO00O0OO00O .split ("@")[1 ]#line:38
+            O00000OOO0000OOOO .tickets =OOO00OOO00O0OO00O .split ("@")[2 ]#line:39
+            O00000OOO0000OOOO .headers ={'Authorization':'Basic bWlqaWF5b3U6NnpXa3l3ZmtmZ1NyVmNQdQ==','Http-X-Authentication-Token':OOO00OOO00O0OO00O .split ("@")[0 ],'user-agent':'Mozilla/5.0 (Linux; Android 12; 2201122C Build/SKQ1.211006.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/95.0.4638.74 Mobile Safari/537.36 uni-app Html5Plus/1.0 (Immersed/30.857143)','Host':'api.shimiyou.com',}#line:40
+        except Exception as OO0O00OOO0OOOO00O :#line:41
+            print ('变量格式错误')#line:42
+    def base_info (OO000O0OO0O0O000O ):#line:45
+        try :#line:46
+            OO0O0OOOOOOO00O00 =requests .request ('get',f'{host}/app_user/v1/users/base_info',headers =OO000O0OO0O0O000O .headers ).json ()#line:47
+            if 'code'in OO0O0OOOOOOO00O00 :#line:49
+                return False #line:50
+            if 'id'in OO0O0OOOOOOO00O00 :#line:52
+                O0O00000O000000OO =OO0O0OOOOOOO00O00 ['nick_name']#line:53
+                OO000O0000O00OO0O =OO0O0OOOOOOO00O00 ['card_no']#line:54
+                O000O0O00O00O00OO =str (OO000O0000O00OO0O )[4 :5 ]+'**'+str (OO000O0000O00OO0O )[7 :]#line:55
+                OOO0O00O000000OOO =OO0O0OOOOOOO00O00 ['ticket']['count']#line:56
+                try :#line:57
+                    if reversed (OOO0O00O000000OOO )!=0 :#line:58
+                        OOO0O00O000000OOO =str (OOO0O00O000000OOO ).split ('.')[0 ]#line:59
+                    else :#line:60
+                        OOO0O00O000000OOO =0 #line:61
+                except :#line:62
+                    OOO0O00O000000OOO =0 #line:63
+                print (f'【账号信息】：ID:{O000O0O00O00O00OO}丨昵称:{O0O00000O000000OO[:7]}丨游票:{OOO0O00O000000OOO}')#line:64
+                O0O00OOOOOO0000OO =OO0O0OOOOOOO00O00 ['avatar']['url']#line:65
+                if O0O00OOOOOO0000OO :#line:66
+                    if 'NUokiQDoKCFD'in O0O00OOOOOO0000OO :#line:67
+                        OOOOO0O0O00OO0000 =re .findall ('/NUokiQDoKCFD(.*?).jpg',OO0O0OOOOOOO00O00 ['avatar']['url'])[0 ].split ('NUokiQDoKCFD')[0 ].split ('-')[0 ]#line:68
+                        O00OOOOO0O0OO0OOO =(datetime .datetime .now ()-datetime .datetime (int (OOOOO0O0O00OO0000 [:4 ]),int (OOOOO0O0O00OO0000 [4 :6 ]),int (OOOOO0O0O00OO0000 [6 :8 ]))).days #line:69
+                        print (f'【注册绑定】：注册:{OOOOO0O0O00OO0000[:4]}-{OOOOO0O0O00OO0000[4:6]}-{OOOOO0O0O00OO0000[6:8]}丨距今:{O00OOOOO0O0OO0OOO}天')#line:70
+                        return True #line:71
+                    if 'avatar'in O0O00OOOOOO0000OO :#line:72
+                        OOOOO0O0O00OO0000 =re .findall ('/avatar(.*?).jpg',OO0O0OOOOOOO00O00 ['avatar']['url'])[0 ].split ('avatar')[1 ].split ('-')[0 ]#line:73
+                        O00OOOOO0O0OO0OOO =(datetime .datetime .now ()-datetime .datetime (int (OOOOO0O0O00OO0000 [:4 ]),int (OOOOO0O0O00OO0000 [4 :6 ]),int (OOOOO0O0O00OO0000 [6 :8 ]))).days #line:74
+                        print (f'【注册绑定】：注册:{OOOOO0O0O00OO0000[:4]}-{OOOOO0O0O00OO0000[4:6]}-{OOOOO0O0O00OO0000[6:8]}丨距今:{O00OOOOO0O0OO0OOO}天')#line:75
+                        return True #line:76
+            return True #line:77
+        except Exception as O0O00OO0OOO000OO0 :#line:78
+            print (O0O00OO0OOO000OO0 )#line:79
+    def friend_center (OOOO000OOO00O00OO ):#line:83
+        O00000O00O0O0OO00 =requests .request ('get',f'{host}/app_user/v1/friend_center/index',headers =OOOO000OOO00O00OO .headers ).json ()#line:84
+        if 'parent_user'in O00000O00O0O0OO00 :#line:85
+            if O00000O00O0O0OO00 ['parent_user']:#line:86
+                pass #line:87
+            else :#line:88
+                OO0000OOO00000OO0 ={"id":bundled_def ()}#line:89
+                requests .request ('put',f'{host}/app_user/v1/users/ancestry',headers =OOOO000OOO00O00OO .headers ,data =OO0000OOO00000OO0 ).json ()#line:90
+    def user_lottery_activity_records (O0OO0OO00O00OOOOO ):#line:93
+        global cumulative_ticket #line:94
+        OOOOO0O000OO00O0O =0 #line:95
+        OO0O0000O000OOOOO =0 #line:96
+        try :#line:97
+            OOO0OOOO00OO00O0O =requests .request ('get',f'{host}/app_user/v1/users/user_lottery_activity_records?page=1&per_page=20',headers =O0OO0OO00O00OOOOO .headers ).json ()#line:98
+            if 'user_lottery_activity_records'in OOO0OOOO00OO00O0O :#line:99
+                for O00OO0O00O0OOO000 in OOO0OOOO00OO00O0O ['user_lottery_activity_records']:#line:100
+                    if '7a468d93-aa43-4131-b414-b828b985e97e'==O00OO0O00O0OOO000 ['lottery_activity_id']:#line:101
+                        OOOOO0O000OO00O0O =O00OO0O00O0OOO000 ['bet_on']#line:102
+                    if '94437862-d71c-4ff9-b2ff-343b094acd0d'==O00OO0O00O0OOO000 ['lottery_activity_id']:#line:103
+                        OO0O0000O000OOOOO =O00OO0O00O0OOO000 ['bet_on']#line:104
+                print (f'【参与抽奖】：普通奖券:{OO0O0000O000OOOOO}张丨高级奖券:{OOOOO0O000OO00O0O}张')#line:105
+            if 'lottery_activity'in OOO0OOOO00OO00O0O :#line:106
+                for O00OO0O00O0OOO000 in OOO0OOOO00OO00O0O ['lottery_activity']:#line:107
+                    if O00OO0O00O0OOO000 ['topic']=='普通奖券抽游票':#line:108
+                        OOOO0O0OO0O00OO0O =O00OO0O00O0OOO000 ['sum_bet_on']#line:109
+                        OOOOO00O0OO000000 =2880 *34 /OOOO0O0OO0O00OO0O *OO0O0000O000OOOOO #line:110
+                        cumulative_ticket +=OOOOO00O0OO000000 #line:111
+                        print (f'【参与抽奖】：普通奖券预计每天能中:{str(OOOOO00O0OO000000)[:5]}')#line:112
+                    if O00OO0O00O0OOO000 ['topic']=='高级奖券抽游票':#line:113
+                        OOOO0O0OO0O00OO0O =O00OO0O00O0OOO000 ['sum_bet_on']#line:114
+                        OOOOO00O0OO000000 =2880 *313 /OOOO0O0OO0O00OO0O *OOOOO0O000OO00O0O #line:115
+                        cumulative_ticket +=OOOOO00O0OO000000 #line:116
+                        print (f'【参与抽奖】：高级奖券预计每天能中:{str(OOOOO00O0OO000000)[:5]}')#line:117
+        except Exception as O00OOOO0OOO00OO0O :#line:119
+            print (O00OOOO0OOO00OO0O )#line:120
+    def tickets_give (OO0OOO0OO00OO0O00 ):#line:124
+        try :#line:125
+            OOO00O0OOO0O00OOO =requests .request ('get',f'{host}/app_user/v1/users/base_info',headers =OO0OOO0OO00OO0O00 .headers ).json ()#line:126
+            OO0OO00O0O0O0O0O0 =str (OOO00O0OOO0O00OOO ['card_no'])[4 :]#line:127
+            if OO0OOO0OO00OO0O00 .giving !=OO0OO00O0O0O0O0O0 :#line:128
+                OO0O0O00000OOO0O0 =OOO00O0OOO0O00OOO ['ticket']['count']#line:129
+                if float (OO0O0O00000OOO0O0 )==0 :#line:130
+                    print ('【赠送游票】：账号初始化中')#line:131
+                    return True #line:132
+                O0OO0O00OO0O0OOO0 =str (OO0O0O00000OOO0O0 ).split ('.')[0 ]#line:133
+                O0OOOO0O00O00OOOO =int (str ((float (O0OO0O00OO0O0OOO0 )/1.1 )/10 ).split (".")[0 ])*10 #line:134
+                if int (O0OO0O00OO0O0OOO0 )>10 :#line:135
+                    O000000O00O000OOO ={"id":OO0OOO0OO00OO0O00 .giving ,"count":O0OOOO0O00O00OOOO }#line:136
+                    O0O0O00OO000O00OO =requests .put (f'{host}/app_user/v1/ticket_record/tickets_give',headers =OO0OOO0OO00OO0O00 .headers ,data =O000000O00O000OOO ).json ()#line:137
+                    if 'count'in O0O0O00OO000O00OO :#line:138
+                        print (f'【赠送游票】：赠送{O0OOOO0O00O00OOOO}张游票给{OO0OOO0OO00OO0O00.giving}成功丨余额{str(O0O0O00OO000O00OO["count"])[:5]}')#line:139
+                    else :#line:140
+                        print ('【赠送游票】：失败')#line:141
+                else :#line:142
+                    print ('【赠送游票】：余额不足不执行操作')#line:143
+            else :#line:144
+                print ('【赠送游票】：赠送的ID是自己不执行操作')#line:145
+        except Exception as OO0O0O0OO0O0O0OOO :#line:146
+            print (OO0O0O0OO0O0O0OOO )#line:147
+    def lottery_activities (O00O0OOOOOO0000OO ):#line:151
+        try :#line:152
+            OOOO000O00O000O0O =requests .request ('get',f'{host}/app_user/v1/lottery_activities/lt_type/lottery/info',headers =O00O0OOOOOO0000OO .headers ).json ()#line:153
+            if 'count'in OOOO000O00O000O0O :#line:155
+                O00OOOO0OO0000O00 =OOOO000O00O000O0O ['count']#line:156
+                print (f'【转盘抽奖】：剩余{O00OOOO0OO0000O00}次抽奖')#line:157
+                if O00OOOO0OO0000O00 >0 :#line:158
+                    for O0O000OO0000000OO in range (O00OOOO0OO0000O00 ):#line:159
+                        OOOOO0OOO0O0OO0OO =requests .request ('post',f'{host}/app_user/v1/lottery_activities/lt_type/lottery/info',headers =O00O0OOOOOO0000OO .headers ).json ()#line:160
+                        if 'name'in OOOOO0OOO0O0OO0OO :#line:161
+                            print (f'【转盘抽奖】：获得:{OOOOO0OOO0O0OO0OO["name"]}{OOOOO0OOO0O0OO0OO["prize_number"]}张')#line:162
+                        time .sleep (random .randint (15 ,30 )/10 )#line:163
+        except Exception as O0O00000OO00000OO :#line:164
+            print (O0O00000OO00000OO )#line:165
+    def lottery_center_index (O0O000OO000OO000O ):#line:169
+        try :#line:170
+            OOOO000000OO00O00 =requests .request ('get',f'{host}/app_user/v1/lottery_center/index?page=1&per_page=20',headers =O0O000OO000OO000O .headers ).json ()#line:171
+            if 'tickets'in OOOO000000OO00O00 :#line:172
+                for O000OOO0OOO0OOO00 in OOOO000000OO00O00 ['tickets']:#line:173
+                    if O000OOO0OOO0OOO00 ['name']=='游票':#line:174
+                        print (f'【抽奖累计】：累计中了{str(O000OOO0OOO0OOO00["total_count"])[:6]}张游票')#line:175
+            if 'cumulative_tickets'in OOOO000000OO00O00 :#line:176
+                if OOOO000000OO00O00 ['tickets']:#line:177
+                    for O000OOO0OOO0OOO00 in OOOO000000OO00O00 ['tickets']:#line:178
+                        OO00OO000O000000O =O000OOO0OOO0OOO00 ['count']#line:179
+                        O0O000OO0OOO000OO =O000OOO0OOO0OOO00 ['lt_type']#line:180
+                        if O0O000OO0OOO000OO =='normal':#line:181
+                            O000OOO0O00OO0OOO ='94437862-d71c-4ff9-b2ff-343b094acd0d'#line:182
+                            if OO00OO000O000000O >'1':#line:183
+                                O0O000OO000OO000O .add_lottery_ticket (OO00OO000O000000O ,O000OOO0O00OO0OOO )#line:184
+                                time .sleep (2 )#line:185
+                        if O0O000OO0OOO000OO =='advanced':#line:186
+                            O000OOO0O00OO0OOO ='7a468d93-aa43-4131-b414-b828b985e97e'#line:187
+                            if OO00OO000O000000O >'1':#line:188
+                                O0O000OO000OO000O .add_lottery_ticket (OO00OO000O000000O ,O000OOO0O00OO0OOO )#line:189
+        except Exception as OO00O0000OO0OOOOO :#line:190
+            print (OO00O0000OO0OOOOO )#line:191
+    def add_lottery_ticket (OO000OOO0O0OO00OO ,O0O0O0OOOO00OOOO0 ,OO0O0OOO000OOOO0O ):#line:195
+        try :#line:196
+            OOO00O0O0O0O0O00O ={"bet_on":O0O0O0OOOO00OOOO0 .split ('.')[0 ],"operation":"in","lotteru_activity_id":OO0O0OOO000OOOO0O }#line:197
+            O0O0O00000OOO00OO =requests .request ('post',f'{host}/app_user/v1/lottery_center/activities',headers =OO000OOO0O0OO00OO .headers ,data =OOO00O0O0O0O0O00O ).json ()#line:198
+            if 'bet_on'in O0O0O00000OOO00OO :#line:199
+                print (f'【添加奖券】：添加{O0O0O0OOOO00OOOO0.split(".")[0]}张成功')#line:200
+        except Exception as O000OOO0O0O0000OO :#line:201
+            print (O000OOO0O0O0000OO )#line:202
+def version_of_the_validation ():#line:206
+    return str ((60 -56 )/10 )#line:207
+def gitee_validation ():#line:209
+    try :#line:210
+        return requests .get (f'{git}/vastzzzl/vastzzzl/raw/master/edition').json ()#line:211
+    except Exception as OO0O0000O00OOOO00 :#line:212
+        sys .exit (0 )#line:213
+def update_the_validation ():#line:217
+    try :#line:218
+        O0O0OO00O0O00O00O =gitee_validation ()#line:219
+        if version_of_the_validation ()<O0O0OO00O0O00O00O ['SwimUpM']['edition']:#line:220
+            print (f'当前版本=>> {version_of_the_validation()}'+f'丨远程版本=>> {O0O0OO00O0O00O00O["SwimUpM"]["edition"]}   ❌')#line:221
+            print (f'更新内容=>>{O0O0OO00O0O00O00O["SwimUpM"]["content"]}   👍')#line:222
+        else :#line:223
+            print (f'当前版本=>> {version_of_the_validation()}'+f'丨远程版本=>> {O0O0OO00O0O00O00O["SwimUpM"]["edition"]}   ✅')#line:224
+            print (f'更新内容=>> {O0O0OO00O0O00O00O["SwimUpM"]["content"]}   👍')#line:225
+            return True #line:226
+    except Exception as OOOOOOO0OO000OOO0 :#line:227
+        print (OOOOOOO0OO000OOO0 )#line:228
+def os_qinglong ():#line:231
+    if application in os .environ :#line:232
+        OO0000O0000OOOO00 =os .environ [application ].split ('\n')#line:233
+        if len (OO0000O0000OOOO00 )>0 :#line:234
+            return OO0000O0000OOOO00 #line:235
+        else :#line:236
+            print (f"{application}变量未启用")#line:237
+            print ('脚本退出')#line:238
+            sys .exit (1 )#line:239
+    else :#line:240
+        print (f"{application}变量为空\n尝试使用内置变量")#line:241
+        return os_built ()#line:242
+def os_built ():#line:245
+    if token :#line:246
+        O00O0OOO00O0OOOO0 =token .split ('\n')#line:247
+        if len (O00O0OOO00O0OOOO0 )>0 :#line:248
+            return O00O0OOO00O0OOOO0 #line:249
+    else :#line:250
+        print (f"内置变量为空")#line:251
+        print ('脚本退出')#line:252
+        sys .exit (0 )#line:253
+if __name__ =='__main__':#line:256
+    start ()#line:257
