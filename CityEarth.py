@@ -67,7 +67,7 @@ class CityEarth :#line:34
                     O0OO000O0OOO0OO0O =O0OOO000O0OO000OO ['data']['inner_id']#line:55
                     O00OOOO00OOOO00OO =O0OOO000O0OO000OO ['data']['assets']['gold']#line:56
                     O0O0OO0OOO0OOOO0O =O0OOO000O0OO000OO ['data']['level']#line:57
-                    print (f'【账号信息】:昵称:{OO0OOO0O0OO00OO0O}丨ID:{str(O0OO000O0OOO0OO0O)[:3] + "**"+ str(O0OO000O0OOO0OO0O)[5:]}丨农作物等级:{O0O0OO0OOO0OOOO0O}丨金种子:{str(O00OOOO00OOOO00OO).split(".")[0]}')#line:58
+                    print (f'【账号信息】:昵称:{OO0OOO0O0OO00OO0O}丨ID:{str(O0OO000O0OOO0OO0O)[:3] + "**"+ str(O0OO000O0OOO0OO0O)[5:]}丨等级:{O0O0OO0OOO0OOOO0O}丨金种子:{str(O00OOOO00OOOO00OO).split(".")[0]}')#line:58
                 if O0OOO000O0OO000OO ['status']==401 :#line:59
                     return False #line:60
             return True #line:61
