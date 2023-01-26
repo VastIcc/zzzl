@@ -17,9 +17,8 @@ except Exception as e:
 """
 cron: 12 */3 * * *
 new Env('生城世朝')
-项目地址  微信打开  http://share.sc19319.com/scsc/1932634
-apk下载地址     https://sc19319.oss-cn-hangzhou.aliyuncs.com/scsc/test/1.9.3.1.S9.apk
-抓取  http://test.scsc.sc19319.com 的authorization值
+项目地址  微信打开  http://share.sc19319.com/scsc/1937553
+抓取  http://scsc.sc19319.com 的authorization值
 青龙变量 export ce_token="authorization&绑定邀请码"   不绑定填 0   多号换行
 我的邀请码是  1937553
 版本  0.5
