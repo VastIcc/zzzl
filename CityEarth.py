@@ -258,7 +258,6 @@ class CityEarth :#line:48
                                             if 'status'in O00O00O0000O000O0 :#line:395
                                                 if O00O00O0000O000O0 ['status']==200 :#line:396
                                                     pass #line:397
-                                                    print ('交换位置')#line:398
                                             print ('【种植合成】:',O000O000O00O0OO0O ,O00OOOOOO000O00OO ,'合成成功')#line:399
                                             O0OO0OOOO0OOO00OO =True #line:400
                                     if O0OO0OOOO0OOO00OO :#line:401
