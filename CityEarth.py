@@ -21,7 +21,6 @@ except Exception as e:
 @ 抓取  http://scsc.sc19319.com 的authorization值
 @ 青龙变量  青龙配置文件 export ce_token="authorization&赠送金种子数量大于&赠送金种子id"   如果你有20金种子填10就会赠 填21就不会赠送  不赠送全填 999999   多号换行
 @ 变量示范    export ce_token="557b8069-1234-4ae7-9e29-b7871f91541b&999999&999999"  用&符号分开数据
-@ 我的邀请码是  1937553
 @ 版本  1.1
 """
 
