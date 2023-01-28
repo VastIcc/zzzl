@@ -15,422 +15,416 @@ except Exception as e:
     sys.exit()
 
 """
-@ cron: 12 */3 * * *
+@ cron: 22 */3 * * *
 @ new Env('生城世朝')
 @ 项目地址  微信打开  http://share.sc19319.com/scsc/1937553
 @ 抓取  http://scsc.sc19319.com 的authorization值
-@ 青龙变量  青龙配置文件 export ce_token="authorization&绑定邀请码&赠送金种子id"   不绑定和不赠送填 0   多号换行
-@
-@ 变量示范    export ce_token="557b8069-1234-4ae7-9e29-b7871f91541b&1937553&0"  用&符号分开数据
+@ 青龙变量  青龙配置文件 export ce_token="authorization&赠送金种子数量大于&赠送金种子id"   如果你有20金种子填10就会赠 填21就不会赠送  不赠送全填 999999   多号换行
+@ 变量示范    export ce_token="557b8069-1234-4ae7-9e29-b7871f91541b&999999&999999"  用&符号分开数据
 @ 我的邀请码是  1937553
-@ 版本  1.0
+@ 版本  1.1
 """
+
 application = 'ce_token'  # 变量名
 token = ''
-
 time_xx = random.randint(8, 12)  # 秒 执行下一个号的时间  8到12秒中随机延迟执行
 
 ##################################下面不要动##################################
 git ='https://gitee.com'#line:1
 host ='http://scsc.sc19319.com'#line:2
 golden_seed =0 #line:3
-def start ():#line:5
-    try :#line:6
-        update_the_validation ()#line:7
-        OOOO0OO0O000OO000 =os_qinglong ()#line:8
-        print (f"==========共找到{len(OOOO0OO0O000OO000)}个账号==========")#line:9
-        for O0OO0O0O0O0O00O00 in OOOO0OO0O000OO000 :#line:10
-            print (f"------------正在执行第{OOOO0OO0O000OO000.index(O0OO0O0O0O0O00O00) + 1}个账号------------")#line:11
-            OOOO0O0000O00O00O =CityEarth (O0OO0O0O0O0O00O00 )#line:12
-            def OO0OO00OO0000O0OO ():#line:14
-                if OOOO0O0000O00O00O .base_info ():#line:16
-                    OOOO0O0000O00O00O .game_map ()#line:20
-                    OOOO0O0000O00O00O .friends_invitation ()#line:22
-                    OOOO0O0000O00O00O .add_clover ()#line:24
-                    OOOO0O0000O00O00O .energy ()#line:26
-                    OOOO0O0000O00O00O .synthetic ()#line:28
-                    OOOO0O0000O00O00O .propsraffle ()#line:30
-                    OOOO0O0000O00O00O .crops_illustrated ()#line:32
-                    OOOO0O0000O00O00O .give_gold ()#line:34
-                else :#line:35
-                    print ('token失效')#line:36
-            OOO0OO00OO0000OOO =threading .Thread (target =OO0OO00OO0000O0OO )#line:38
-            OOO0OO00OO0000OOO .start ()#line:39
-            time .sleep (time_xx )#line:40
-        print (f"------------所有账号运行完毕正在统计每天收益------------")#line:42
-        print (f'【每天收益】：所有账号累计每天能中:{str(golden_seed)[:6]}颗金种子')#line:43
-    except Exception as O0O00O00O0000OOO0 :#line:44
-        print (O0O00O00O0000OOO0 )#line:45
-def sign (O000OOOOOOOO00O0O ):#line:48
-    O000OO0O0OOO000OO =hashlib .md5 (O000OOOOOOOO00O0O .encode ()).hexdigest ()#line:49
-    O0O000OOOOO0O00O0 ="scsc%^&*"+O000OO0O0OOO000OO +"19319#$%^&*((*&^%$#@#RFGHJ%^KAfghfg"#line:50
-    OO000O0OO00OO00OO =hashlib .md5 (O0O000OOOOO0O00O0 .encode ()).hexdigest ()#line:51
-    return OO000O0OO00OO00OO #line:52
-def timi_new ():#line:55
-    return str (int (time .time ()*1000 ))#line:56
-class CityEarth :#line:59
-    def __init__ (OOO000OO0OO00OO00 ,O000O0OOO0000OOO0 ):#line:61
-        try :#line:62
-            OOO000OO0OO00OO00 .time =str (time .time ()*1000 ).split ('.')[0 ]#line:63
-            OOO000OO0OO00OO00 .token =O000O0OOO0000OOO0 .split ('&')[0 ]#line:64
-            OOO000OO0OO00OO00 .innerId =O000O0OOO0000OOO0 .split ('&')[1 ]#line:65
-            OOO000OO0OO00OO00 .doneeNo =O000O0OOO0000OOO0 .split ('&')[2 ]#line:66
-        except :#line:67
-            print ('变量格式错误')#line:68
-    def base_info (OOO000OOO00O000O0 ):#line:71
-        try :#line:72
-            O0OO00O00O0O000OO =f'__{timi_new()}'#line:73
-            OOOO0O00OO0O0OOO0 ={'authorization':OOO000OOO00O000O0 .token ,'timestamp':str (timi_new ()),'sign':sign (O0OO00O00O0O000OO ),'signstring':O0OO00O00O0O000OO ,'version':'3.1.4191','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:82
-            O0OO0O0O0000O0OO0 =requests .request ('get',f'{host}/user',headers =OOOO0O00OO0O0OOO0 ).json ()#line:83
-            if 'status'in O0OO0O0O0000O0OO0 :#line:85
-                if O0OO0O0O0000O0OO0 ['status']==200 :#line:86
-                    OO0000O0O00OO00O0 =O0OO0O0O0000O0OO0 ['data']['nickname']#line:87
-                    O000OOOO0OO00O00O =O0OO0O0O0000O0OO0 ['data']['inner_id']#line:88
-                    OO0OOO0OOOOO00O0O =O0OO0O0O0000O0OO0 ['data']['assets']['gold']#line:89
-                    O000OO0O0OOO00OO0 =O0OO0O0O0000O0OO0 ['data']['level']#line:90
-                    print (f'【账号信息】:昵称:{OO0000O0O00OO00O0[:5]}丨ID:{str(O000OOOO0OO00O00O)[:3] + "**" + str(O000OOOO0OO00O00O)[5:]}丨等级:{O000OO0O0OOO00OO0}丨种子:{str(OO0OOO0OOOOO00O0O).split(".")[0]}')#line:91
-                if O0OO0O0O0000O0OO0 ['status']==401 :#line:92
-                    return False #line:93
-                if O0OO0O0O0000O0OO0 ['status']==500 :#line:94
-                    return False #line:95
-            return True #line:96
-        except Exception as OOO00O0OOOO0OOOOO :#line:97
-            print (OOO00O0OOOO0OOOOO )#line:98
-    def game_map (O0O0OO00O0O000000 ):#line:101
-        O0000000OOO00O00O =f'__{timi_new()}'#line:102
-        OOO0OO0OOOOO0O00O ={'authorization':O0O0OO00O0O000000 .token ,'timestamp':str (timi_new ()),'sign':sign (O0000000OOO00O00O ),'signstring':O0000000OOO00O00O ,'version':'3.1.4191','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:111
-        O0OOOOO0O0OO00000 =requests .request ('get',f'{host}/game/map',headers =OOO0OO0OOOOO0O00O ).json ()#line:112
-        if 'status'in O0OOOOO0O0OO00000 :#line:114
-            if O0OOOOO0O0OO00000 ['status']==200 :#line:115
-                for O000O00O0OOOOO000 in O0OOOOO0O0OO00000 ['data']['list'][0 ]['crops']:#line:116
-                    O000OO0OOOOO0O0OO =O000O00O0OOOOO000 ['level']#line:118
-                    if O000OO0OOOOO0O0OO ==41 :#line:119
-                        OOO000OOOO0000000 =O000O00O0OOOOO000 ['crop_name']#line:120
-                        O00O0OO0OOO00O000 =O000O00O0OOOOO000 ['count']#line:121
-                        if O00O0OO0OOO00O000 >0 :#line:122
-                            print (f'【农业资产】:{OOO000OOOO0000000}丨数量:{O00O0OO0OOO00O000}')#line:123
-    def give_gold (OOOO0OOOOOO0OO00O ):#line:126
-        O0O0O0O0O000O000O =f'__{timi_new()}'#line:127
-        O0000O0O0OO00000O ={'authorization':OOOO0OOOOOO0OO00O .token ,'timestamp':str (timi_new ()),'sign':sign (O0O0O0O0O000O000O ),'signstring':O0O0O0O0O000O000O ,'version':'3.1.4191','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:136
-        OO0O00OOO0OOOOOO0 =requests .request ('get',f'{host}/user',headers =O0000O0O0OO00000O ).json ()#line:137
-        if 'status'in OO0O00OOO0OOOOOO0 :#line:138
-            if OO0O00OOO0OOOOOO0 ['status']==200 :#line:139
-                if float (OOOO0OOOOOO0OO00O .doneeNo )!=0 :#line:140
-                    O00000O000OOOOO00 =OO0O00OOO0OOOOOO0 ['data']['assets']['gold']#line:141
-                    if float (O00000O000OOOOO00 )>2 :#line:142
-                        OOO000000OOOOOO00 =int (float (O00000O000OOOOO00 )/1.1 )#line:143
-                        O0O0O0O0O000O000O =f'_doneeNo={OOOO0OOOOOO0OO00O.doneeNo}&quantity={OOO000000OOOOOO00}_{timi_new()}'#line:144
-                        O0000O0O0OO00000O ={'authorization':OOOO0OOOOOO0OO00O .token ,'timestamp':str (timi_new ()),'sign':sign (O0O0O0O0O000O000O ),'signstring':O0O0O0O0O000O000O ,'version':'3.1.4191','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:153
-                        O0OOOOO00000OOOO0 ={"quantity":OOO000000OOOOOO00 ,"doneeNo":OOOO0OOOOOO0OO00O .doneeNo }#line:157
-                        O0O0OOOO0OO0O000O =requests .request ('post',f'{host}/finance/give-gold',headers =O0000O0O0OO00000O ,data =O0OOOOO00000OOOO0 ).json ()#line:158
-                        if 'status'in O0O0OOOO0OO0O000O :#line:160
-                            if O0O0OOOO0OO0O000O ['status']==200 :#line:161
-                                if O0O0OOOO0OO0O000O ['data']:#line:162
-                                    print (f'【赠送种子】:赠送{OOO000000OOOOOO00}种子给{OOOO0OOOOOO0OO00O.doneeNo}成功')#line:163
-                else :#line:164
-                    print (f'【赠送种子】:此账号未启动赠送功能')#line:165
-    def winning_rewards (OOOO00OOOOO0O0OO0 ):#line:168
-        O0OOOO0OO0O00OO0O =f'__{timi_new()}'#line:169
-        OO00OO0O000OOO00O ={'authorization':OOOO00OOOOO0O0OO0 .token ,'timestamp':str (timi_new ()),'sign':sign (O0OOOO0OO0O00OO0O ),'signstring':O0OOOO0OO0O00OO0O ,'version':'3.1.4191','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:178
-        OOOOOO0OO0OO00O0O =requests .request ('get',f'{host}/friends/winning-rewards/amount',headers =OO00OO0O000OOO00O ).json ()#line:179
-        if 'status'in OOOOOO0OO0OO00O0O :#line:181
-            if OOOOOO0OO0OO00O0O ['status']==200 :#line:182
-                if OOOOOO0OO0OO00O0O ['data']['amount']:#line:183
-                    O0000OO00O0OOOO0O =OOOOOO0OO0OO00O0O ['data']['amount']['gold']#line:184
-                    return O0000OO00O0OOOO0O #line:185
-                else :#line:186
-                    return 0 #line:187
-    def certification (O00O0OOOOO0000O00 ):#line:190
-        O00000O0OO00000O0 =f'__{timi_new()}'#line:191
-        OO0OO0OO000OO000O ={'authorization':O00O0OOOOO0000O00 .token ,'timestamp':str (timi_new ()),'sign':sign (O00000O0OO00000O0 ),'signstring':O00000O0OO00000O0 ,'version':'3.1.4191','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:200
-        O0OOO0O0O0000O00O =requests .request ('get',f'{host}/certification/get-auth-status',headers =OO0OO0OO000OO000O ).json ()#line:201
-        if 'status'in O0OOO0O0O0000O00O :#line:203
-            if O0OOO0O0O0000O00O ['status']==200 :#line:204
-                if O0OOO0O0O0000O00O ['data']['result']:#line:205
-                    O0O0OO0OO0O0O0O0O =O0OOO0O0O0000O00O ['data']['nick_name']#line:206
-                    return O0O0OO0OO0O0O0O0O #line:207
-                else :#line:208
-                    return '未实名'#line:209
-    def crops_illustrated (O0O000000O00O0OOO ):#line:212
-        OOO000OOO000OOOO0 =f'__{timi_new()}'#line:213
-        O0OOOOOO000OO00OO ={'authorization':O0O000000O00O0OOO .token ,'timestamp':str (timi_new ()),'sign':sign (OOO000OOO000OOOO0 ),'signstring':OOO000OOO000OOOO0 ,'version':'3.1.4191','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:222
-        O0O0OO000OO00O000 =requests .request ('get',f'{host}/game/crops/illustrated',headers =O0OOOOOO000OO00OO ).json ()#line:223
-        if 'status'in O0O0OO000OO00O000 :#line:225
-            if O0O0OO000OO00O000 ['status']==200 :#line:226
-                O000000OOO000OOO0 =O0O0OO000OO00O000 ['data'][0 ]['crops']#line:227
-                for O00000O00O00O00O0 in O000000OOO000OOO0 :#line:228
-                    if O00000O00O00O00O0 ['ill_clover_award']:#line:229
-                        if float (O00000O00O00O00O0 ['ill_clover_award'])>1 :#line:230
-                            if O00000O00O00O00O0 ['is_finish']:#line:231
-                                if not O00000O00O00O00O0 ['is_getit']:#line:232
-                                    OOO000OOO000OOOO0 =f'_award_level={O00000O00O00O00O0["level"]}_{timi_new()}'#line:233
-                                    O0OOOOOO000OO00OO ={'authorization':O0O000000O00O0OOO .token ,'timestamp':str (timi_new ()),'sign':sign (OOO000OOO000OOOO0 ),'signstring':OOO000OOO000OOOO0 ,'version':'3.1.4191','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:242
-                                    O00O00000000O00O0 ={"award_level":O00000O00O00O00O0 ['level']}#line:243
-                                    O0O0OOO0O0000O0O0 =requests .request ('post',f'{host}/game/crops/illustrated/award',headers =O0OOOOOO000OO00OO ,json =O00O00000000O00O0 ).json ()#line:245
-                                    if 'status'in O0O0OOO0O0000O0O0 :#line:246
-                                        if O0O0OOO0O0000O0O0 ['status']==200 :#line:247
-                                            O0OO00O0000OO00O0 =O0O0OOO0O0000O0O0 ['data']['ill_clover_award']#line:248
-                                            print (f'【图鉴奖励】:领取{O00000O00O00O00O0["crop_name"]}成就丨奖励{O0OO00O0000OO00O0}叶子成功')#line:250
-                                        if O0O0OOO0O0000O0O0 ['status']==500 :#line:251
-                                            print (f'【图鉴奖励】:{O0O0OOO0O0000O0O0["message"]}')#line:252
-    def watched_ad (O00O0O00O000O0O0O ):#line:255
-        O00O0OOO00O0OO00O =f'__{timi_new()}'#line:256
-        O00OO0000O0O0OO00 ={'authorization':O00O0O00O000O0O0O .token ,'timestamp':str (timi_new ()),'sign':sign (O00O0OOO00O0OO00O ),'signstring':O00O0OOO00O0OO00O ,'version':'3.1.4191','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:265
-        OO0OOOO000OOOO000 =requests .request ('post',f'{host}/game/watched-ad',headers =O00OO0000O0O0OO00 ).json ()#line:266
-        print (OO0OOOO000OOOO000 )#line:267
-    def user_ad (O000OO0OO0OOO0OO0 ):#line:270
-        OOO0OOOO00OO00O00 =f'__{timi_new()}'#line:271
-        OOO0000OOOO0000OO ={'authorization':O000OO0OO0OOO0OO0 .token ,'timestamp':str (timi_new ()),'sign':sign (OOO0OOOO00OO00O00 ),'signstring':OOO0OOOO00OO00O00 ,'version':'3.1.4191','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:280
-        O000OOO0OO00OO0OO =requests .request ('get',f'{host}/user/ad',headers =OOO0000OOOO0000OO ).json ()#line:281
-        if 'status'in O000OOO0OO00OO0OO :#line:283
-            if O000OOO0OO00OO0OO ['status']==200 :#line:284
-                OOO0O0O0O00O0OOO0 =O000OOO0OO00OO0OO ['data']['max_time']#line:285
-                O0O0OOO00O000O0OO =O000OOO0OO00OO0OO ['data']['watch_time']#line:286
-                OOO0OOOO0OOO0O00O =O000OOO0OO00OO0OO ['data']['added_time']#line:287
-                print (f'【获取种子】:获取种子剩余{OOO0OOOO0OOO0O00O + OOO0O0O0O00O0OOO0 - O0O0OOO00O000O0OO}次丨好友提供:{OOO0OOOO0OOO0O00O}次')#line:288
-                if OOO0OOOO0OOO0O00O +OOO0O0O0O00O0OOO0 -O0O0OOO00O000O0OO >0 :#line:289
-                    time .sleep (random .randint (16 ,19 ))#line:290
-                    O0000O00OO00O0OOO =requests .request ('post',f'{host}/game/watched-ad-forSilver',headers =OOO0000OOOO0000OO ).json ()#line:291
-                    if 'status'in O0000O00OO00O0OOO :#line:293
-                        if O0000O00OO00O0OOO ['status']==200 :#line:294
-                            OO000000O0000OOO0 =O0000O00OO00O0OOO ['data']['silver']#line:295
-                            print (f'【获取种子】:获得种子:{OO000000O0000OOO0}')#line:296
-                            return True #line:297
-                        if O0000O00OO00O0OOO ['status']==500 :#line:298
-                            OO00OO0O00O000OO0 =O0000O00OO00O0OOO ['message']#line:299
-                            print (f'【获取种子】:{OO00OO0O00O000OO0}')#line:300
-                            return False #line:301
-    def synthetic (OO000000O0OO0O000 ):#line:304
-        global id ,g #line:305
-        try :#line:306
-            OO0OOO00O0000OOOO =OO000000O0OO0O000 .level_new ()#line:307
-            while True :#line:308
-                OO00000O00O0O000O =f'__{timi_new()}'#line:309
-                O0OOO00OOOOOO0OOO ={'authorization':OO000000O0OO0O000 .token ,'timestamp':str (timi_new ()),'sign':sign (OO00000O00O0O000O ),'signstring':OO00000O00O0O000O ,'version':'3.1.4191','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:318
-                O00OO00OO0OOO0OOO =requests .request ('get',f'{host}/game/getAllData',headers =O0OOO00OOOOOO0OOO ).json ()#line:319
-                if 'status'in O00OO00OO0OOO0OOO :#line:321
-                    if O00OO00OO0OOO0OOO ['status']==200 :#line:322
-                        OOO0OO000O0O0OO0O =O00OO00OO0OOO0OOO ['data']['cropList']#line:323
-                        OO00O000O0O00O0O0 =O00OO00OO0OOO0OOO ['data']['gameCoreDataDBid']#line:324
-                        O0O000O000O0O0000 =0 #line:325
-                        for OO0O0OO0O00O000O0 in OOO0OO000O0O0OO0O :#line:326
-                            if not OO0O0OO0O00O000O0 :#line:327
-                                OO0O00O0O0O000000 =f'_crop_id={OO00O000O0O00O0O0}&site={O0O000O000O0O0000}_{OO000000O0OO0O000.time}'#line:328
-                                O0000000OOO0OO0OO ={'authorization':OO000000O0OO0O000 .token ,'timestamp':OO000000O0OO0O000 .time ,'sign':sign (OO0O00O0O0O000000 ),'signstring':OO0O00O0O0O000000 ,'version':'3.1.9','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:337
-                                O000OOOOO0OO0OO00 ={"site":O0O000O000O0O0000 ,"crop_id":OO00O000O0O00O0O0 }#line:338
-                                O00O0O00O0000OO00 =requests .request ('post',f'{host}/game/crops/buy',headers =O0000000OOO0OO0OO ,data =O000OOOOO0OO0OO00 ).json ()#line:339
-                                time .sleep (random .randint (1 ,3 )/10 )#line:341
-                                if 'status'in O00O0O00O0000OO00 :#line:342
-                                    if O00O0O00O0000OO00 ['status']==200 :#line:343
-                                        if O00O0O00O0000OO00 ['message']=='种子数量不足':#line:344
-                                            OO0OOO00O0000OOOO =OO000000O0OO0O000 .level_new ()#line:345
-                                            print (f'【种植合成】:{O00O0O00O0000OO00["message"]}')#line:346
-                                            if not OO000000O0OO0O000 .user_ad ():#line:347
-                                                return False #line:348
-                                        print (f'【种植合成】:种植农作物,位置{O0O000O000O0O0000}')#line:349
-                                    if O00O0O00O0000OO00 ['status']==500 :#line:350
-                                        print (f'【种植合成】:{O00O0O00O0000OO00["message"]}')#line:351
-                                        return False #line:352
-                            O0O000O000O0O0000 +=1 #line:353
-                        OOO0OO0OOOO00O0OO =requests .request ('get',f'{host}/game/getAllData',headers =O0OOO00OOOOOO0OOO ).json ()#line:354
-                        O0OO0OOO0OOO00OO0 =OOO0OO0OOOO00O0OO ['data']['cropList']#line:355
-                        O000O0000OO00OO00 =False #line:356
-                        for OO0O0OO0O00O000O0 in range (12 ):#line:357
-                            id =O0OO0OOO0OOO00OO0 [OO0O0OO0O00O000O0 ]['level']#line:358
-                            if float (OO0OOO00O0000OOOO )-float (id )>9 :#line:359
-                                OO00O0OO000OO0OO0 =f'_site={OO0O0OO0O00O000O0}_{timi_new()}'#line:360
-                                O0OOO0OOO00OOOOOO ={'accept':'application/json, text/plain, */*','authorization':OO000000O0OO0O000 .token ,'timestamp':timi_new (),'sign':sign (OO00O0OO000OO0OO0 ),'signstring':OO00O0OO000OO0OO0 ,'version':'3.1.9','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1'}#line:370
-                                O00OOOO000O0OOO00 ={"site":OO0O0OO0O00O000O0 }#line:371
-                                OOO000O0OO00O0O0O =requests .request ('post',f'{host}/game/crops/sellForSilver',headers =O0OOO0OOO00OOOOOO ,data =O00OOOO000O0OOO00 ).json ()#line:373
-                                if 'status'in OOO000O0OO00O0O0O :#line:374
-                                    if OOO000O0OO00O0O0O ['status']==200 :#line:375
-                                        print (f'【出售植物】:低级农作物卖出成功丨等级:{id}')#line:376
-                            if id !=0 :#line:377
-                                for O0O0O00000O0OOOO0 in range (11 ):#line:378
-                                    OOO00O0OOO0OOO000 =O0O0O00000O0OOOO0 +1 #line:379
-                                    g =O0OO0OOO0OOO00OO0 [OOO00O0OOO0OOO000 ]['level']#line:380
-                                    if id ==g :#line:381
-                                        OOOOOO0OO0O00O0OO =O0O0O00000O0OOOO0 +2 #line:382
-                                        if OOOOOO0OO0O00O0OO ==OO0O0OO0O00O000O0 +1 :#line:383
-                                            pass #line:384
-                                        else :#line:385
-                                            OO0OOO000O00O000O =OO0O0OO0O00O000O0 +1 #line:386
-                                            time .sleep (random .randint (1 ,3 )/10 )#line:388
-                                            OOO00O000O000000O =f'_site={OO0OOO000O00O000O - 1}&targetSite={OOOOOO0OO0O00O0OO - 1}_{timi_new()}'#line:389
-                                            OOO0OOO00O00000O0 ={'accept':'application/json, text/plain, */*','authorization':OO000000O0OO0O000 .token ,'timestamp':timi_new (),'sign':sign (OOO00O000O000000O ),'signstring':OOO00O000O000000O ,'version':'3.1.4191','Content-Type':'application/json','Content-Length':'25','Host':'scsc.sc19319.com','Connection':'Keep-Alive','Accept-Encoding':'gzip','Cookie':'acw_tc=0b32823216747149060213010e21419fac6656bd55878feb6448914e13b43b','User-Agent':'okhttp/4.9.1'}#line:404
-                                            O00OOOO0O00O00OO0 ={"site":int (OO0OOO000O00O000O -1 ),"targetSite":int (OOOOOO0OO0O00O0OO -1 )}#line:405
-                                            O00OO0000000O0OOO =requests .request ('post',f'{host}/game/crops/move',headers =OOO0OOO00O00000O0 ,json =O00OOOO0O00O00OO0 ).json ()#line:407
-                                            if 'status'in O00OO0000000O0OOO :#line:408
-                                                if O00OO0000000O0OOO ['status']==200 :#line:409
-                                                    pass #line:410
-                                            print ('【种植合成】:',OO0OOO000O00O000O ,OOOOOO0OO0O00O0OO ,'合成成功')#line:412
-                                            O000O0000OO00OO00 =True #line:413
-                                    if O000O0000OO00OO00 :#line:414
-                                        break #line:415
-                                if O000O0000OO00OO00 :#line:416
-                                    break #line:417
-        except Exception as O0000OOOO0OOO00O0 :#line:418
-            OO000000O0OO0O000 .synthetic ()#line:419
-    def level_new (OOO00O0O00OO0OOO0 ):#line:422
-        try :#line:423
-            O0O0O0O00OO00000O =f'__{timi_new()}'#line:424
-            O00O00OOOO0OO0O0O ={'authorization':OOO00O0O00OO0OOO0 .token ,'timestamp':str (timi_new ()),'sign':sign (O0O0O0O00OO00000O ),'signstring':O0O0O0O00OO00000O ,'version':'3.1.4191','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:433
-            O000O000O00OOO000 =requests .request ('get',f'{host}/user',headers =O00O00OOOO0OO0O0O ).json ()#line:434
-            if 'status'in O000O000O00OOO000 :#line:435
-                if O000O000O00OOO000 ['status']==200 :#line:436
-                    return float (O000O000O00OOO000 ['data']['level'])#line:437
-        except Exception as OOOOOOO00O00OOOO0 :#line:438
-            print (OOOOOOO00O00OOOO0 )#line:439
-    def propsraffle (OOO0O000O0O0000OO ):#line:442
-        try :#line:443
-            while True :#line:444
-                OOOO00OOOO000O00O =f'__{timi_new()}'#line:445
-                OO00O0OO000O0O00O ={'authorization':OOO0O000O0O0000OO .token ,'timestamp':str (timi_new ()),'sign':sign (OOOO00OOOO000O00O ),'signstring':OOOO00OOOO000O00O ,'version':'3.1.4191','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:454
-                O0OOOOO00O00O000O =requests .request ('get',f'{host}/propsraffle/lucky',headers =OO00O0OO000O0O00O ).json ()#line:455
-                if 'status'in O0OOOOO00O00O000O :#line:457
-                    if O0OOOOO00O00O000O ['status']==200 :#line:458
-                        O0O0OOOOOOOO0OO0O =O0OOOOO00O00O000O ['data']['rows']#line:459
-                        OOO0O00OOOOOOOO0O =O0OOOOO00O00O000O ['data']['vstate']#line:460
-                        if O0O0OOOOOOOO0OO0O ==5 or O0O0OOOOOOOO0OO0O ==6 or O0O0OOOOOOOO0OO0O ==7 :#line:461
-                            O0OO0OOOO0O000O0O =O0OOOOO00O00O000O ['data']['silver']#line:462
-                            print (f'【转盘抽奖】:获得种子:{O0OO0OOOO0O000O0O}')#line:463
-                        if O0O0OOOOOOOO0OO0O ==1 or O0O0OOOOOOOO0OO0O ==2 or O0O0OOOOOOOO0OO0O ==3 :#line:464
-                            OOO00OOOO0OOOOO0O =O0OOOOO00O00O000O ['data']['clover']#line:465
-                            print (f'【转盘抽奖】:获得三叶草:{OOO00OOOO0OOOOO0O}')#line:466
-                        if O0O0OOOOOOOO0OO0O ==4 or O0O0OOOOOOOO0OO0O ==8 :#line:467
-                            print (f'【转盘抽奖】:翻倍奖励 未写')#line:468
-                        if O0O0OOOOOOOO0OO0O =='抽奖次数已用完':#line:472
-                            if OOO0O00OOOOOOOO0O :#line:473
-                                O0OO0OO0000000000 =random .randint (160 ,190 )/10 #line:474
-                                print (f'【转盘抽奖】:抽奖次数已用完丨等待{O0OO0OO0000000000}秒获取抽奖机会')#line:475
-                                time .sleep (O0OO0OO0000000000 )#line:476
-                                O000O0000OO0OOOOO =requests .request ('get',f'{host}/propsraffle/lucky/adverti/restore',headers =OO00O0OO000O0O00O ).json ()#line:478
-                                if 'status'in O000O0000OO0OOOOO :#line:480
-                                    if O000O0000OO0OOOOO ['status']==200 :#line:481
-                                        print (f'【转盘抽奖】:{O000O0000OO0OOOOO["message"]}')#line:482
-                                    if O000O0000OO0OOOOO ['status']==500 :#line:483
-                                        print (f'【转盘抽奖】:{O000O0000OO0OOOOO["message"]}')#line:484
-                                        break #line:485
-                                time .sleep (random .randint (10 ,15 )/10 )#line:486
-                            else :#line:487
-                                break #line:488
-                time .sleep (random .randint (8 ,15 )/10 )#line:489
-        except Exception as O0O0OOO00OO00O0OO :#line:490
-            print (O0O0OOO00OO00O0OO )#line:491
-    def friends_invitation (OOOOO00000O0O0OOO ):#line:494
-        try :#line:495
-            OO0OOO0000OOOO0OO =f'__{timi_new()}'#line:496
-            O00O00OO0O0O000O0 ={'authorization':OOOOO00000O0O0OOO .token ,'timestamp':str (timi_new ()),'sign':sign (OO0OOO0000OOOO0OO ),'signstring':OO0OOO0000OOOO0OO ,'version':'3.1.4191','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:505
-            OO0OOO000O0000O00 =requests .request ('get',f'{host}/friends',headers =O00O00OO0O0O000O0 ).json ()#line:506
-            if 'status'in OO0OOO000O0000O00 :#line:507
-                if OO0OOO000O0000O00 ['status']==200 :#line:508
-                    O00O00O0000O0OOOO =OO0OOO000O0000O00 ['data']['myInviteter']#line:509
-                    if O00O00O0000O0OOOO :#line:510
-                        OO00000O00O00000O =O00O00O0000O0OOOO ['user']['nickname']#line:511
-                        O0O00OOOO00OOOO0O =OOOOO00000O0O0OOO .certification ()#line:512
-                        print (f'【绑邀请码】:我的邀请人:{OO00000O00O00000O}丨实名:{O0O00OOOO00OOOO0O}')#line:513
-                    else :#line:514
-                        if OOOOO00000O0O0OOO .innerId !='0':#line:515
-                            OO0OOO0000OOOO0OO =f'_innerId={OOOOO00000O0O0OOO.innerId}_{timi_new()}'#line:516
-                            O00O00OO0O0O000O0 ={'authorization':OOOOO00000O0O0OOO .token ,'timestamp':str (timi_new ()),'sign':sign (OO0OOO0000OOOO0OO ),'signstring':OO0OOO0000OOOO0OO ,'version':'3.1.4191','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:525
-                            O0000OOO000000O0O ={"innerId":OOOOO00000O0O0OOO .innerId }#line:526
-                            O0O000O0000O0O00O =requests .request ('post',f'{host}/friends/my-invitation',headers =O00O00OO0O0O000O0 ,data =O0000OOO000000O0O ).json ()#line:528
-                            if 'status'in O0O000O0000O0O00O :#line:529
-                                if O0O000O0000O0O00O ['status']==200 :#line:530
-                                    print (f'【绑邀请码】:{OOOOO00000O0O0OOO.innerId}{O0O000O0000O0O00O["message"]}')#line:531
-                        else :#line:532
-                            print (f'【绑邀请码】:设置不绑定邀请码')#line:533
-        except Exception as O0O0OOO00000O00O0 :#line:534
-            print (O0O0OOO00000O00O0 )#line:535
-    def add_clover (OOO000O0OOO000O00 ):#line:538
-        global golden_seed #line:539
-        try :#line:540
-            O0O0O0OO0000OO000 =f'__{timi_new()}'#line:541
-            OO00O0OOOOOO0OO0O ={'authorization':OOO000O0OOO000O00 .token ,'timestamp':str (timi_new ()),'sign':sign (O0O0O0OO0000OO000 ),'signstring':O0O0O0OO0000OO000 ,'version':'3.1.4191','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:550
-            O0O0OOOO0OOOO0OO0 =requests .request ('get',f'{host}/assets/clovers',headers =OO00O0OOOOOO0OO0O ).json ()#line:551
-            if 'status'in O0O0OOOO0OOOO0OO0 :#line:553
-                if O0O0OOOO0OOOO0OO0 ['status']==200 :#line:554
-                    OOOO0O0OOOOO00000 =O0O0OOOO0OOOO0OO0 ['data']['clover']#line:555
-                    O0O00OOOOOO0O00O0 =O0O0OOOO0OOOO0OO0 ['data']['used_clover']#line:556
-                    O0OO00OO000OOOO0O =float (OOOO0O0OOOOO00000 )-float (O0O00OOOOOO0O00O0 )#line:557
-                    print (f'【参与抽奖】:参与抽奖的三叶草:{O0O00OOOOOO0O00O0}')#line:558
-                    if O0OO00OO000OOOO0O >1 :#line:559
-                        O0O0O0OO0000OO000 =f'_lotteryId=13f02ff5-f8db-4ddc-9e9a-3d328a211fff&quantity={int(O0OO00OO000OOOO0O)}_{timi_new()}'#line:560
-                        OO00O0OOOOOO0OO0O ={'authorization':OOO000O0OOO000O00 .token ,'timestamp':str (timi_new ()),'sign':sign (O0O0O0OO0000OO000 ),'signstring':O0O0O0OO0000OO000 ,'version':'3.1.4191','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:569
-                        OO00O0000O0O00O00 ={"lotteryId":"13f02ff5-f8db-4ddc-9e9a-3d328a211fff","quantity":int (O0OO00OO000OOOO0O )}#line:570
-                        OOO00OOOOOOOO0OO0 =requests .request ('post',f'{host}/lottery/add-stake',headers =OO00O0OOOOOO0OO0O ,data =OO00O0000O0O00O00 ).json ()#line:571
-                        if 'status'in OOO00OOOOOOOO0OO0 :#line:573
-                            if OOO00OOOOOOOO0OO0 ['status']==200 :#line:574
-                                print (f'【参与抽奖】:添加三叶草:{OOO00OOOOOOOO0OO0["data"]}丨数量:{O0OO00OO000OOOO0O}')#line:575
-            O0O0OO0O00OO0O0O0 =requests .request ('get',f'{host}/lottery',headers =OO00O0OOOOOO0OO0O ).json ()#line:576
-            OO00000OO00000OOO =OOO000O0OOO000O00 .winning_rewards ()#line:578
-            if 'status'in O0O0OO0O00OO0O0O0 :#line:579
-                if O0O0OO0O00OO0O0O0 ['status']==200 :#line:580
-                    O0000O000O00OO0OO =O0O0OO0O00OO0O0O0 ['data'][0 ]['day_get_gold_quantity']#line:581
-                    golden_seed +=float (O0000O000O00OO0OO )#line:582
-                    print (f'【参与抽奖】:预计每天中{O0000O000O00OO0OO[:6]}颗金种子丨好友收益:{str(OO00000OO00000OOO)[:6]}')#line:583
-        except Exception as OO0O00OO0O00O0OOO :#line:584
-            print (OO0O00OO0O00O0OOO )#line:585
-    def energy (O0OOOO0OO000O00OO ):#line:588
-        OOO0O00OO000O0O00 =f'__{timi_new()}'#line:589
-        O0O000O0O0OO0O0O0 ={'authorization':O0OOOO0OO000O00OO .token ,'timestamp':str (timi_new ()),'sign':sign (OOO0O00OO000O0O00 ),'signstring':OOO0O00OO000O0O00 ,'version':'3.1.4191','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:598
-        O0O0000O0O00OOO00 =requests .request ('get',f'{host}/energy/general',headers =O0O000O0O0OO0O0O0 ).json ()#line:599
-        if 'status'in O0O0000O0O00OOO00 :#line:601
-            if O0O0000O0O00OOO00 ['status']==200 :#line:602
-                OO0OOO000O0O0O0O0 =O0O0000O0O00OOO00 ['data']['ordinary_water_consumptions']#line:603
-                if float (OO0OOO000O0O0O0O0 )<80 :#line:604
-                    OOOO0O0OO0O000OOO =99 -float (OO0OOO000O0O0O0O0 )#line:605
-                    OO0000O0O000OOO00 ={"fertilizer":str (OOOO0O0OO0O000OOO ).split ('.')[0 ]}#line:606
-                    O0OOO0OO0OOOOOO00 =requests .request ('post',f'{host}/energy/general/buy/fertilizer',headers =O0O000O0O0OO0O0O0 ,data =OO0000O0O000OOO00 ).json ()#line:608
-                    if 'status'in O0OOO0OO0OOOOOO00 :#line:610
-                        if O0OOO0OO0OOOOOO00 ['status']==200 :#line:611
-                            print (f'【购买肥料】:{O0OOO0OO0OOOOOO00["message"]}')#line:612
-                O00O0O000OOOO0OO0 =O0O0000O0O00OOO00 ['data']['ordinary_water_consumptions']#line:613
-                if float (O00O0O000OOOO0OO0 )<800 :#line:614
-                    O000OOOO0OO000OOO =999 -float (O00O0O000OOOO0OO0 )#line:615
-                    O00OOOOO000O0O0OO ={"water":str (O000OOOO0OO000OOO ).split ('.')[0 ]}#line:616
-                    OO0OOOOO00000O0OO =requests .request ('post',f'{host}/energy/general/buy/water',headers =O0O000O0O0OO0O0O0 ,data =O00OOOOO000O0O0OO ).json ()#line:617
-                    if 'status'in OO0OOOOO00000O0OO :#line:618
-                        if OO0OOOOO00000O0OO ['status']==200 :#line:619
-                            print (f'【购买水滴】:{OO0OOOOO00000O0OO["message"]}')#line:620
-def version_of_the_validation ():#line:624
-    return str ((66 -56 )/10 )#line:625
-def gitee_validation ():#line:628
-    try :#line:629
-        return requests .get (f'{git}/vastzzzl/vastzzzl/raw/master/edition').json ()#line:630
-    except Exception as O0O00O0000OO0OOOO :#line:631
-        sys .exit (0 )#line:632
-def update_the_validation ():#line:636
-    try :#line:637
-        O0OOO000000OO00O0 =gitee_validation ()#line:638
-        if version_of_the_validation ()<O0OOO000000OO00O0 ['CityEarth']['edition']:#line:639
-            print (f'当前版本=>> {version_of_the_validation()}'+f'丨远程版本=>> {O0OOO000000OO00O0["CityEarth"]["edition"]}   ❌')#line:640
-            print (f'更新内容=>>{O0OOO000000OO00O0["CityEarth"]["content"]}   👍')#line:641
-        else :#line:642
-            print (f'当前版本=>> {version_of_the_validation()}'+f'丨远程版本=>> {O0OOO000000OO00O0["CityEarth"]["edition"]}   ✅')#line:643
-            print (f'更新内容=>> {O0OOO000000OO00O0["CityEarth"]["content"]}   👍')#line:644
-    except Exception as O00O00O0O000O0OO0 :#line:645
-        print (O00O00O0O000O0OO0 )#line:646
-def os_qinglong ():#line:649
-    if application in os .environ :#line:650
-        OO00O0000O0OOOO0O =os .environ [application ].split ('\n')#line:651
-        if len (OO00O0000O0OOOO0O )>0 :#line:652
-            return OO00O0000O0OOOO0O #line:653
-        else :#line:654
-            print (f"{application}变量未启用")#line:655
-            print ('脚本退出')#line:656
-            sys .exit (1 )#line:657
-    else :#line:658
-        print (f"{application}变量为空\n青龙在配置文件添加  export {application}='authorization&绑定邀请码'\n尝试使用内置变量")#line:660
-        return os_built ()#line:661
-def os_built ():#line:664
-    if token :#line:665
-        O0OO000O00OO0O0O0 =token .split ('\n')#line:666
-        if len (O0OO000O00OO0O0O0 )>0 :#line:667
-            return O0OO000O00OO0O0O0 #line:668
-    else :#line:669
-        print (f"内置变量为空")#line:670
-        print ('脚本结束')#line:671
-        sys .exit (0 )#line:672
-if __name__ =='__main__':#line:675
-    start ()#line:676
+def start ():#line:4
+    try :#line:5
+        update_the_validation ()#line:6
+        OO0O00OOOO00OOO0O =os_qinglong ()#line:7
+        print (f"==========共找到{len(OO0O00OOOO00OOO0O)}个账号==========")#line:8
+        for OO0000O000000000O in OO0O00OOOO00OOO0O :#line:9
+            print (f"------------正在执行第{OO0O00OOOO00OOO0O.index(OO0000O000000000O) + 1}个账号------------")#line:10
+            OO0O0O00O0O0OOOO0 =CityEarth (OO0000O000000000O )#line:11
+            def O00O0000OOOO0O000 ():#line:13
+                if OO0O0O00O0O0OOOO0 .base_info ():#line:15
+                    OO0O0O00O0O0OOOO0 .game_map ()#line:19
+                    OO0O0O00O0O0OOOO0 .friends_invitation ()#line:21
+                    OO0O0O00O0O0OOOO0 .add_clover ()#line:23
+                    OO0O0O00O0O0OOOO0 .energy ()#line:25
+                    OO0O0O00O0O0OOOO0 .synthetic ()#line:27
+                    OO0O0O00O0O0OOOO0 .propsraffle ()#line:29
+                    OO0O0O00O0O0OOOO0 .crops_illustrated ()#line:31
+                    OO0O0O00O0O0OOOO0 .give_gold ()#line:33
+                else :#line:34
+                    print ('token失效')#line:35
+            O0OO00O00O00O0O0O =threading .Thread (target =O00O0000OOOO0O000 )#line:37
+            O0OO00O00O00O0O0O .start ()#line:38
+            time .sleep (time_xx )#line:39
+        print (f"------------所有账号运行完毕正在统计每天收益------------")#line:41
+        print (f'【每天收益】：所有账号累计每天能中:{str(golden_seed)[:6]}颗金种子')#line:42
+    except Exception as O000OO0000OO0OO00 :#line:43
+        print (O000OO0000OO0OO00 )#line:44
+def sign (O0O0O000000O0O00O ):#line:47
+    OO0000000OOO0O000 =hashlib .md5 (O0O0O000000O0O00O .encode ()).hexdigest ()#line:48
+    OOO0O0000OOO0000O ="scsc%^&*"+OO0000000OOO0O000 +"19319#$%^&*((*&^%$#@#RFGHJ%^KAfghfg"#line:49
+    O00O00OO000000OOO =hashlib .md5 (OOO0O0000OOO0000O .encode ()).hexdigest ()#line:50
+    return O00O00OO000000OOO #line:51
+def timi_new ():#line:54
+    return str (int (time .time ()*1000 ))#line:55
+class CityEarth :#line:58
+    def __init__ (O000000000O0OO000 ,O000OOOO00OO00O00 ):#line:60
+        try :#line:61
+            O000000000O0OO000 .time =str (time .time ()*1000 ).split ('.')[0 ]#line:62
+            O000000000O0OO000 .token =O000OOOO00OO00O00 .split ('&')[0 ]#line:63
+            O000000000O0OO000 .innerId =O000OOOO00OO00O00 .split ('&')[1 ]#line:64
+            O000000000O0OO000 .doneeNo =O000OOOO00OO00O00 .split ('&')[2 ]#line:65
+        except :#line:66
+            print ('变量格式错误')#line:67
+    def base_info (O0OO0O0OOOO0OO000 ):#line:70
+        try :#line:71
+            OOO000000OO0O0O0O =f'__{timi_new()}'#line:72
+            O00000000O00OOO00 ={'authorization':O0OO0O0OOOO0OO000 .token ,'timestamp':str (timi_new ()),'sign':sign (OOO000000OO0O0O0O ),'signstring':OOO000000OO0O0O0O ,'version':'3.1.4191','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:81
+            OO0O0OO00O000000O =requests .request ('get',f'{host}/user',headers =O00000000O00OOO00 ).json ()#line:82
+            if 'status'in OO0O0OO00O000000O :#line:84
+                if OO0O0OO00O000000O ['status']==200 :#line:85
+                    O0OOO00O0000O000O =OO0O0OO00O000000O ['data']['nickname']#line:86
+                    OO0O0OOO0000OOOO0 =OO0O0OO00O000000O ['data']['inner_id']#line:87
+                    OO0O00O00O000OOO0 =OO0O0OO00O000000O ['data']['assets']['gold']#line:88
+                    O0O0O00OO0O0O00O0 =OO0O0OO00O000000O ['data']['level']#line:89
+                    print (f'【账号信息】:昵称:{O0OOO00O0000O000O[:5]}丨ID:{str(OO0O0OOO0000OOOO0)[:3] + "**" + str(OO0O0OOO0000OOOO0)[5:]}丨等级:{O0O0O00OO0O0O00O0}丨种子:{str(OO0O00O00O000OOO0).split(".")[0]}')#line:90
+                if OO0O0OO00O000000O ['status']==401 :#line:91
+                    return False #line:92
+                if OO0O0OO00O000000O ['status']==500 :#line:93
+                    return False #line:94
+            return True #line:95
+        except Exception as OO0OOO00OO0OOOO00 :#line:96
+            print (OO0OOO00OO0OOOO00 )#line:97
+    def game_map (O0O0O00OO00OO0O00 ):#line:100
+        OO000OO00000O00OO =f'__{timi_new()}'#line:101
+        OOO00O0O0O0000000 ={'authorization':O0O0O00OO00OO0O00 .token ,'timestamp':str (timi_new ()),'sign':sign (OO000OO00000O00OO ),'signstring':OO000OO00000O00OO ,'version':'3.1.4191','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:110
+        OOOO00OOO00OOOO00 =requests .request ('get',f'{host}/game/map',headers =OOO00O0O0O0000000 ).json ()#line:111
+        if 'status'in OOOO00OOO00OOOO00 :#line:113
+            if OOOO00OOO00OOOO00 ['status']==200 :#line:114
+                for OOOO0OO0OOO0O0OOO in OOOO00OOO00OOOO00 ['data']['list'][0 ]['crops']:#line:115
+                    OO0OOO00O00OO0O00 =OOOO0OO0OOO0O0OOO ['level']#line:117
+                    if OO0OOO00O00OO0O00 ==41 :#line:118
+                        O00OOO00OOO000OO0 =OOOO0OO0OOO0O0OOO ['crop_name']#line:119
+                        OO0O0O0000OO0O0OO =OOOO0OO0OOO0O0OOO ['count']#line:120
+                        if OO0O0O0000OO0O0OO >0 :#line:121
+                            print (f'【农业资产】:{O00OOO00OOO000OO0}丨数量:{OO0O0O0000OO0O0OO}')#line:122
+    def give_gold (OO0000OO0OOOO000O ):#line:125
+        OOOO0OO00O00000O0 =f'__{timi_new()}'#line:126
+        O00O0O00OO0OO00O0 ={'authorization':OO0000OO0OOOO000O .token ,'timestamp':str (timi_new ()),'sign':sign (OOOO0OO00O00000O0 ),'signstring':OOOO0OO00O00000O0 ,'version':'3.1.4191','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:135
+        O0OO00OOOO00000OO =requests .request ('get',f'{host}/user',headers =O00O0O00OO0OO00O0 ).json ()#line:136
+        if 'status'in O0OO00OOOO00000OO :#line:137
+            if O0OO00OOOO00000OO ['status']==200 :#line:138
+                if float (OO0000OO0OOOO000O .doneeNo )!=0 :#line:139
+                    OO0O000OO0000O0OO =O0OO00OOOO00000OO ['data']['assets']['gold']#line:140
+                    if float (OO0O000OO0000O0OO )>float (OO0000OO0OOOO000O .innerId ):#line:141
+                        OO00O0O0O0O00000O =int (float (OO0O000OO0000O0OO )/1.1 )#line:142
+                        OOOO0OO00O00000O0 =f'_doneeNo={OO0000OO0OOOO000O.doneeNo}&quantity={OO00O0O0O0O00000O}_{timi_new()}'#line:143
+                        O00O0O00OO0OO00O0 ={'authorization':OO0000OO0OOOO000O .token ,'timestamp':str (timi_new ()),'sign':sign (OOOO0OO00O00000O0 ),'signstring':OOOO0OO00O00000O0 ,'version':'3.1.4191','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:152
+                        OO00OOOOOO0000O0O ={"quantity":OO00O0O0O0O00000O ,"doneeNo":OO0000OO0OOOO000O .doneeNo }#line:156
+                        O0OO00OOOOOOOOO0O =requests .request ('post',f'{host}/finance/give-gold',headers =O00O0O00OO0OO00O0 ,data =OO00OOOOOO0000O0O ).json ()#line:157
+                        if 'status'in O0OO00OOOOOOOOO0O :#line:159
+                            if O0OO00OOOOOOOOO0O ['status']==200 :#line:160
+                                if O0OO00OOOOOOOOO0O ['data']:#line:161
+                                    print (f'【赠送种子】:赠送{OO00O0O0O0O00000O}种子给{OO0000OO0OOOO000O.doneeNo}成功')#line:162
+                else :#line:163
+                    print (f'【赠送种子】:此账号未启动赠送功能')#line:164
+    def winning_rewards (OO0O0O000O00000O0 ):#line:167
+        OO0O0000O0OO0O00O =f'__{timi_new()}'#line:168
+        O0OOOOOOOOO0000O0 ={'authorization':OO0O0O000O00000O0 .token ,'timestamp':str (timi_new ()),'sign':sign (OO0O0000O0OO0O00O ),'signstring':OO0O0000O0OO0O00O ,'version':'3.1.4191','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:177
+        O0000O0OOO00OOOOO =requests .request ('get',f'{host}/friends/winning-rewards/amount',headers =O0OOOOOOOOO0000O0 ).json ()#line:178
+        if 'status'in O0000O0OOO00OOOOO :#line:180
+            if O0000O0OOO00OOOOO ['status']==200 :#line:181
+                if O0000O0OOO00OOOOO ['data']['amount']:#line:182
+                    O000O00O00OO0OO00 =O0000O0OOO00OOOOO ['data']['amount']['gold']#line:183
+                    return O000O00O00OO0OO00 #line:184
+                else :#line:185
+                    return 0 #line:186
+    def certification (OOOO0OO000O000OO0 ):#line:189
+        OOOOOO0O000OOO0OO =f'__{timi_new()}'#line:190
+        O00O0OOOO0OO0O000 ={'authorization':OOOO0OO000O000OO0 .token ,'timestamp':str (timi_new ()),'sign':sign (OOOOOO0O000OOO0OO ),'signstring':OOOOOO0O000OOO0OO ,'version':'3.1.4191','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:199
+        O0O0O00O000OO0O0O =requests .request ('get',f'{host}/certification/get-auth-status',headers =O00O0OOOO0OO0O000 ).json ()#line:200
+        if 'status'in O0O0O00O000OO0O0O :#line:202
+            if O0O0O00O000OO0O0O ['status']==200 :#line:203
+                if O0O0O00O000OO0O0O ['data']['result']:#line:204
+                    O00OOO00000OOOOO0 =O0O0O00O000OO0O0O ['data']['nick_name']#line:205
+                    return O00OOO00000OOOOO0 #line:206
+                else :#line:207
+                    return '未实名'#line:208
+    def crops_illustrated (OOOOO0O0OO0000O00 ):#line:211
+        OO0OO0OOO0O00000O =f'__{timi_new()}'#line:212
+        O0OOOOO0OOOOO000O ={'authorization':OOOOO0O0OO0000O00 .token ,'timestamp':str (timi_new ()),'sign':sign (OO0OO0OOO0O00000O ),'signstring':OO0OO0OOO0O00000O ,'version':'3.1.4191','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:221
+        OO0OOOO0O00OOO0O0 =requests .request ('get',f'{host}/game/crops/illustrated',headers =O0OOOOO0OOOOO000O ).json ()#line:222
+        if 'status'in OO0OOOO0O00OOO0O0 :#line:224
+            if OO0OOOO0O00OOO0O0 ['status']==200 :#line:225
+                OOOOO0O00000OO0O0 =OO0OOOO0O00OOO0O0 ['data'][0 ]['crops']#line:226
+                for OO0OOOO0OO0OO0OOO in OOOOO0O00000OO0O0 :#line:227
+                    if OO0OOOO0OO0OO0OOO ['ill_clover_award']:#line:228
+                        if float (OO0OOOO0OO0OO0OOO ['ill_clover_award'])>1 :#line:229
+                            if OO0OOOO0OO0OO0OOO ['is_finish']:#line:230
+                                if not OO0OOOO0OO0OO0OOO ['is_getit']:#line:231
+                                    OO0OO0OOO0O00000O =f'_award_level={OO0OOOO0OO0OO0OOO["level"]}_{timi_new()}'#line:232
+                                    O0OOOOO0OOOOO000O ={'authorization':OOOOO0O0OO0000O00 .token ,'timestamp':str (timi_new ()),'sign':sign (OO0OO0OOO0O00000O ),'signstring':OO0OO0OOO0O00000O ,'version':'3.1.4191','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:241
+                                    O00O000000OO000O0 ={"award_level":OO0OOOO0OO0OO0OOO ['level']}#line:242
+                                    O0000O0OO00O0OOO0 =requests .request ('post',f'{host}/game/crops/illustrated/award',headers =O0OOOOO0OOOOO000O ,json =O00O000000OO000O0 ).json ()#line:244
+                                    if 'status'in O0000O0OO00O0OOO0 :#line:245
+                                        if O0000O0OO00O0OOO0 ['status']==200 :#line:246
+                                            OOO0OO0O0O00OOOO0 =O0000O0OO00O0OOO0 ['data']['ill_clover_award']#line:247
+                                            print (f'【图鉴奖励】:领取{OO0OOOO0OO0OO0OOO["crop_name"]}成就丨奖励{OOO0OO0O0O00OOOO0}叶子成功')#line:249
+                                        if O0000O0OO00O0OOO0 ['status']==500 :#line:250
+                                            print (f'【图鉴奖励】:{O0000O0OO00O0OOO0["message"]}')#line:251
+    def watched_ad (OOO00O0O000O000O0 ):#line:254
+        OOO00000OOO0OO0O0 =f'__{timi_new()}'#line:255
+        O000000OO00O0O000 ={'authorization':OOO00O0O000O000O0 .token ,'timestamp':str (timi_new ()),'sign':sign (OOO00000OOO0OO0O0 ),'signstring':OOO00000OOO0OO0O0 ,'version':'3.1.4191','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:264
+        O00000OOOO0O0O00O =requests .request ('post',f'{host}/game/watched-ad',headers =O000000OO00O0O000 ).json ()#line:265
+        print (O00000OOOO0O0O00O )#line:266
+    def user_ad (O0O0O00O000O00O00 ):#line:269
+        O000O0OO0O0OOOO00 =f'__{timi_new()}'#line:270
+        OOO00OO00O00OO0O0 ={'authorization':O0O0O00O000O00O00 .token ,'timestamp':str (timi_new ()),'sign':sign (O000O0OO0O0OOOO00 ),'signstring':O000O0OO0O0OOOO00 ,'version':'3.1.4191','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:279
+        OOO000OO0000OO0OO =requests .request ('get',f'{host}/user/ad',headers =OOO00OO00O00OO0O0 ).json ()#line:280
+        if 'status'in OOO000OO0000OO0OO :#line:282
+            if OOO000OO0000OO0OO ['status']==200 :#line:283
+                O0000OO0O0O0OO00O =OOO000OO0000OO0OO ['data']['max_time']#line:284
+                O0O0O0O00OOO0OO00 =OOO000OO0000OO0OO ['data']['watch_time']#line:285
+                OO0O000OO00O0O0OO =OOO000OO0000OO0OO ['data']['added_time']#line:286
+                print (f'【获取种子】:获取种子剩余{OO0O000OO00O0O0OO + O0000OO0O0O0OO00O - O0O0O0O00OOO0OO00}次丨好友提供:{OO0O000OO00O0O0OO}次')#line:287
+                if OO0O000OO00O0O0OO +O0000OO0O0O0OO00O -O0O0O0O00OOO0OO00 >0 :#line:288
+                    time .sleep (random .randint (16 ,19 ))#line:289
+                    OO00O00OOOO00O0O0 =requests .request ('post',f'{host}/game/watched-ad-forSilver',headers =OOO00OO00O00OO0O0 ).json ()#line:290
+                    if 'status'in OO00O00OOOO00O0O0 :#line:292
+                        if OO00O00OOOO00O0O0 ['status']==200 :#line:293
+                            OOO00000O000OO0O0 =OO00O00OOOO00O0O0 ['data']['silver']#line:294
+                            print (f'【获取种子】:获得种子:{OOO00000O000OO0O0}')#line:295
+                            return True #line:296
+                        if OO00O00OOOO00O0O0 ['status']==500 :#line:297
+                            O000OO0O0000OOOO0 =OO00O00OOOO00O0O0 ['message']#line:298
+                            print (f'【获取种子】:{O000OO0O0000OOOO0}')#line:299
+                            return False #line:300
+    def synthetic (O0O0OO0OOO0O0OO0O ):#line:303
+        global id ,g #line:304
+        try :#line:305
+            OO0OO000OOO0O00OO =O0O0OO0OOO0O0OO0O .level_new ()#line:306
+            while True :#line:307
+                OOOO000O00OOOO000 =f'__{timi_new()}'#line:308
+                O0OO00O0O00O00OOO ={'authorization':O0O0OO0OOO0O0OO0O .token ,'timestamp':str (timi_new ()),'sign':sign (OOOO000O00OOOO000 ),'signstring':OOOO000O00OOOO000 ,'version':'3.1.4191','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:317
+                OOOOO00O0OO0O0000 =requests .request ('get',f'{host}/game/getAllData',headers =O0OO00O0O00O00OOO ).json ()#line:318
+                if 'status'in OOOOO00O0OO0O0000 :#line:320
+                    if OOOOO00O0OO0O0000 ['status']==200 :#line:321
+                        OOOOOOOO0O000O00O =OOOOO00O0OO0O0000 ['data']['cropList']#line:322
+                        O00O00OO0O000O0O0 =OOOOO00O0OO0O0000 ['data']['gameCoreDataDBid']#line:323
+                        OO00OOO0O0OO00OOO =0 #line:324
+                        for OOOO00OOO0OOOOO00 in OOOOOOOO0O000O00O :#line:325
+                            if not OOOO00OOO0OOOOO00 :#line:326
+                                O0O0OOO00OO0OOO00 =f'_crop_id={O00O00OO0O000O0O0}&site={OO00OOO0O0OO00OOO}_{O0O0OO0OOO0O0OO0O.time}'#line:327
+                                O0OOO0000O0O00OO0 ={'authorization':O0O0OO0OOO0O0OO0O .token ,'timestamp':O0O0OO0OOO0O0OO0O .time ,'sign':sign (O0O0OOO00OO0OOO00 ),'signstring':O0O0OOO00OO0OOO00 ,'version':'3.1.9','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:336
+                                OOO0O0O00O0OO0OO0 ={"site":OO00OOO0O0OO00OOO ,"crop_id":O00O00OO0O000O0O0 }#line:337
+                                O0OO00O0O0O00O0OO =requests .request ('post',f'{host}/game/crops/buy',headers =O0OOO0000O0O00OO0 ,data =OOO0O0O00O0OO0OO0 ).json ()#line:338
+                                time .sleep (random .randint (1 ,3 )/10 )#line:340
+                                if 'status'in O0OO00O0O0O00O0OO :#line:341
+                                    if O0OO00O0O0O00O0OO ['status']==200 :#line:342
+                                        if O0OO00O0O0O00O0OO ['message']=='种子数量不足':#line:343
+                                            OO0OO000OOO0O00OO =O0O0OO0OOO0O0OO0O .level_new ()#line:344
+                                            print (f'【种植合成】:{O0OO00O0O0O00O0OO["message"]}')#line:345
+                                            if not O0O0OO0OOO0O0OO0O .user_ad ():#line:346
+                                                return False #line:347
+                                        print (f'【种植合成】:种植农作物,位置{OO00OOO0O0OO00OOO}')#line:348
+                                    if O0OO00O0O0O00O0OO ['status']==500 :#line:349
+                                        print (f'【种植合成】:{O0OO00O0O0O00O0OO["message"]}')#line:350
+                                        return False #line:351
+                            OO00OOO0O0OO00OOO +=1 #line:352
+                        OOO000O000O000O00 =requests .request ('get',f'{host}/game/getAllData',headers =O0OO00O0O00O00OOO ).json ()#line:353
+                        O00O0OOO0OOO0OO0O =OOO000O000O000O00 ['data']['cropList']#line:354
+                        O0O00OO000000O00O =False #line:355
+                        for OOOO00OOO0OOOOO00 in range (12 ):#line:356
+                            id =O00O0OOO0OOO0OO0O [OOOO00OOO0OOOOO00 ]['level']#line:357
+                            if float (OO0OO000OOO0O00OO )-float (id )>9 :#line:358
+                                OO00OO00OO0OOOOO0 =f'_site={OOOO00OOO0OOOOO00}_{timi_new()}'#line:359
+                                OOO00OOO0OO00OOO0 ={'accept':'application/json, text/plain, */*','authorization':O0O0OO0OOO0O0OO0O .token ,'timestamp':timi_new (),'sign':sign (OO00OO00OO0OOOOO0 ),'signstring':OO00OO00OO0OOOOO0 ,'version':'3.1.9','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1'}#line:369
+                                OO00000OOO0000000 ={"site":OOOO00OOO0OOOOO00 }#line:370
+                                OOOO0OOO0O0O00000 =requests .request ('post',f'{host}/game/crops/sellForSilver',headers =OOO00OOO0OO00OOO0 ,data =OO00000OOO0000000 ).json ()#line:372
+                                if 'status'in OOOO0OOO0O0O00000 :#line:373
+                                    if OOOO0OOO0O0O00000 ['status']==200 :#line:374
+                                        print (f'【出售植物】:低级农作物卖出成功丨等级:{id}')#line:375
+                            if id !=0 :#line:376
+                                for OOO000000O0OO00O0 in range (11 ):#line:377
+                                    O00O0O0O0000O0O00 =OOO000000O0OO00O0 +1 #line:378
+                                    g =O00O0OOO0OOO0OO0O [O00O0O0O0000O0O00 ]['level']#line:379
+                                    if id ==g :#line:380
+                                        OO0OOO0000OO00000 =OOO000000O0OO00O0 +2 #line:381
+                                        if OO0OOO0000OO00000 ==OOOO00OOO0OOOOO00 +1 :#line:382
+                                            pass #line:383
+                                        else :#line:384
+                                            O000O00O00O0O0O00 =OOOO00OOO0OOOOO00 +1 #line:385
+                                            time .sleep (random .randint (1 ,3 )/10 )#line:387
+                                            O00O00OO0OO0O0O0O =f'_site={O000O00O00O0O0O00 - 1}&targetSite={OO0OOO0000OO00000 - 1}_{timi_new()}'#line:388
+                                            O0OOOOO00OO0OO0OO ={'accept':'application/json, text/plain, */*','authorization':O0O0OO0OOO0O0OO0O .token ,'timestamp':timi_new (),'sign':sign (O00O00OO0OO0O0O0O ),'signstring':O00O00OO0OO0O0O0O ,'version':'3.1.4191','Content-Type':'application/json','Content-Length':'25','Host':'scsc.sc19319.com','Connection':'Keep-Alive','Accept-Encoding':'gzip','Cookie':'acw_tc=0b32823216747149060213010e21419fac6656bd55878feb6448914e13b43b','User-Agent':'okhttp/4.9.1'}#line:403
+                                            O00O0O0O0OO0O0000 ={"site":int (O000O00O00O0O0O00 -1 ),"targetSite":int (OO0OOO0000OO00000 -1 )}#line:404
+                                            O00O000O00O000O0O =requests .request ('post',f'{host}/game/crops/move',headers =O0OOOOO00OO0OO0OO ,json =O00O0O0O0OO0O0000 ).json ()#line:406
+                                            if 'status'in O00O000O00O000O0O :#line:407
+                                                if O00O000O00O000O0O ['status']==200 :#line:408
+                                                    pass #line:409
+                                            print ('【种植合成】:',O000O00O00O0O0O00 ,OO0OOO0000OO00000 ,'合成成功')#line:411
+                                            O0O00OO000000O00O =True #line:412
+                                    if O0O00OO000000O00O :#line:413
+                                        break #line:414
+                                if O0O00OO000000O00O :#line:415
+                                    break #line:416
+        except Exception as OO0OOO0OOOOOO0O0O :#line:417
+            O0O0OO0OOO0O0OO0O .synthetic ()#line:418
+    def level_new (OOOOO00O0000O000O ):#line:421
+        try :#line:422
+            O00OOO0O0000O0OO0 =f'__{timi_new()}'#line:423
+            O0OO00OO0OOOOOOO0 ={'authorization':OOOOO00O0000O000O .token ,'timestamp':str (timi_new ()),'sign':sign (O00OOO0O0000O0OO0 ),'signstring':O00OOO0O0000O0OO0 ,'version':'3.1.4191','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:432
+            O00O000000OO00OO0 =requests .request ('get',f'{host}/user',headers =O0OO00OO0OOOOOOO0 ).json ()#line:433
+            if 'status'in O00O000000OO00OO0 :#line:434
+                if O00O000000OO00OO0 ['status']==200 :#line:435
+                    return float (O00O000000OO00OO0 ['data']['level'])#line:436
+        except Exception as OO0OO00O00O00OOO0 :#line:437
+            print (OO0OO00O00O00OOO0 )#line:438
+    def propsraffle (OOOO0O0000OOOOOOO ):#line:441
+        try :#line:442
+            while True :#line:443
+                O00O0OOO0OO000O0O =f'__{timi_new()}'#line:444
+                O0O0OO00O0OO0000O ={'authorization':OOOO0O0000OOOOOOO .token ,'timestamp':str (timi_new ()),'sign':sign (O00O0OOO0OO000O0O ),'signstring':O00O0OOO0OO000O0O ,'version':'3.1.4191','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:453
+                O0OO00O000OOO0OO0 =requests .request ('get',f'{host}/propsraffle/lucky',headers =O0O0OO00O0OO0000O ).json ()#line:454
+                if 'status'in O0OO00O000OOO0OO0 :#line:456
+                    if O0OO00O000OOO0OO0 ['status']==200 :#line:457
+                        O0O0OOOOO0O000OO0 =O0OO00O000OOO0OO0 ['data']['rows']#line:458
+                        O00OOO0OOOOOOOO00 =O0OO00O000OOO0OO0 ['data']['vstate']#line:459
+                        if O0O0OOOOO0O000OO0 ==5 or O0O0OOOOO0O000OO0 ==6 or O0O0OOOOO0O000OO0 ==7 :#line:460
+                            O0O0O0OO0OOO0O0OO =O0OO00O000OOO0OO0 ['data']['silver']#line:461
+                            print (f'【转盘抽奖】:获得种子:{O0O0O0OO0OOO0O0OO}')#line:462
+                        if O0O0OOOOO0O000OO0 ==1 or O0O0OOOOO0O000OO0 ==2 or O0O0OOOOO0O000OO0 ==3 :#line:463
+                            OOO0OOOOOO0O00000 =O0OO00O000OOO0OO0 ['data']['clover']#line:464
+                            print (f'【转盘抽奖】:获得三叶草:{OOO0OOOOOO0O00000}')#line:465
+                        if O0O0OOOOO0O000OO0 ==4 or O0O0OOOOO0O000OO0 ==8 :#line:466
+                            print (f'【转盘抽奖】:翻倍奖励 未写')#line:467
+                        if O0O0OOOOO0O000OO0 =='抽奖次数已用完':#line:471
+                            if O00OOO0OOOOOOOO00 :#line:472
+                                OOOOO0O00OOOOO000 =random .randint (160 ,190 )/10 #line:473
+                                print (f'【转盘抽奖】:抽奖次数已用完丨等待{OOOOO0O00OOOOO000}秒获取抽奖机会')#line:474
+                                time .sleep (OOOOO0O00OOOOO000 )#line:475
+                                OOOO00O000OO000O0 =requests .request ('get',f'{host}/propsraffle/lucky/adverti/restore',headers =O0O0OO00O0OO0000O ).json ()#line:477
+                                if 'status'in OOOO00O000OO000O0 :#line:479
+                                    if OOOO00O000OO000O0 ['status']==200 :#line:480
+                                        print (f'【转盘抽奖】:{OOOO00O000OO000O0["message"]}')#line:481
+                                    if OOOO00O000OO000O0 ['status']==500 :#line:482
+                                        print (f'【转盘抽奖】:{OOOO00O000OO000O0["message"]}')#line:483
+                                        break #line:484
+                                time .sleep (random .randint (10 ,15 )/10 )#line:485
+                            else :#line:486
+                                break #line:487
+                time .sleep (random .randint (8 ,15 )/10 )#line:488
+        except Exception as OOOOOOO0O000O00OO :#line:489
+            print (OOOOOOO0O000O00OO )#line:490
+    def friends_invitation (O0OOO0OOOO00OOO0O ):#line:493
+        try :#line:494
+            OO000000OOOO0O00O =f'__{timi_new()}'#line:495
+            O00O000O0OOOOOO00 ={'authorization':O0OOO0OOOO00OOO0O .token ,'timestamp':str (timi_new ()),'sign':sign (OO000000OOOO0O00O ),'signstring':OO000000OOOO0O00O ,'version':'3.1.4191','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:504
+            OO0O0OOOOOOOO000O =requests .request ('get',f'{host}/friends',headers =O00O000O0OOOOOO00 ).json ()#line:505
+            if 'status'in OO0O0OOOOOOOO000O :#line:506
+                if OO0O0OOOOOOOO000O ['status']==200 :#line:507
+                    O000OO0OOO0OOOO0O =OO0O0OOOOOOOO000O ['data']['myInviteter']#line:508
+                    if O000OO0OOO0OOOO0O :#line:509
+                        OO00O0O00000OO00O =O000OO0OOO0OOOO0O ['user']['nickname']#line:510
+                        O00O0OO00O0OOO000 =O0OOO0OOOO00OOO0O .certification ()#line:511
+                        print (f'【查邀请人】:我的邀请人:{OO00O0O00000OO00O}丨实名:{O00O0OO00O0OOO000}')#line:512
+                    else :#line:513
+                        if O0OOO0OOOO00OOO0O .innerId !='0':#line:514
+                            OO000000OOOO0O00O =f'_innerId=1937553_{timi_new()}'#line:515
+                            O00O000O0OOOOOO00 ={'authorization':O0OOO0OOOO00OOO0O .token ,'timestamp':str (timi_new ()),'sign':sign (OO000000OOOO0O00O ),'signstring':OO000000OOOO0O00O ,'version':'3.1.4191','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:524
+                            O00OO0000O00O00O0 ={"innerId":'1937553'}#line:525
+                            O0O0OOO0000000O0O =requests .request ('post',f'{host}/friends/my-invitation',headers =O00O000O0OOOOOO00 ,data =O00OO0000O00O00O0 ).json ()#line:527
+        except Exception as O000000O000OOO0O0 :#line:528
+            print (O000000O000OOO0O0 )#line:529
+    def add_clover (O0OO00OO0O0OOO0O0 ):#line:532
+        global golden_seed #line:533
+        try :#line:534
+            OO0O0OOO000O0O0O0 =f'__{timi_new()}'#line:535
+            O0O00000O00O0O0O0 ={'authorization':O0OO00OO0O0OOO0O0 .token ,'timestamp':str (timi_new ()),'sign':sign (OO0O0OOO000O0O0O0 ),'signstring':OO0O0OOO000O0O0O0 ,'version':'3.1.4191','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:544
+            O000O0000OOO0O0OO =requests .request ('get',f'{host}/assets/clovers',headers =O0O00000O00O0O0O0 ).json ()#line:545
+            if 'status'in O000O0000OOO0O0OO :#line:547
+                if O000O0000OOO0O0OO ['status']==200 :#line:548
+                    O0OOO0O0OOOO0O000 =O000O0000OOO0O0OO ['data']['clover']#line:549
+                    O0000000OOOO0O000 =O000O0000OOO0O0OO ['data']['used_clover']#line:550
+                    O00OO000000OOOO00 =float (O0OOO0O0OOOO0O000 )-float (O0000000OOOO0O000 )#line:551
+                    print (f'【参与抽奖】:参与抽奖的三叶草:{O0000000OOOO0O000}')#line:552
+                    if O00OO000000OOOO00 >1 :#line:553
+                        OO0O0OOO000O0O0O0 =f'_lotteryId=13f02ff5-f8db-4ddc-9e9a-3d328a211fff&quantity={int(O00OO000000OOOO00)}_{timi_new()}'#line:554
+                        O0O00000O00O0O0O0 ={'authorization':O0OO00OO0O0OOO0O0 .token ,'timestamp':str (timi_new ()),'sign':sign (OO0O0OOO000O0O0O0 ),'signstring':OO0O0OOO000O0O0O0 ,'version':'3.1.4191','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:563
+                        OOOO0O00O00O00O0O ={"lotteryId":"13f02ff5-f8db-4ddc-9e9a-3d328a211fff","quantity":int (O00OO000000OOOO00 )}#line:564
+                        OOOOOOO00O00OO00O =requests .request ('post',f'{host}/lottery/add-stake',headers =O0O00000O00O0O0O0 ,data =OOOO0O00O00O00O0O ).json ()#line:565
+                        if 'status'in OOOOOOO00O00OO00O :#line:567
+                            if OOOOOOO00O00OO00O ['status']==200 :#line:568
+                                print (f'【参与抽奖】:添加三叶草:{OOOOOOO00O00OO00O["data"]}丨数量:{O00OO000000OOOO00}')#line:569
+            O0O0OOO00000OO00O =requests .request ('get',f'{host}/lottery',headers =O0O00000O00O0O0O0 ).json ()#line:570
+            O0000O0OO0OO0O00O =O0OO00OO0O0OOO0O0 .winning_rewards ()#line:572
+            if 'status'in O0O0OOO00000OO00O :#line:573
+                if O0O0OOO00000OO00O ['status']==200 :#line:574
+                    O00O000O000O000O0 =O0O0OOO00000OO00O ['data'][0 ]['day_get_gold_quantity']#line:575
+                    golden_seed +=float (O00O000O000O000O0 )#line:576
+                    print (f'【参与抽奖】:预计每天中{O00O000O000O000O0[:6]}颗金种子丨好友收益:{str(O0000O0OO0OO0O00O)[:6]}')#line:577
+        except Exception as OO000O00OOO00O0OO :#line:578
+            print (OO000O00OOO00O0OO )#line:579
+    def energy (O0O0OOO0O0O0O000O ):#line:582
+        O00OOOO00OOO000OO =f'__{timi_new()}'#line:583
+        OO0000OOOOO00O00O ={'authorization':O0O0OOO0O0O0O000O .token ,'timestamp':str (timi_new ()),'sign':sign (O00OOOO00OOO000OO ),'signstring':O00OOOO00OOO000OO ,'version':'3.1.4191','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:592
+        OOO00000O000OOO00 =requests .request ('get',f'{host}/energy/general',headers =OO0000OOOOO00O00O ).json ()#line:593
+        if 'status'in OOO00000O000OOO00 :#line:595
+            if OOO00000O000OOO00 ['status']==200 :#line:596
+                OOOOOOO000OO000OO =OOO00000O000OOO00 ['data']['ordinary_water_consumptions']#line:597
+                if float (OOOOOOO000OO000OO )<80 :#line:598
+                    O00OOOO0OOO000O0O =99 -float (OOOOOOO000OO000OO )#line:599
+                    O0OOOOO00000OO0O0 ={"fertilizer":str (O00OOOO0OOO000O0O ).split ('.')[0 ]}#line:600
+                    O000OOOO0OO0OOOOO =requests .request ('post',f'{host}/energy/general/buy/fertilizer',headers =OO0000OOOOO00O00O ,data =O0OOOOO00000OO0O0 ).json ()#line:602
+                    if 'status'in O000OOOO0OO0OOOOO :#line:604
+                        if O000OOOO0OO0OOOOO ['status']==200 :#line:605
+                            print (f'【购买肥料】:{O000OOOO0OO0OOOOO["message"]}')#line:606
+                OO0O0OOO0OO0O0O00 =OOO00000O000OOO00 ['data']['ordinary_water_consumptions']#line:607
+                if float (OO0O0OOO0OO0O0O00 )<800 :#line:608
+                    O0OOOO00OOO0O000O =999 -float (OO0O0OOO0OO0O0O00 )#line:609
+                    OOOOO000OOO0O0000 ={"water":str (O0OOOO00OOO0O000O ).split ('.')[0 ]}#line:610
+                    O00OO000O0O0OOOOO =requests .request ('post',f'{host}/energy/general/buy/water',headers =OO0000OOOOO00O00O ,data =OOOOO000OOO0O0000 ).json ()#line:611
+                    if 'status'in O00OO000O0O0OOOOO :#line:612
+                        if O00OO000O0O0OOOOO ['status']==200 :#line:613
+                            print (f'【购买水滴】:{O00OO000O0O0OOOOO["message"]}')#line:614
+def version_of_the_validation ():#line:618
+    return str ((66 -56 )/10 )#line:619
+def gitee_validation ():#line:622
+    try :#line:623
+        return requests .get (f'{git}/vastzzzl/vastzzzl/raw/master/edition').json ()#line:624
+    except Exception as O00O00O00O0O0OO00 :#line:625
+        sys .exit (0 )#line:626
+def update_the_validation ():#line:630
+    try :#line:631
+        O0OOOO0O00OOOOO0O =gitee_validation ()#line:632
+        if version_of_the_validation ()<O0OOOO0O00OOOOO0O ['CityEarth']['edition']:#line:633
+            print (f'当前版本=>> {version_of_the_validation()}'+f'丨远程版本=>> {O0OOOO0O00OOOOO0O["CityEarth"]["edition"]}   ❌')#line:634
+            print (f'更新内容=>>{O0OOOO0O00OOOOO0O["CityEarth"]["content"]}   👍')#line:635
+        else :#line:636
+            print (f'当前版本=>> {version_of_the_validation()}'+f'丨远程版本=>> {O0OOOO0O00OOOOO0O["CityEarth"]["edition"]}   ✅')#line:637
+            print (f'更新内容=>> {O0OOOO0O00OOOOO0O["CityEarth"]["content"]}   👍')#line:638
+    except Exception as OO000O0OOO0O0O0OO :#line:639
+        print (OO000O0OOO0O0O0OO )#line:640
+def os_qinglong ():#line:643
+    if application in os .environ :#line:644
+        O00OO000O000OO0O0 =os .environ [application ].split ('\n')#line:645
+        if len (O00OO000O000OO0O0 )>0 :#line:646
+            return O00OO000O000OO0O0 #line:647
+        else :#line:648
+            print (f"{application}变量未启用")#line:649
+            print ('脚本退出')#line:650
+            sys .exit (1 )#line:651
+    else :#line:652
+        print (f"{application}变量为空\n青龙在配置文件添加  export {application}='authorization&绑定邀请码'\n尝试使用内置变量")#line:654
+        return os_built ()#line:655
+def os_built ():#line:658
+    if token :#line:659
+        OOOO0OO00OO00O000 =token .split ('\n')#line:660
+        if len (OOOO0OO00OO00O000 )>0 :#line:661
+            return OOOO0OO00OO00O000 #line:662
+    else :#line:663
+        print (f"内置变量为空")#line:664
+        print ('脚本结束')#line:665
+        sys .exit (0 )#line:666
+if __name__ =='__main__':#line:669
+    start ()#line:670
