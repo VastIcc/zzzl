@@ -24,8 +24,8 @@ except Exception as e:
 @ 变量示范    export ce_token="557b8069-1234-4ae7-9e29-b7871f91541b&999999&999999"  用&符号分开数据
 @ 版本  1.6
 """
-change_nickname = False  # True 为修改昵称      False 为不修改      
-application = 'ce_token'  # 变量名
+change_nickname = False     
+application = 'ce_token' 
 token = ''
 time_xx = random.randint(8, 12)  # 秒 执行下一个号的时间  8到12秒中随机延迟执行
 
