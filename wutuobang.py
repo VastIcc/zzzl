@@ -29,82 +29,82 @@ host ='http://www.xishishequ.com'#line:1
 mobile =0 #line:2
 def start ():#line:3
     try :#line:4
-        OO0O0000OO00OO000 =os_qinglong ()#line:5
-        print (f"==========共找到{len(OO0O0000OO00OO000)}个账号==========")#line:6
-        for OOO0000000O00OOOO in OO0O0000OO00OO000 :#line:7
-            print (f"------------正在执行第{OO0O0000OO00OO000.index(OOO0000000O00OOOO) + 1}个账号------------")#line:8
-            O0O00O0O000O0OO00 =wtbw (OOO0000000O00OOOO )#line:9
-            def OOOO0OOO0O0OO0O00 ():#line:11
-                if O0O00O0O000O0OO00 .base_info ():#line:13
-                    O0O00O0O000O0OO00 .mining_over ()#line:15
-                    O0O00O0O000O0OO00 .mining ()#line:17
+        OO0OOOO0OOOOOO0OO =os_qinglong ()#line:5
+        print (f"==========共找到{len(OO0OOOO0OOOOOO0OO)}个账号==========")#line:6
+        for O000OOOO0O0O0OOOO in OO0OOOO0OOOOOO0OO :#line:7
+            print (f"------------正在执行第{OO0OOOO0OOOOOO0OO.index(O000OOOO0O0O0OOOO) + 1}个账号------------")#line:8
+            OOO00OO000OOO00O0 =wtbw (O000OOOO0O0O0OOOO )#line:9
+            def OO00000O0O0OOOOO0 ():#line:11
+                if OOO00OO000OOO00O0 .base_info ():#line:13
+                    OOO00OO000OOO00O0 .mining_over ()#line:15
+                    OOO00OO000OOO00O0 .mining ()#line:17
                     time .sleep (random .randint (1 ,2 ))#line:18
                 else :#line:19
                     print ('token失效')#line:20
-            O000000OO0OOO0OO0 =threading .Thread (target =OOOO0OOO0O0OO0O00 )#line:22
-            O000000OO0OOO0OO0 .start ()#line:23
+            OO00OOO00O0OO0000 =threading .Thread (target =OO00000O0O0OOOOO0 )#line:22
+            OO00OOO00O0OO0000 .start ()#line:23
             time .sleep (random .randint (5 ,8 ))#line:24
-    except Exception as O0OOO00OOOOO00O00 :#line:25
-        print (O0OOO00OOOOO00O00 )#line:26
+    except Exception as O0O0000O0O0O0OOOO :#line:25
+        print (O0O0000O0O0O0OOOO )#line:26
 def login ():#line:29
     try :#line:30
-        OOO0O00O0O0O00O0O ={'login':'','type':'2','password':'',}#line:35
-        O0OOO000OOO00O0OO ={'os':'android','Version-Code':'1','Client-Version':'1.0.0','datetime':str (datetime .datetime .now ())[:23 ],'Accept':'application/json','Content-Type':'application/x-www-form-urlencoded','Content-Length':'61','Host':'www.xishishequ.com','Connection':'Keep-Alive','Accept-Encoding':'gzip','User-Agent':'okhttp/3.12.13'}#line:48
-        O0OOO0OOOO0OO0O00 =requests .request ('post',f'{host}/api/v2/auth/login',headers =O0OOO000OOO00O0OO ,data =OOO0O00O0O0O00O0O ).json ()#line:49
-        print (O0OOO0OOOO0OO0O00 )#line:50
-        OO0O00OO00OOOO000 =O0OOO0OOOO0OO0O00 ['access_token']#line:51
-        print (OO0O00OO00OOOO000 )#line:52
+        O000O000OO000O0OO ={'login':'','type':'2','password':'',}#line:35
+        O000O00O0OOO00000 ={'os':'android','Version-Code':'1','Client-Version':'1.0.0','datetime':str (datetime .datetime .now ())[:23 ],'Accept':'application/json','Content-Type':'application/x-www-form-urlencoded','Content-Length':'61','Host':'www.xishishequ.com','Connection':'Keep-Alive','Accept-Encoding':'gzip','User-Agent':'okhttp/3.12.13'}#line:48
+        OOO00OOO0OO0OOO00 =requests .request ('post',f'{host}/api/v2/auth/login',headers =O000O00O0OOO00000 ,data =O000O000OO000O0OO ).json ()#line:49
+        print (OOO00OOO0OO0OOO00 )#line:50
+        O0000000O00O0O000 =OOO00OOO0OO0OOO00 ['access_token']#line:51
+        print (O0000000O00O0O000 )#line:52
         return True #line:53
-    except Exception as O00O0OO0O00O000OO :#line:54
-        print (O00O0OO0O00O000OO )#line:55
+    except Exception as OOO000O0O00OOO000 :#line:54
+        print (OOO000O0O00OOO000 )#line:55
 class wtbw :#line:58
-    def __init__ (O0OOOOO0OOO0O0OO0 ,OOOO00O0OOO000O00 ):#line:60
+    def __init__ (OO000OOOO0000OOO0 ,O00O0O0OO00OO0OO0 ):#line:60
         try :#line:61
-            O0OOOOO0OOO0O0OO0 .token =OOOO00O0OOO000O00 #line:62
-            O0OOOOO0OOO0O0OO0 .headers ={'os':'android','Version-Code':'1','Client-Version':'1.0.0','datetime':str (datetime .datetime .now ())[:23 ],'Accept':'application/json','Authorization':f'Bearer {O0OOOOO0OOO0O0OO0.token}','Content-Length':'0','Host':'www.xishishequ.com','Connection':'Keep-Alive','Accept-Encoding':'gzip','User-Agent':'okhttp/3.12.13',}#line:75
-        except Exception as OOO0OO0O0OO000OO0 :#line:76
+            OO000OOOO0000OOO0 .token =O00O0O0OO00OO0OO0 #line:62
+            OO000OOOO0000OOO0 .headers ={'os':'android','Version-Code':'1','Client-Version':'1.0.0','datetime':str (datetime .datetime .now ())[:23 ],'Accept':'application/json','Authorization':f'Bearer {OO000OOOO0000OOO0.token}','Content-Length':'0','Host':'www.xishishequ.com','Connection':'Keep-Alive','Accept-Encoding':'gzip','User-Agent':'okhttp/3.12.13',}#line:75
+        except Exception as O0OOO00O00000OO0O :#line:76
             print ('变量格式错误')#line:77
-    def base_info (OOO0O000000O000O0 ):#line:80
+    def base_info (O000O0OO00000OOOO ):#line:80
         try :#line:81
-            OO00OO00OOO0O00OO =requests .request ('get',f'{host}/api/v2/user',headers =OOO0O000000O000O0 .headers ).json ()#line:82
-            if 'id'in OO00OO00OOO0O00OO :#line:84
-                O0OO0OOOO0O0O0OOO =OO00OO00OOO0O00OO ['id']#line:85
-                O0O0OOOOO00O000OO =OO00OO00OOO0O00OO ['name']#line:86
-                print (f'【账号信息】:ID:{O0OO0OOOO0O0O0OOO}丨昵称:{O0O0OOOOO00O000OO}')#line:87
+            O0OOOOOO0O0OO000O =requests .request ('get',f'{host}/api/v2/user',headers =O000O0OO00000OOOO .headers ).json ()#line:82
+            if 'id'in O0OOOOOO0O0OO000O :#line:84
+                OOOO0O0OO0OOO00OO =O0OOOOOO0O0OO000O ['id']#line:85
+                O0OO0O0O0OO0OO000 =O0OOOOOO0O0OO000O ['name']#line:86
+                print (f'【账号信息】:ID:{OOOO0O0OO0OOO00OO}丨昵称:{O0OO0O0O0OO0OO000}')#line:87
                 return True #line:88
             return False #line:89
-        except Exception as O0O000OOOO0O0OO00 :#line:90
+        except Exception as O0OOO00OOOO0O0O0O :#line:90
             print (123 )#line:91
-    def mining_over (OO0OOOOOOO0000OO0 ):#line:94
+    def mining_over (O0O0OOOO0O0OOO000 ):#line:94
         try :#line:95
-            O00OO0OO0OOO0000O =requests .request ('post',f'{host}/api/v2/mining/over',headers =OO0OOOOOOO0000OO0 .headers ).json ()#line:96
-            if 'message'in O00OO0OO0OOO0000O :#line:98
-                print (f'【开启收益】:{O00OO0OO0OOO0000O["message"]}')#line:99
-                if '正在收益中'!=O00OO0OO0OOO0000O ['message']:#line:100
-                    O0OOO0O0000OO0OOO =requests .request ('post',f'{host}/api/v2/mining/start',headers =OO0OOOOOOO0000OO0 .headers ).json ()#line:101
-                    if 'start_mining'in O0OOO0O0000OO0OOO :#line:103
-                        print (f'【开启收益】:{O0OOO0O0000OO0OOO["start_mining"]}')#line:104
-        except Exception as OOO0OO0O00O000OO0 :#line:106
-            print (OOO0OO0O00O000OO0 )#line:107
-    def mining (OOOOO0000O000OOO0 ):#line:111
+            O0O0O00O00O0O0O0O =requests .request ('post',f'{host}/api/v2/mining/over',headers =O0O0OOOO0O0OOO000 .headers ).json ()#line:96
+            if 'message'in O0O0O00O00O0O0O0O :#line:98
+                print (f'【开启收益】:{O0O0O00O00O0O0O0O["message"]}')#line:99
+                if '正在收益中'!=O0O0O00O00O0O0O0O ['message']:#line:100
+                    O0O0OO00O0O0OO0O0 =requests .request ('post',f'{host}/api/v2/mining/start',headers =O0O0OOOO0O0OOO000 .headers ).json ()#line:101
+                    if 'start_mining'in O0O0OO00O0O0OO0O0 :#line:103
+                        print (f'【开启收益】:{O0O0OO00O0O0OO0O0["start_mining"]}')#line:104
+        except Exception as OOO0OOO0O0O00O000 :#line:106
+            print (OOO0OOO0O0O00O000 )#line:107
+    def mining (O00O0OOOO0000OOO0 ):#line:111
         try :#line:112
-            OO0OOO0O0000OO0OO =requests .request ('get',f'{host}/api/v2/mining',headers =OOOOO0000O000OOO0 .headers ).json ()#line:113
-            if 'total_income'in OO0OOO0O0000OO0OO :#line:115
-                OO0000OOOOOO0O00O =OO0OOO0O0000OO0OO ['total_income']#line:116
-                OO0O0O0O0O0OOOOO0 =OO0OOO0O0000OO0OO ['current_income']#line:117
-                O0OOOO00000OO0O0O =float (OO0OOO0O0000OO0OO ['count_down'])/60 #line:118
-                print (f'【收益查询】:总收益:{int(OO0000OOOOOO0O00O)}丨实时收益:{int(OO0O0O0O0O0OOOOO0)}丨收益剩余:{int(O0OOOO00000OO0O0O)}分钟')#line:119
-                if O0OOOO00000OO0O0O <10 :#line:120
-                    time .sleep (OO0O0O0O0O0OOOOO0 )#line:121
+            OO0OOOOOOO0O000O0 =requests .request ('get',f'{host}/api/v2/mining',headers =O00O0OOOO0000OOO0 .headers ).json ()#line:113
+            if 'total_income'in OO0OOOOOOO0O000O0 :#line:115
+                O0O00OO000OO0OO00 =OO0OOOOOOO0O000O0 ['total_income']#line:116
+                O00000O0OOO0000OO =OO0OOOOOOO0O000O0 ['current_income']#line:117
+                O0OO0OOOOO000OOO0 =float (OO0OOOOOOO0O000O0 ['count_down'])/60 #line:118
+                print (f'【收益查询】:总收益:{str(O0O00OO000OO0OO00).split(".")[0]}丨实时收益:{str(O00000O0OOO0000OO).split(".")[0]}丨收益剩余:{int(O0OO0OOOOO000OOO0)}分钟')#line:119
+                if O0OO0OOOOO000OOO0 <10 :#line:120
+                    time .sleep (O00000O0OOO0000OO )#line:121
                     time .sleep (random .randint (3 ,8 ))#line:122
-                    OOOOO0000O000OOO0 .mining_over ()#line:123
-        except Exception as O0O00O0OO0000OO0O :#line:124
-            print (O0O00O0OO0000OO0O )#line:125
+                    O00O0OOOO0000OOO0 .mining_over ()#line:123
+        except Exception as O0O000O0OO0OOO000 :#line:124
+            print (O0O000O0OO0OOO000 )#line:125
 def os_qinglong ():#line:130
     if application in os .environ :#line:131
-        OOOO0000OOOOO0O00 =os .environ [application ].split ('\n')#line:132
-        if len (OOOO0000OOOOO0O00 )>0 :#line:133
-            return OOOO0000OOOOO0O00 #line:134
+        OOO0OOOOO00OO0OOO =os .environ [application ].split ('\n')#line:132
+        if len (OOO0OOOOO00OO0OOO )>0 :#line:133
+            return OOO0OOOOO00OO0OOO #line:134
         else :#line:135
             print (f"{application}变量未启用")#line:136
             print ('脚本退出')#line:137
@@ -114,9 +114,9 @@ def os_qinglong ():#line:130
         return os_built ()#line:141
 def os_built ():#line:144
     if token :#line:145
-        O0O0O00OOOO0O00O0 =token .split ('\n')#line:146
-        if len (O0O0O00OOOO0O00O0 )>0 :#line:147
-            return O0O0O00OOOO0O00O0 #line:148
+        OO00OOOOO00O0O000 =token .split ('\n')#line:146
+        if len (OO00OOOOO00O0O000 )>0 :#line:147
+            return OO00OOOOO00O0O000 #line:148
     else :#line:149
         print (f"内置变量为空")#line:150
         print ('脚本结束')#line:151
