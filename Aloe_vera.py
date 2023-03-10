@@ -8,6 +8,7 @@ try:
     import requests
     import random
     import json
+    import socket
     from notify import send
 except Exception as E:
     t = re.findall("d '(.*?)'", str(E))[0]
@@ -35,155 +36,151 @@ golden_seed =0 #line:6
 msg_list =[]#line:7
 def start ():#line:9
     try :#line:10
-        O00OO000OO0OOOOO0 =json .load (open ("CityEarth_data.json",'r'))['data']#line:11
-        print (f"==========共找到{len(O00OO000OO0OOOOO0)}个账号==========")#line:12
-        for OO0OOOO00O0O0OOOO in O00OO000OO0OOOOO0 :#line:13
-            OOO0O000OO000O0O0 =[]#line:14
-            print (f"------------正在执行第{O00OO000OO0OOOOO0.index(OO0OOOO00O0O0OOOO) + 1}个账号------------")#line:15
-            OO000O0OOO0O00O0O =CityEarth (OO0OOOO00O0O0OOOO ,OOO0O000OO000O0O0 )#line:16
-            if OO000O0OOO0O00O0O .base_info ():#line:18
-                OO000O0OOO0O00O0O .sealing ()#line:20
-                OO000O0OOO0O00O0O .query_to_sell ()#line:22
-                OO000O0OOO0O00O0O .game_map ()#line:24
-                OO000O0OOO0O00O0O .market_sale ()#line:26
-    except Exception as OO0OO0O0O0OO0OO00 :#line:28
-        print (OO0OO0O0O0OO0OO00 )#line:29
-def sign (O0O0O00OOO00000O0 ):#line:35
-    OO0O000000OOOOO00 =hashlib .md5 (O0O0O00OOO00000O0 .encode ()).hexdigest ()#line:36
-    O0O0OO000O00000OO ="scsc%^&*"+OO0O000000OOOOO00 +"19319#$%^&*((*&^%$#@#RFGHJ%^KAfghfg"#line:37
-    OOO0OOOOO00OO0O00 =hashlib .md5 (O0O0OO000O00000OO .encode ()).hexdigest ()#line:38
-    return OOO0OOOOO00OO0O00 #line:39
-def timi_new ():#line:41
-    return str (int (time .time ()*1000 ))#line:42
-class CityEarth :#line:45
-    def __init__ (OO000O0O0O0OOOO0O ,OOOOOO0000000000O ,OO000O0000OO00OOO ):#line:47
-        try :#line:48
-            OO000O0O0O0OOOO0O .msg =OO000O0000OO00OOO #line:49
-            OO000O0O0O0OOOO0O .time =str (time .time ()*1000 ).split ('.')[0 ]#line:50
-            OO000O0O0O0OOOO0O .token =OOOOOO0000000000O ['authorization']#line:51
-        except :#line:52
-            print ('变量格式错误')#line:53
-    def base_info (OO0OO0OOOOOO00OOO ):#line:56
-        try :#line:57
-            OO00O0O0OO00O0000 =f'__{timi_new()}'#line:58
-            O0OO000O0O0O0OOOO ={'source':'scsc','authorization':OO0OO0OOOOOO00OOO .token ,'timestamp':str (timi_new ()),'sign':sign (OO00O0O0OO00O0000 ),'signstring':OO00O0O0OO00O0000 ,'version':version ,'janalytics':'c167f56858dc424ee3d617c9','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:69
-            OO000O0OOOOO00OOO =requests .request ('get',f'{host}/user',headers =O0OO000O0O0O0OOOO ).json ()#line:70
-            if 'status'in OO000O0OOOOO00OOO :#line:72
-                if OO000O0OOOOO00OOO ['status']==200 :#line:73
-                    O0000O0O0O0000OOO =OO000O0OOOOO00OOO ['data']['nickname']#line:74
-                    OO0OOO000O0000OOO =OO000O0OOOOO00OOO ['data']['inner_id']#line:75
-                    OO0O0000O00O0OO00 =OO000O0OOOOO00OOO ['data']['assets']['gold']#line:76
-                    O000O000O000O0O00 =OO000O0OOOOO00OOO ['data']['level']#line:77
-                    print (f'【账号信息】:昵称:{O0000O0O0O0000OOO[:5]}丨ID:{OO0OOO000O0000OOO}丨等级:{O000O000O000O0O00}丨金种子:{str(OO0O0000O00O0OO00).split(".")[0]}')#line:78
-                if OO000O0OOOOO00OOO ['status']==401 :#line:79
-                    print (OO000O0OOOOO00OOO ['message'])#line:80
-                    OO0OO0OOOOOO00OOO .msg .append ('有账号失效了')#line:81
-                    return False #line:82
-                if OO000O0OOOOO00OOO ['status']==500 :#line:83
-                    return False #line:84
-            return True #line:85
-        except Exception as O0OOO0O00O0O0000O :#line:86
-            print (O0OOO0O00O0O0000O )#line:87
-    def sealing (OOO0O000O00OOO00O ):#line:90
-        try :#line:91
-            OO0OOOO00O0OO0OO0 =f'__{timi_new()}'#line:92
-            O0OOO0000O00O0OOO ={'authorization':OOO0O000O00OOO00O .token ,'timestamp':str (timi_new ()),'sign':sign (OO0OOOO00O0OO0OO0 ),'signstring':OO0OOOO00O0OO0OO0 ,'version':version ,'janalytics':'c167f56858dc424ee3d617c9','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:102
-            requests .request ('get',f'{host}/friends/cash-rewards/rank',headers =O0OOO0000O00O0OOO )#line:103
-            requests .request ('get',f'{host}/packsack/list',headers =O0OOO0000O00O0OOO )#line:104
-            requests .request ('get',f'{host}/friends/invited/ad',headers =O0OOO0000O00O0OOO )#line:105
-            requests .request ('get',f'{host}/assets/gold/rank',headers =O0OOO0000O00O0OOO )#line:106
-            requests .request ('get',f'{host}/user',headers =O0OOO0000O00O0OOO )#line:107
-            requests .request ('get',f'{host}/propsraffle/lucky/number',headers =O0OOO0000O00O0OOO )#line:108
-            requests .request ('get',f'{host}/finance/get-power-list',headers =O0OOO0000O00O0OOO )#line:109
-            requests .request ('post',f'{host}/announcement/announcement',headers =O0OOO0000O00O0OOO )#line:110
-            requests .request ('get',f'{host}/game/getAllData',headers =O0OOO0000O00O0OOO )#line:111
-            requests .request ('get',f'{host}/assets',headers =O0OOO0000O00O0OOO )#line:112
-        except Exception as O0OO00O0O0O0O0O00 :#line:113
-            print (O0OO00O0O0O0O0O00 )#line:114
-    def market_sale (OOO00OO0OO0000OOO ):#line:117
-        try :#line:118
-            OOOOOOOO0OOO000OO =timi_new ()#line:119
-            OO000OO0O0OO0O00O =f'type=crop__{OOOOOOOO0OOO000OO}'#line:120
-            O00O0O0O00O00O0O0 ={'source':'scsc','authorization':OOO00OO0OO0000OOO .token ,'timestamp':str (OOOOOOOO0OOO000OO ),'sign':sign (OO000OO0O0OO0O00O ),'signstring':OO000OO0O0OO0O00O ,'version':version ,'janalytics':'c167f56858dc424ee3d617c9','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:131
-            O000OO00O00O00000 =requests .request ('get',f'{host}/market/get-allow-sale-material-list?type=crop',headers =O00O0O0O00O00O0O0 ).json ()#line:132
-            if 'status'in O000OO00O00O00000 :#line:134
-                if O000OO00O00O00000 ['status']==200 :#line:135
-                    if O000OO00O00O00000 ['data']['rows']:#line:136
-                        OOO0OOOOO0000OO00 =O000OO00O00O00000 ['data']['rows'][0 ]['packsackItemId']#line:137
-                        O00O00O00O0O0O0O0 =O000OO00O00O00000 ['data']['rows'][0 ]['quantity']#line:138
-                        O0OOO0O00000O000O =float (price )-float (random .randint (1 ,price_floating )*0.001 )#line:139
-                        OO0000O00O0OO0OO0 =f'_packsackItemId={OOO0OOOOO0000OO00}&price={str(O0OOO0O00000O000O)[:8]}&quantity={O00O00O00O0O0O0O0}_{OOOOOOOO0OOO000OO}'#line:140
-                        OOO0O0OOO000O0O00 ={'source':'scsc','authorization':OOO00OO0OO0000OOO .token ,'timestamp':str (OOOOOOOO0OOO000OO ),'sign':sign (OO0000O00O0OO0OO0 ),'signstring':OO0000O00O0OO0OO0 ,'version':version ,'janalytics':'c167f56858dc424ee3d617c9','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:151
-                        OO0O0OOOOOOOOO00O ={"packsackItemId":OOO0OOOOO0000OO00 ,"price":str (O0OOO0O00000O000O )[:8 ],"quantity":str (O00O00O00O0O0O0O0 )}#line:156
-                        OOO0OOOO0O00OO00O =requests .request ('post',f'{host}/market/sale',headers =OOO0O0OOO000O0O00 ,data =OO0O0OOOOOOOOO00O ).json ()#line:157
-                        if 'status'in OOO0OOOO0O00OO00O :#line:159
-                            if OOO0OOOO0O00OO00O ['status']==200 :#line:160
-                                print (f'【上架芦荟】:数量:{O00O00O00O0O0O0O0}丨价格:{str(O0OOO0O00000O000O)[:8]}')#line:161
-        except Exception as O00O0OOO000OO000O :#line:162
-            print (O00O0OOO000OO000O )#line:163
-    def game_map (O0O0OOOO000O0O000 ):#line:166
-        try :#line:167
-            O000OOO000OO0O000 =f'__{timi_new()}'#line:168
-            OOO0000O0000OO000 ={'source':'scsc','authorization':O0O0OOOO000O0O000 .token ,'timestamp':str (timi_new ()),'sign':sign (O000OOO000OO0O000 ),'signstring':O000OOO000OO0O000 ,'version':version ,'janalytics':'c167f56858dc424ee3d617c9','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:179
-            O0O00OO00O000O00O =requests .request ('get',f'{host}/game/map',headers =OOO0000O0000OO000 ).json ()#line:180
-            if 'status'in O0O00OO00O000O00O :#line:182
-                if O0O00OO00O000O00O ['status']==200 :#line:183
-                    for O0O0O00000OOOOOO0 in O0O00OO00O000O00O ['data']['list'][0 ]['crops']:#line:184
-                        OO000O0O0OOO0O0O0 =O0O0O00000OOOOOO0 ['level']#line:186
-                        if OO000O0O0OOO0O0O0 ==41 :#line:187
-                            O00O0OO0O000OOO0O =O0O0O00000OOOOOO0 ['crop_name']#line:188
-                            O00OOOOO0OO000O0O =O0O0O00000OOOOOO0 ['count']#line:189
-                            if O00OOOOO0OO000O0O >0 :#line:190
-                                print (f'【农业资产】:{O00O0OO0O000OOO0O}丨数量:{O00OOOOO0OO000O0O}')#line:191
-        except Exception as OOO0OOO0O0O0OO00O :#line:192
-            print (OOO0OOO0O0O0OO00O )#line:193
-    def query_to_sell (OOOO00000000000O0 ):#line:197
-        try :#line:198
-            O000OO00OO00OOO0O =f'page=1&pageSize=10&type=crop__{timi_new()}'#line:199
-            O00OO0O0OO0O0OOOO ={'source':'scsc','authorization':OOOO00000000000O0 .token ,'timestamp':str (timi_new ()),'sign':sign (O000OO00OO00OOO0O ),'signstring':O000OO00OO00OOO0O ,'version':version ,'janalytics':'c167f56858dc424ee3d617c9','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:210
-            OOO0OOOOOOOO0O00O =requests .request ('get',f'{host}/market/get-owner-sale-list?page=1&pageSize=10&type=crop',headers =O00OO0O0OO0O0OOOO ).json ()#line:211
-            if 'status'in OOO0OOOOOOOO0O00O :#line:213
-                if OOO0OOOOOOOO0O00O ['status']==200 :#line:214
-                    for O00O0O00OOOO0O0O0 in OOO0OOOOOOOO0O00O ['data']['rows']:#line:215
-                        OOO000OO00OOOO0OO =O00O0O00OOOO0O0O0 ['materialKey']#line:216
-                        OO00000OOO0OO0OO0 =O00O0O00OOOO0O0O0 ['quantity']#line:217
-                        OOOOOOOOOO0000OOO =O00O0O00OOOO0O0O0 ['price']#line:218
-                        O0O0OO00OOO0O0O00 =O00O0O00OOOO0O0O0 ['saleState']#line:219
-                        if O0O0OO00OOO0O0O00 ==0 :#line:220
-                            print (f'【出售订单】:名称:{OOO000OO00OOOO0OO}丨数量:{OO00000OOO0OO0OO0}丨价格:{OOOOOOOOOO0000OOO}')#line:221
-                            O00OO0000000000OO =O00O0O00OOOO0O0O0 ['id']#line:222
-                            OOOO00000000000O0 .cacel_sale (O00OO0000000000OO )#line:223
-        except Exception as OO0O0OOOO00OO000O :#line:229
-            print (OO0O0OOOO00OO000O )#line:230
-    def cacel_sale (OO000O0OO0OO0OO00 ,O0OOO00OO00O00OOO ):#line:234
-        try :#line:235
-            OOO0O000O00O00O0O =f'_saleId={O0OOO00OO00O00OOO}_{timi_new()}'#line:236
-            O000OO00000OOOO00 ={'source':'scsc','authorization':OO000O0OO0OO0OO00 .token ,'timestamp':str (timi_new ()),'sign':sign (OOO0O000O00O00O0O ),'signstring':OOO0O000O00O00O0O ,'version':version ,'janalytics':'c167f56858dc424ee3d617c9','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:247
-            OO00O00OO00O00O00 ={"saleId":O0OOO00OO00O00OOO }#line:250
-            O00OOOO00O0000OO0 =requests .request ('post',f'{host}/market/cacel-sale',headers =O000OO00000OOOO00 ,data =OO00O00OO00O00O00 ).json ()#line:251
-            if 'status'in O00OOOO00O0000OO0 :#line:253
-                if O00OOOO00O0000OO0 ['status']==200 :#line:254
-                    print (f'【下架出售】:{O00OOOO00O0000OO0["data"]}')#line:255
-        except Exception as O000OO00000OO000O :#line:256
-            print (O000OO00000OO000O )#line:257
-def os_qinglong ():#line:260
-    if application in os .environ :#line:261
-        O0O000O0000O0O00O =os .environ [application ].split ('\n')#line:262
-        if len (O0O000O0000O0O00O )>0 :#line:263
-            return O0O000O0000O0O00O #line:264
-        else :#line:265
-            print (f"{application}变量未启用")#line:266
-            print ('脚本退出')#line:267
-            sys .exit (1 )#line:268
-    else :#line:269
-        print (f"{application}变量为空\n青龙在配置文件添加  export {application}='authorization&绑定邀请码'\n尝试使用内置变量")#line:270
-        if token :#line:271
-            O0O000O0000O0O00O =token .split ('\n')#line:272
-            if len (O0O000O0000O0O00O )>0 :#line:273
-                return O0O000O0000O0O00O #line:274
-        else :#line:275
-            print (f"内置变量为空")#line:276
-            print ('脚本结束')#line:277
-            sys .exit (0 )#line:278
-if __name__ =='__main__':#line:281
-    start ()#line:282
+        print (f'你的卡密是：{OO00OO0OO0OO00OO00o0()}')#line:11
+        O000OO0O00OO00O00 ()#line:12
+        O00O0OOOOO0O00000 =json .load (open ("CityEarth_data.json",'r'))['data']#line:13
+        print (f"==========共找到{len(O00O0OOOOO0O00000)}个账号==========")#line:14
+        for OOOO00O00O00OOOOO in O00O0OOOOO0O00000 :#line:15
+            OO0O0O0O0OOOO00OO =[]#line:16
+            print (f"------------正在执行第{O00O0OOOOO0O00000.index(OOOO00O00O00OOOOO) + 1}个账号------------")#line:17
+            O00O00OO0O00O0O00 =CityEarth (OOOO00O00O00OOOOO ,OO0O0O0O0OOOO00OO )#line:18
+            if O00O00OO0O00O0O00 .base_info ():#line:20
+                O00O00OO0O00O0O00 .sealing ()#line:22
+                O00O00OO0O00O0O00 .query_to_sell ()#line:24
+                O00O00OO0O00O0O00 .game_map ()#line:26
+                O00O00OO0O00O0O00 .market_sale ()#line:28
+    except Exception as OO00OO0O0OOOOO0O0 :#line:30
+        print (OO00OO0O0OOOOO0O0 )#line:31
+def O000OO0O00OO00O00 ():#line:34
+    if OO00OO0OO0OO00OO00o0 ()in gitee_validation ()['validation']:#line:35
+        pass #line:36
+    else :#line:37
+        exit (1 )#line:38
+def kvkv ():#line:39
+    return '/vastzzzl/vastzzzl/raw/master'#line:40
+def sign (O0OOO0OOOO0O00000 ):#line:43
+    OO0O000O0OO0OO0OO =hashlib .md5 (O0OOO0OOOO0O00000 .encode ()).hexdigest ()#line:44
+    O000O00OO0OOO0O0O ="scsc%^&*"+OO0O000O0OO0OO0OO +"19319#$%^&*((*&^%$#@#RFGHJ%^KAfghfg"#line:45
+    OO0O00000OOO0O00O =hashlib .md5 (O000O00OO0OOO0O0O .encode ()).hexdigest ()#line:46
+    return OO0O00000OOO0O00O #line:47
+def timi_new ():#line:49
+    return str (int (time .time ()*1000 ))#line:50
+class CityEarth :#line:53
+    def __init__ (OO0O0OOO0000OO0OO ,OO00OOOOO000OOO00 ,O0O00O0O0000OOOO0 ):#line:55
+        try :#line:56
+            OO0O0OOO0000OO0OO .msg =O0O00O0O0000OOOO0 #line:57
+            OO0O0OOO0000OO0OO .time =str (time .time ()*1000 ).split ('.')[0 ]#line:58
+            OO0O0OOO0000OO0OO .token =OO00OOOOO000OOO00 ['authorization']#line:59
+        except :#line:60
+            print ('变量格式错误')#line:61
+    def base_info (OOOOO0000OOO0O000 ):#line:64
+        try :#line:65
+            OO0O00OO0O0OO0OO0 =f'__{timi_new()}'#line:66
+            OOO000O0OO0OOOOO0 ={'source':'scsc','authorization':OOOOO0000OOO0O000 .token ,'timestamp':str (timi_new ()),'sign':sign (OO0O00OO0O0OO0OO0 ),'signstring':OO0O00OO0O0OO0OO0 ,'version':version ,'janalytics':'c167f56858dc424ee3d617c9','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:77
+            OO00O0O00O0OO0000 =requests .request ('get',f'{host}/user',headers =OOO000O0OO0OOOOO0 ).json ()#line:78
+            if 'status'in OO00O0O00O0OO0000 :#line:80
+                if OO00O0O00O0OO0000 ['status']==200 :#line:81
+                    OO00O0O0O000O0OOO =OO00O0O00O0OO0000 ['data']['nickname']#line:82
+                    OO00OO0O000O0O00O =OO00O0O00O0OO0000 ['data']['inner_id']#line:83
+                    O0OO0O0O0OOOOOO00 =OO00O0O00O0OO0000 ['data']['assets']['gold']#line:84
+                    O00O0OOOO0O0O00O0 =OO00O0O00O0OO0000 ['data']['level']#line:85
+                    print (f'【账号信息】:昵称:{OO00O0O0O000O0OOO[:5]}丨ID:{OO00OO0O000O0O00O}丨等级:{O00O0OOOO0O0O00O0}丨金种子:{str(O0OO0O0O0OOOOOO00).split(".")[0]}')#line:86
+                if OO00O0O00O0OO0000 ['status']==401 :#line:87
+                    print (OO00O0O00O0OO0000 ['message'])#line:88
+                    OOOOO0000OOO0O000 .msg .append ('有账号失效了')#line:89
+                    return False #line:90
+                if OO00O0O00O0OO0000 ['status']==500 :#line:91
+                    return False #line:92
+            return True #line:93
+        except Exception as O000OO0OOO0OO00O0 :#line:94
+            print (O000OO0OOO0OO00O0 )#line:95
+    def sealing (O0OO00OO00OOOOO00 ):#line:98
+        try :#line:99
+            O0O00O000000OO0O0 =f'__{timi_new()}'#line:100
+            OO000OO0O0OO00O00 ={'authorization':O0OO00OO00OOOOO00 .token ,'timestamp':str (timi_new ()),'sign':sign (O0O00O000000OO0O0 ),'signstring':O0O00O000000OO0O0 ,'version':version ,'janalytics':'c167f56858dc424ee3d617c9','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:110
+            requests .request ('get',f'{host}/friends/cash-rewards/rank',headers =OO000OO0O0OO00O00 )#line:111
+            requests .request ('get',f'{host}/packsack/list',headers =OO000OO0O0OO00O00 )#line:112
+            requests .request ('get',f'{host}/friends/invited/ad',headers =OO000OO0O0OO00O00 )#line:113
+            requests .request ('get',f'{host}/assets/gold/rank',headers =OO000OO0O0OO00O00 )#line:114
+            requests .request ('get',f'{host}/user',headers =OO000OO0O0OO00O00 )#line:115
+            requests .request ('get',f'{host}/propsraffle/lucky/number',headers =OO000OO0O0OO00O00 )#line:116
+            requests .request ('get',f'{host}/finance/get-power-list',headers =OO000OO0O0OO00O00 )#line:117
+            requests .request ('post',f'{host}/announcement/announcement',headers =OO000OO0O0OO00O00 )#line:118
+            requests .request ('get',f'{host}/game/getAllData',headers =OO000OO0O0OO00O00 )#line:119
+            requests .request ('get',f'{host}/assets',headers =OO000OO0O0OO00O00 )#line:120
+        except Exception as OO0OO00O0O00OOOO0 :#line:121
+            print (OO0OO00O0O00OOOO0 )#line:122
+    def market_sale (OO0000O0OO000OO0O ):#line:125
+        try :#line:126
+            O0000O0000O00OO0O =timi_new ()#line:127
+            O0O00O00O00O0OO0O =f'type=crop__{O0000O0000O00OO0O}'#line:128
+            OO000O0OO000000OO ={'source':'scsc','authorization':OO0000O0OO000OO0O .token ,'timestamp':str (O0000O0000O00OO0O ),'sign':sign (O0O00O00O00O0OO0O ),'signstring':O0O00O00O00O0OO0O ,'version':version ,'janalytics':'c167f56858dc424ee3d617c9','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:139
+            O000OOOOO0OOOOOO0 =requests .request ('get',f'{host}/market/get-allow-sale-material-list?type=crop',headers =OO000O0OO000000OO ).json ()#line:140
+            if 'status'in O000OOOOO0OOOOOO0 :#line:142
+                if O000OOOOO0OOOOOO0 ['status']==200 :#line:143
+                    if O000OOOOO0OOOOOO0 ['data']['rows']:#line:144
+                        O0O0OO0OO0O0OO0OO =O000OOOOO0OOOOOO0 ['data']['rows'][0 ]['packsackItemId']#line:145
+                        OOOOO00O00O0OO0OO =O000OOOOO0OOOOOO0 ['data']['rows'][0 ]['quantity']#line:146
+                        O0O00000O000OOOOO =float (price )-float (random .randint (1 ,price_floating )*0.001 )#line:147
+                        O00O00OO00O000OO0 =f'_packsackItemId={O0O0OO0OO0O0OO0OO}&price={str(O0O00000O000OOOOO)[:8]}&quantity={OOOOO00O00O0OO0OO}_{O0000O0000O00OO0O}'#line:148
+                        OOOOO0O00O0000O00 ={'source':'scsc','authorization':OO0000O0OO000OO0O .token ,'timestamp':str (O0000O0000O00OO0O ),'sign':sign (O00O00OO00O000OO0 ),'signstring':O00O00OO00O000OO0 ,'version':version ,'janalytics':'c167f56858dc424ee3d617c9','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:159
+                        OO0OOOO00O0O0OO00 ={"packsackItemId":O0O0OO0OO0O0OO0OO ,"price":str (O0O00000O000OOOOO )[:8 ],"quantity":str (OOOOO00O00O0OO0OO )}#line:164
+                        O0O00OO00O0O00O00 =requests .request ('post',f'{host}/market/sale',headers =OOOOO0O00O0000O00 ,data =OO0OOOO00O0O0OO00 ).json ()#line:165
+                        if 'status'in O0O00OO00O0O00O00 :#line:167
+                            if O0O00OO00O0O00O00 ['status']==200 :#line:168
+                                print (f'【上架芦荟】:数量:{OOOOO00O00O0OO0OO}丨价格:{str(O0O00000O000OOOOO)[:8]}')#line:169
+        except Exception as OOO0O00O0000OO0O0 :#line:170
+            print (OOO0O00O0000OO0O0 )#line:171
+    def game_map (OO0O0OO0000OOO0OO ):#line:174
+        try :#line:175
+            OOOO000OOOO0O00O0 =f'__{timi_new()}'#line:176
+            O0000O0O00O0000O0 ={'source':'scsc','authorization':OO0O0OO0000OOO0OO .token ,'timestamp':str (timi_new ()),'sign':sign (OOOO000OOOO0O00O0 ),'signstring':OOOO000OOOO0O00O0 ,'version':version ,'janalytics':'c167f56858dc424ee3d617c9','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:187
+            OOO0OO0O0OOOOOO0O =requests .request ('get',f'{host}/game/map',headers =O0000O0O00O0000O0 ).json ()#line:188
+            if 'status'in OOO0OO0O0OOOOOO0O :#line:190
+                if OOO0OO0O0OOOOOO0O ['status']==200 :#line:191
+                    for OOO0000OO0O00OO0O in OOO0OO0O0OOOOOO0O ['data']['list'][0 ]['crops']:#line:192
+                        O00OOOOOOO000O0OO =OOO0000OO0O00OO0O ['level']#line:194
+                        if O00OOOOOOO000O0OO ==41 :#line:195
+                            O000OO0000O0O00OO =OOO0000OO0O00OO0O ['crop_name']#line:196
+                            OO00O0O000000O0OO =OOO0000OO0O00OO0O ['count']#line:197
+                            if OO00O0O000000O0OO >0 :#line:198
+                                print (f'【农业资产】:{O000OO0000O0O00OO}丨数量:{OO00O0O000000O0OO}')#line:199
+        except Exception as OOOOOO0O000OOO0OO :#line:200
+            print (OOOOOO0O000OOO0OO )#line:201
+    def query_to_sell (O00000O0O0O00OOOO ):#line:205
+        try :#line:206
+            OO00000OO000O0OO0 =f'page=1&pageSize=10&type=crop__{timi_new()}'#line:207
+            OOOOOO0O00OO0OO00 ={'source':'scsc','authorization':O00000O0O0O00OOOO .token ,'timestamp':str (timi_new ()),'sign':sign (OO00000OO000O0OO0 ),'signstring':OO00000OO000O0OO0 ,'version':version ,'janalytics':'c167f56858dc424ee3d617c9','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:218
+            OO0OOO0OOO0OO0OOO =requests .request ('get',f'{host}/market/get-owner-sale-list?page=1&pageSize=10&type=crop',headers =OOOOOO0O00OO0OO00 ).json ()#line:219
+            if 'status'in OO0OOO0OOO0OO0OOO :#line:221
+                if OO0OOO0OOO0OO0OOO ['status']==200 :#line:222
+                    for OO00OO00O0OO0OOOO in OO0OOO0OOO0OO0OOO ['data']['rows']:#line:223
+                        OO0O0O0O00O0O0O0O =OO00OO00O0OO0OOOO ['materialKey']#line:224
+                        OOOO0OOO00OO000OO =OO00OO00O0OO0OOOO ['quantity']#line:225
+                        O0000O0O00OO0OO0O =OO00OO00O0OO0OOOO ['price']#line:226
+                        OOOOO0000O0OO0OO0 =OO00OO00O0OO0OOOO ['saleState']#line:227
+                        if OOOOO0000O0OO0OO0 ==0 :#line:228
+                            print (f'【出售订单】:名称:{OO0O0O0O00O0O0O0O}丨数量:{OOOO0OOO00OO000OO}丨价格:{O0000O0O00OO0OO0O}')#line:229
+                            O0OOO0000O0O0O000 =OO00OO00O0OO0OOOO ['id']#line:230
+                            O00000O0O0O00OOOO .cacel_sale (O0OOO0000O0O0O000 )#line:231
+        except Exception as O0O000O0OO0OOOOOO :#line:237
+            print (O0O000O0OO0OOOOOO )#line:238
+    def cacel_sale (OOOOO000OO00OO00O ,O00O00O0000000OO0 ):#line:242
+        try :#line:243
+            O00O000O00O00OOO0 =f'_saleId={O00O00O0000000OO0}_{timi_new()}'#line:244
+            O0O000OOOO00O000O ={'source':'scsc','authorization':OOOOO000OO00OO00O .token ,'timestamp':str (timi_new ()),'sign':sign (O00O000O00O00OOO0 ),'signstring':O00O000O00O00OOO0 ,'version':version ,'janalytics':'c167f56858dc424ee3d617c9','Host':'scsc.sc19319.com','User-Agent':'okhttp/4.9.1',}#line:255
+            OOO000O0OOOO00O00 ={"saleId":O00O00O0000000OO0 }#line:258
+            OOOO0O000000OOOOO =requests .request ('post',f'{host}/market/cacel-sale',headers =O0O000OOOO00O000O ,data =OOO000O0OOOO00O00 ).json ()#line:259
+            if 'status'in OOOO0O000000OOOOO :#line:261
+                if OOOO0O000000OOOOO ['status']==200 :#line:262
+                    print (f'【下架出售】:{OOOO0O000000OOOOO["data"]}')#line:263
+        except Exception as OOOOOO0OO0OO0O0O0 :#line:264
+            print (OOOOOO0OO0OO0O0O0 )#line:265
+def OO00OO0OO0OO00OO00o0 ():#line:266
+    return hashlib .md5 ((socket .gethostbyname (get_ip ())+socket .getfqdn (socket .gethostname ())).encode ('utf-8')).hexdigest ().upper ()#line:267
+def get_ip ():#line:269
+    return requests .request ('get','https://www.xiequ.cn/OnlyIp.aspx?yyy=123').text #line:270
+def gitee_validation ():#line:272
+    return requests .request ('get',f'{git}{kvkv()}/validation').json ()#line:273
+if __name__ =='__main__':#line:278
+    start ()#line:279
