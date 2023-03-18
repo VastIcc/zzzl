@@ -9,6 +9,7 @@ except Exception as E:
 """
 @ cron: 10,25 0,12 * * *
 @ new Env('千层塔会员版')
+@ 千层会员版非会员不可用
 @ 项目地址  https://qct.qitusky.cn/invite/?invite_code=1476
 @ 抓取  https://qct.qitusky.cn 的ba-user-token值
 @ 青龙变量 export qc_token="token&宝箱ID&赠送ID"   1普通宝箱 2白银宝箱 3黄金宝箱 4神秘宝箱 5炫彩宝箱  多号换行
