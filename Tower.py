@@ -7,13 +7,13 @@ except Exception as E:
     sys.exit()
 
 """
-@ cron: 10,25 0,12 * * *
+@ cron: */15 0,8-23 * * *
 @ new Env('千层塔会员版')
 @ 千层会员版非会员不可用
 @ 项目地址  https://qct.qitusky.cn/invite/?invite_code=1476
 @ 抓取  https://qct.qitusky.cn 的ba-user-token值
 @ 青龙变量 export qc_token="token&宝箱ID&赠送ID"   1普通宝箱 2白银宝箱 3黄金宝箱 4神秘宝箱 5炫彩宝箱  多号换行
-@ 版本 0.8
+@ 版本 0.9
 """
 ##################################配置区##################################
 score_record = False        # 赠送记录
@@ -30,9 +30,9 @@ host ='https://qct.qitusky.cn'#line:1
 git ='https://gitee.com'#line:2
 def os_qinglong ():#line:3
     if application in os .environ :#line:4
-        O0OO00OOO0O00OO00 =os .environ [application ].split ('\n')#line:5
-        if len (O0OO00OOO0O00OO00 )>0 :#line:6
-            return O0OO00OOO0O00OO00 #line:7
+        O0000OOOOO000000O =os .environ [application ].split ('\n')#line:5
+        if len (O0000OOOOO000000O )>0 :#line:6
+            return O0000OOOOO000000O #line:7
         else :#line:8
             print (f"{application}变量未启用")#line:9
             print ('脚本退出')#line:10
@@ -42,9 +42,9 @@ def os_qinglong ():#line:3
         return os_built ()#line:14
 def os_built ():#line:17
     if token :#line:18
-        O000O0OO00000OOO0 =token .split ('\n')#line:19
-        if len (O000O0OO00000OOO0 )>0 :#line:20
-            return O000O0OO00000OOO0 #line:21
+        OO00O00000O0OOO0O =token .split ('\n')#line:19
+        if len (OO00O00000O0OOO0O )>0 :#line:20
+            return OO00O00000O0OOO0O #line:21
     else :#line:22
         print (f"内置变量为空")#line:23
         print ('脚本结束')#line:24
@@ -56,247 +56,251 @@ def gitee_validation ():#line:28
         sys .exit (0 )#line:32
 def update_the_validation ():#line:36
     try :#line:37
-        O00O0O000000O0OOO =gitee_validation ()#line:38
-        if version_of_the_validation ()<O00O0O000000O0OOO ['Tower']['edition']:#line:39
-            print (f'当前脚本名字: {O00O0O000000O0OOO["Tower"]["text"]}')#line:40
-            print (f'当前版本=>> {version_of_the_validation()}'+f'丨远程版本=>> {O00O0O000000O0OOO["Tower"]["edition"]} 请及时更新至最新版  ❌')#line:41
-            print (f'更新内容=>> {O00O0O000000O0OOO["Tower"]["content"]}')#line:42
+        OO0OO0OOOOO0O00OO =gitee_validation ()#line:38
+        if version_of_the_validation ()<OO0OO0OOOOO0O00OO ['Tower']['edition']:#line:39
+            print (f'当前脚本名字: {OO0OO0OOOOO0O00OO["Tower"]["text"]}')#line:40
+            print (f'当前版本=>> {version_of_the_validation()}'+f'丨远程版本=>> {OO0OO0OOOOO0O00OO["Tower"]["edition"]} 请及时更新至最新版  ❌')#line:41
+            print (f'更新内容=>> {OO0OO0OOOOO0O00OO["Tower"]["content"]}')#line:42
         else :#line:43
-            print (f'当前脚本名字: {O00O0O000000O0OOO["Tower"]["text"]}')#line:44
-            print (f'当前版本=>> {version_of_the_validation()}'+f'丨远程版本=>> {O00O0O000000O0OOO["Tower"]["edition"]}   ✅')#line:45
-            print (f'更新内容=>> {O00O0O000000O0OOO["Tower"]["content"]}')#line:46
-    except Exception as O0OOOO0OOOO0OO0OO :#line:47
-        print (O0OOOO0OOOO0OO0OO )#line:48
+            print (f'当前脚本名字: {OO0OO0OOOOO0O00OO["Tower"]["text"]}')#line:44
+            print (f'当前版本=>> {version_of_the_validation()}'+f'丨远程版本=>> {OO0OO0OOOOO0O00OO["Tower"]["edition"]}   ✅')#line:45
+            print (f'更新内容=>> {OO0OO0OOOOO0O00OO["Tower"]["content"]}')#line:46
+    except Exception as O0OOOOOO0O0OOO00O :#line:47
+        print (O0OOOOOO0O0OOO00O )#line:48
 class Template :#line:51
-    def __init__ (O0OO0O0O000000O0O ,OO0OO0OOO00OOOOO0 ):#line:53
+    def __init__ (OOO0O0O0OO0OOO000 ,OO0000O0OO0OOO00O ):#line:53
         try :#line:54
-            O0OO0O0O000000O0O .token =OO0OO0OOO00OOOOO0 .split ('&')[0 ]#line:55
-            O0OO0O0O000000O0O .box =OO0OO0OOO00OOOOO0 .split ('&')[1 ]#line:56
-            O0OO0O0O000000O0O .present_id =OO0OO0OOO00OOOOO0 .split ('&')[2 ]#line:57
-            O0OO0O0O000000O0O .headers ={'user-agent':'Dart/2.18 (dart:io)','app-versions':versions ,'accept-encoding':'gzip','host':'qct.qitusky.cn','resource':'android','content-type':'application/x-www-form-urlencoded;charset=utf-8','ba-user-token':O0OO0O0O000000O0O .token ,'server':'true','phone-type':'android',}#line:69
+            OOO0O0O0OO0OOO000 .token =OO0000O0OO0OOO00O .split ('&')[0 ]#line:55
+            OOO0O0O0OO0OOO000 .box =OO0000O0OO0OOO00O .split ('&')[1 ]#line:56
+            OOO0O0O0OO0OOO000 .present_id =OO0000O0OO0OOO00O .split ('&')[2 ]#line:57
+            OOO0O0O0OO0OOO000 .headers ={'user-agent':'Dart/2.18 (dart:io)','app-versions':versions ,'accept-encoding':'gzip','host':'qct.qitusky.cn','resource':'android','content-type':'application/x-www-form-urlencoded;charset=utf-8','ba-user-token':OOO0O0O0OO0OOO000 .token ,'server':'true','phone-type':'android',}#line:69
         except :#line:70
             print ('变量格式错误')#line:71
-    def base_info (O000OO000O0OO0O00 ):#line:74
+    def base_info (O0OO0O000OOOO0O0O ):#line:74
         global score #line:75
         try :#line:76
-            OOOOO0000OOO00000 =requests .request ('post',f'{host}/api/User/info',headers =O000OO000O0OO0O00 .headers ).json ()#line:77
-            if 'code'in OOOOO0000OOO00000 :#line:79
-                if OOOOO0000OOO00000 ['code']==1 :#line:80
-                    O000O00OOO00O0OO0 =OOOOO0000OOO00000 ['data']['nickname']#line:81
-                    OOO0OO0OO00O000O0 =OOOOO0000OOO00000 ['data']['id']#line:82
-                    score =OOOOO0000OOO00000 ['data']['score']#line:83
-                    print (f'【账号信息】:昵称:{O000O00OOO00O0OO0[:6]}丨ID:{OOO0OO0OO00O000O0}丨金币:{str(score)[:5]}')#line:84
-                if OOOOO0000OOO00000 ['code']==302 :#line:85
+            OOO000O00OO000O00 =requests .request ('post',f'{host}/api/User/info',headers =O0OO0O000OOOO0O0O .headers ).json ()#line:77
+            if 'code'in OOO000O00OO000O00 :#line:79
+                if OOO000O00OO000O00 ['code']==1 :#line:80
+                    OOOOO0OO0O0OO00OO =OOO000O00OO000O00 ['data']['nickname']#line:81
+                    OO0OOOO0OOO0OO0OO =OOO000O00OO000O00 ['data']['id']#line:82
+                    score =OOO000O00OO000O00 ['data']['score']#line:83
+                    print (f'【账号信息】:昵称:{OOOOO0OO0O0OO00OO[:6]}丨ID:{OO0OOOO0OOO0OO0OO}丨金币:{str(score)[:5]}')#line:84
+                if OOO000O00OO000O00 ['code']==302 :#line:85
                     return False #line:86
             return True #line:87
-        except Exception as O0OOO0OO0000000O0 :#line:88
-            print (O0OOO0OO0000000O0 )#line:89
-    def playInfo (O0OOOOOO0OO0OO0O0 ):#line:92
+        except Exception as O0O0O0OOO0000000O :#line:88
+            print (O0O0O0OOO0000000O )#line:89
+    def playInfo (O00O000O0OO00OO0O ):#line:92
         try :#line:93
-            OO000OOO0O0OOO00O =requests .request ('post',f'{host}/api/Game/playInfo',headers =O0OOOOOO0OO0OO0O0 .headers ).json ()#line:94
-            if 'code'in OO000OOO0O0OOO00O :#line:96
-                if OO000OOO0O0OOO00O ['code']==1 :#line:97
-                    O0O00OO00O0O00000 =OO000OOO0O0OOO00O ['data']['play_tier']#line:98
-                    O0O000OOO0O00OOOO =OO000OOO0O0OOO00O ['data']['play_tier_need_money']#line:99
-                    OOOOO00O0O0OO0000 =OO000OOO0O0OOO00O ['data']['user_money']#line:100
-                    O00OO00OO0OOO000O =OO000OOO0O0OOO00O ['data']['play_finish_money']#line:101
-                    O00OO000OOOO00OOO =OO000OOO0O0OOO00O ['data']['surplus_play_nub']#line:102
-                    print (f'【参与闯关】:层数:{O0O00OO00O0O00000}丨剩余:{O00OO000OOOO00OOO}丨花费:{O0O000OOO0O00OOOO}丨预计:{O00OO00OO0OOO000O}')#line:103
-                    if float (O0O000OOO0O00OOOO )<float (OOOOO00O0O0OO0000 ):#line:104
-                        if O00OO000OOOO00OOO >0 :#line:105
-                            O0OOOOOO0OO0OO0O0 .Game_index ('1')#line:106
+            OO00OOO0OO00O00O0 =requests .request ('post',f'{host}/api/Game/playInfo',headers =O00O000O0OO00OO0O .headers ).json ()#line:94
+            if 'code'in OO00OOO0OO00O00O0 :#line:96
+                if OO00OOO0OO00O00O0 ['code']==1 :#line:97
+                    OO0O0O00O00OOOOOO =OO00OOO0OO00O00O0 ['data']['play_tier']#line:98
+                    O0OOO0000000O0000 =OO00OOO0OO00O00O0 ['data']['play_tier_need_money']#line:99
+                    OOOOOO0OOO0O00OO0 =OO00OOO0OO00O00O0 ['data']['user_money']#line:100
+                    O000O00000O00O000 =OO00OOO0OO00O00O0 ['data']['play_finish_money']#line:101
+                    OOOOOO0OO0O00OO0O =OO00OOO0OO00O00O0 ['data']['surplus_play_nub']#line:102
+                    print (f'【参与闯关】:层数:{OO0O0O00O00OOOOOO}丨剩余:{OOOOOO0OO0O00OO0O}丨花费:{O0OOO0000000O0000}丨预计:{O000O00000O00O000}')#line:103
+                    if float (O0OOO0000000O0000 )<float (OOOOOO0OOO0O00OO0 ):#line:104
+                        if OOOOOO0OO0O00OO0O >0 :#line:105
+                            O00O000O0OO00OO0O .Game_index ('1')#line:106
                         else :#line:107
-                            O0OOOOOO0OO0OO0O0 .Game_index ('2')#line:108
+                            O00O000O0OO00OO0O .Game_index ('2')#line:108
                     else :#line:109
-                        O0OOOOOO0OO0OO0O0 .Game_index ('2')#line:110
-        except Exception as OO0O000O00OO0O0OO :#line:112
-            print (OO0O000O00OO0O0OO )#line:113
-    def setAutoPlay (O0000OO0OO000OO00 ):#line:116
+                        O00O000O0OO00OO0O .Game_index ('2')#line:110
+        except Exception as O000000000O00OO0O :#line:112
+            print (O000000000O00OO0O )#line:113
+    def setAutoPlay (O00OO0000OOO0O0OO ):#line:116
         try :#line:117
-            OOOOO00OOOOO00OO0 ={'state':'1'}#line:120
-            OOO0OO0O0OO0000OO =requests .request ('post',f'{host}/api/Game/setAutoPlay',headers =O0000OO0OO000OO00 .headers ,data =OOOOO00OOOOO00OO0 ).json ()#line:121
-            if 'code'in OOO0OO0O0OO0000OO :#line:123
-                if OOO0OO0O0OO0000OO ['code']==1 :#line:124
-                    print (f'【自动闯关】:{OOO0OO0O0OO0000OO["msg"]}')#line:125
-                if OOO0OO0O0OO0000OO ['code']==0 :#line:126
-                    print (f'【自动闯关】:{OOO0OO0O0OO0000OO["msg"]}')#line:127
-        except Exception as O0O000OOO0O0O0OO0 :#line:128
-            print (O0O000OOO0O0O0OO0 )#line:129
-    def Game_index (OO0OOO0O000000O0O ,OOOO0O0000OOOO00O ):#line:132
-        try :#line:133
-            O00OO0OOO0OO000O0 =requests .request ('post',f'{host}/api/Game/index',headers =OO0OOO0O000000O0O .headers ).json ()#line:134
-            if 'code'in O00OO0OOO0OO000O0 :#line:136
-                if O00OO0OOO0OO000O0 ['code']==1 :#line:137
-                    if O00OO0OOO0OO000O0 ['data']['is_auto_play']:#line:138
-                        OOO0OO00OOO000O0O ='✅'#line:139
-                    else :#line:140
-                        OOO0OO00OOO000O0O ='❌'#line:141
-                    if O00OO0OOO0OO000O0 ['data']['is_game_ing']:#line:143
-                        O0000O00OOOOOOO0O ='✅'#line:144
-                    else :#line:145
-                        O0000O00OOOOOOO0O ='❌'#line:146
-                    if O00OO0OOO0OO000O0 ['data']['is_vip']:#line:147
-                        O000O00OOOO0O0OO0 ='✅'#line:148
-                    else :#line:149
-                        O000O00OOOO0O0OO0 ='❌'#line:150
-                    if '正在闯关'in O00OO0OOO0OO000O0 ['data']['npc_hint']:#line:151
-                        O0O0O0OOO00O0O0O0 =O00OO0OOO0OO000O0 ['data']['npc_hint'][:8 ]#line:152
-                    else :#line:153
-                        O0O0O0OOO00O0O0O0 =O00OO0OOO0OO000O0 ['data']['npc_hint'][:5 ]#line:154
-                    print (f'【游戏状态】:自动:{OOO0OO00OOO000O0O}丨闯关:{O0000O00OOOOOOO0O}丨VIP:{O000O00OOOO0O0OO0}丨{O0O0O0OOO00O0O0O0}')#line:155
-                    if not O00OO0OOO0OO000O0 ['data']['is_auto_play']:#line:156
-                        if OOOO0O0000OOOO00O =='1':#line:157
-                            OO0OOO0O000000O0O .setAutoPlay ()#line:158
-        except Exception as O0000000OOOO0OO00 :#line:159
-            print (O0000000OOOO0OO00 )#line:160
-    def LuckyBox (OOO0O0OO00OO0OO0O ):#line:164
-        global sr #line:165
-        try :#line:166
-            OOOO0OO000O0OO0OO =requests .request ('post',f'{host}/api/LuckyBox/index',headers =OOO0O0OO00OO0OO0O .headers ).json ()#line:167
-            if 'code'in OOOO0OO000O0OO0OO :#line:169
-                if OOOO0OO000O0OO0OO ['code']==1 :#line:170
-                    OO0O0OO00OO0OO000 =OOOO0OO000O0OO0OO ['data']['debris']#line:171
-                    OOO0O00O00OO0O0OO =OOOO0OO000O0OO0OO ['data']['is_draw']#line:172
-                    print (f'【幸运宝箱】:碎片:{str(OO0O0OO00OO0OO000).split(".")[0]}丨当前设置开启宝箱ID:{OOO0O0OO00OO0OO0O.box}')#line:173
-                    if not OOO0O00O00OO0O0OO :#line:174
-                        OO00O00O0OO0O0000 =requests .request ('post',f'{host}/api/LuckyBox/debrisDraw',headers =OOO0O0OO00OO0OO0O .headers ).json ()#line:175
-                        if 'code'in OO00O00O0OO0O0000 :#line:177
-                            if OO00O00O0OO0O0000 ['code']==1 :#line:178
-                                OOOOO00O00OO0O000 =OO00O00O0OO0O0000 ['data']['nub']#line:179
-                                print (f'【领取碎片】:获得:{OOOOO00O00OO0O000}')#line:180
-                    for O0O0OO0OO00OO000O in OOOO0OO000O0OO0OO ['data']['box_list']:#line:181
-                        OOOOOOO00O00OOO0O =O0O0OO0OO00OO000O ['id']#line:183
-                        O00O00O0O0OO00OO0 =O0O0OO0OO00OO000O ['name']#line:184
-                        O00OOOO0O0O00O000 =O0O0OO0OO00OO000O ['inventory']#line:185
-                        O0O0O0OO000OOO00O =O0O0OO0OO00OO000O ['need_debris']#line:186
-                        if float (OOOOOOO00O00OOO0O )==float (OOO0O0OO00OO0OO0O .box ):#line:187
-                            print (f'【幸运宝箱】:名称:{O00O00O0O0OO00OO0}丨需要碎片:{O0O0O0OO000OOO00O}丨剩余:{O00OOOO0O0O00O000}')#line:189
-                            if float (OO0O0OO00OO0OO000 )>=float (O0O0O0OO000OOO00O ):#line:190
-                                sr .append (OOO0O0OO00OO0OO0O .token +'&'+OOO0O0OO00OO0OO0O .box )#line:191
-                                if O00OOOO0O0O00O000 >0 :#line:192
-                                    OO000OO0OO0000OO0 ={'id':OOO0O0OO00OO0OO0O .box }#line:193
-                                    OO0O00O0OOOO0O000 =requests .request ('post',f'{host}/api/LuckyBox/exchange',headers =OOO0O0OO00OO0OO0O .headers ,data =OO000OO0OO0000OO0 ).json ()#line:194
-                                    if 'code'in OO0O00O0OOOO0O000 :#line:196
-                                        if OO0O00O0OOOO0O000 ['code']==1 :#line:197
-                                            print (f'【兑换宝箱】:{OO0O00O0OOOO0O000["msg"]}丨获得{OO0O00O0OOOO0O000["data"]["name"]}')#line:198
-        except Exception as OOO00OOO00OOOO0OO :#line:199
-            print (OOO00OOO00OOOO0OO )#line:200
-    def score_record (O0OO00O0OO0O0000O ):#line:203
-        O0OO0OO0O0OO00OO0 ={'page':'1','limit':'15','type':'2'}#line:204
-        O000O00OO0OOOO00O =requests .request ('post',f'{host}/api/Score/record',headers =O0OO00O0OO0O0000O .headers ,data =O0OO0OO0O0OO00OO0 ).json ()#line:205
-        if 'code'in O000O00OO0OOOO00O :#line:207
-            if O000O00OO0OOOO00O ['code']==1 :#line:208
-                OOOO0OO0O0O0OOO0O =O000O00OO0OOOO00O ['data']['record_list']#line:209
-                if OOOO0OO0O0O0OOO0O :#line:210
-                    for OOOO00O0OOO00000O in OOOO0OO0O0O0OOO0O :#line:211
-                        OOO000O0O000O0000 =OOOO00O0OOO00000O ['user_id']#line:212
-                        O0000O0O0OOOO00O0 =OOOO00O0OOO00000O ['money']#line:213
-                        OO000OO0000O00OO0 =OOOO00O0OOO00000O ['create_time']#line:214
-                        OOOO0O0OO000OOO00 =OOOO00O0OOO00000O ['nickname']#line:215
-                        print (f'【赠送记录】:昵称:{OOOO0O0OO000OOO00}丨ID:{OOO000O0O000O0000}丨金额:{O0000O0O0OOOO00O0}丨时间:{OO000OO0000O00OO0[5:16]}')#line:216
-    def score_present (O0000O000O0O000OO ):#line:219
-        try :#line:220
-            if float (score )>float (score_big ):#line:221
-                O0O0OO00O0OOO0OO0 ={'id':O0000O000O0O000OO .present_id }#line:222
-                O0O0000O00OOOOOOO =requests .request ('post',f'{host}/api/Score/presentFindUser',headers =O0000O000O0O000OO .headers ,data =O0O0OO00O0OOO0OO0 ).json ()#line:223
-                if 'code'in O0O0000O00OOOOOOO :#line:225
-                    if O0O0000O00OOOOOOO ['code']==1 :#line:226
-                        O0O0O0O0O000OOO00 =O0O0000O00OOOOOOO ['data']['service_charge']#line:227
-                        OO00OO000O00OO0O0 =int (float (score )/(1 +(int (O0O0O0O0O000OOO00 )/100 )))#line:228
-                        if OO00OO000O00OO0O0 >1 :#line:229
-                            OOO000O0O000OO00O ={'present_id':O0000O000O0O000OO .present_id ,'present_nub':OO00OO000O00OO0O0 }#line:230
-                            O000OOOOO0O0OO0OO =requests .request ('post',f'{host}/api/Score/present',headers =O0000O000O0O000OO .headers ,data =OOO000O0O000OO00O ).json ()#line:231
-                            if 'code'in O000OOOOO0O0OO0OO :#line:233
-                                if O000OOOOO0O0OO0OO ['code']==1 :#line:234
-                                    print (f'【赠送金币】:ID:{O0000O000O0O000OO.present_id}丨金币:{OO00OO000O00OO0O0}丨{O000OOOOO0O0OO0OO["msg"]}')#line:235
-                                elif O000OOOOO0O0OO0OO ['code']==0 :#line:236
-                                    print (f'【赠送金币】:ID:{O0000O000O0O000OO.present_id}丨金币:{OO00OO000O00OO0O0}丨{O000OOOOO0O0OO0OO["msg"]}')#line:237
-                                else :#line:238
-                                    print (O000OOOOO0O0OO0OO )#line:239
-        except Exception as O000OO0000000000O :#line:240
-            print (O000OO0000000000O )#line:241
-    def figure (O0OOOO0OO000OOO00 ,O00O00OO00OOO0000 ):#line:244
-        try :#line:245
-            OOO000OO00OOOOO00 =requests .request ('post',f'{host}/api/figure/index',headers =O0OOOO0OO000OOO00 .headers ).json ()#line:246
-            if 'code'in OOO000OO00OOOOO00 :#line:248
-                if OOO000OO00OOOOO00 ['code']==1 :#line:249
-                    for OO0O000OOO00OO0O0 in OOO000OO00OOOOO00 ['data']['user_figure_list']:#line:250
-                        OO0O0OO00O0O0O0O0 =OO0O000OOO00OO0O0 ['name']#line:251
-                        if O00O00OO00OOO0000 ==OO0O0OO00O0O0O0O0 :#line:252
-                            return True #line:253
-            return False #line:254
-        except Exception as O0OOO0OOOO000OO0O :#line:255
-            print (O0OOO0OOOO000OO0O )#line:256
-    def snatch (OOOO0O000OOO00O0O ):#line:259
-        try :#line:260
-            OO0OO00O0O0O0O000 =requests .request ('post',f'{host}/api/Snatch/index',headers =OOOO0O000OOO00O0O .headers ).json ()#line:261
-            if 'code'in OO0OO00O0O0O0O000 :#line:263
-                if OO0OO00O0O0O0O000 ['code']==1 :#line:264
-                    O0O0000OOOO0O0000 =OO0OO00O0O0O0O000 ['data']['snatch_id']#line:265
-                    O0O0O00O00O0000O0 =OO0OO00O0O0O0O000 ['data']['figure_name']#line:266
-                    O00O00OOOOOOO0OOO =OO0OO00O0O0O0O000 ['data']['now_figure_nub']#line:267
-                    O000OO00OO0O0O000 =OO0OO00O0O0O0O000 ['data']['max_figure_nub']#line:268
-                    if O00O00OOOOOOO0OOO <O000OO00OO0O0O000 :#line:269
-                        if OOOO0O000OOO00O0O .figure (O0O0O00O00O0000O0 ):#line:270
-                            OOOO0O000OOO00O0O .snatch_play_index (O0O0000OOOO0O0000 )#line:271
-        except Exception as O00000O0O0OOOO000 :#line:272
-            print (O00000O0O0OOOO000 )#line:273
-    def snatch_play_index (OOOOO00OO0O00O000 ,OOOO0OOOOO0OO000O ):#line:276
-        try :#line:277
-            OO0OO0O00OOOOO0OO ={'snatch_id':OOOO0OOOOO0OO000O }#line:278
-            OOOOO0O00000OOO00 =requests .request ('post',f'{host}/api/Snatch/PlayIndex',headers =OOOOO00OO0O00O000 .headers ,data =OO0OO0O00OOOOO0OO ).json ()#line:279
-            if 'code'in OOOOO0O00000OOO00 :#line:281
-                if OOOOO0O00000OOO00 ['code']==1 :#line:282
-                    O0OO0OOOO00O0OO0O =OOOOO0O00000OOO00 ['data']['surplus_figure_nub']#line:283
-                    if O0OO0OOOO00O0OO0O >0 :#line:284
-                        OOOOO00OO0O00O000 .snatch_play (OOOO0OOOOO0OO000O )#line:285
-        except Exception as OOO00OO0O0000O000 :#line:286
-            print (OOO00OO0O0000O000 )#line:287
-    def snatch_play (OOOO00OO00OOO00OO ,O00000OO0OOOO0000 ):#line:290
-        try :#line:291
-            OO0O0O0OOO00OOOO0 ={'snatch_id':O00000OO0OOOO0000 ,'nub':'1'}#line:292
-            OO0O0O0000OO000O0 =requests .request ('post',f'{host}/api/Snatch/play',headers =OOOO00OO00OOO00OO .headers ,data =OO0O0O0OOO00OOOO0 ).json ()#line:293
-            if 'code'in OO0O0O0000OO000O0 :#line:295
-                if OO0O0O0000OO000O0 ['code']==1 :#line:296
-                    print (f'【参与夺宝】:{OO0O0O0000OO000O0["msg"]}')#line:297
-        except Exception as OO0000OOOOOO0OO00 :#line:298
-            print (OO0000OOOOOO0OO00 )#line:299
-    def snatch_record (OOO0O0O0OO0OO0O0O ):#line:302
-        try :#line:303
-            OOO0OO0000O0OOOO0 =requests .request ('post',f'{host}/api/Snatch/record',headers =OOO0O0O0OO0OO0O0O .headers ).json ()#line:304
-            if 'code'in OOO0OO0000O0OOOO0 :#line:306
-                if OOO0OO0000O0OOOO0 ['code']==1 :#line:307
-                    O00O0OOO000O0O0O0 =OOO0OO0000O0OOOO0 ['data']['record_list']#line:308
-                    if O00O0OOO000O0O0O0 :#line:309
-                        for O00OO000OO0O0000O in O00O0OOO000O0O0O0 :#line:310
-                            print (f'【夺宝记录】:{O00OO000OO0O0000O["name"]}丨收益:{O00OO000OO0O0000O["award_money"]}丨{O00OO000OO0O0000O["state"]}')#line:312
-        except Exception as O0OOOOOO00OO0000O :#line:313
-            print (O0OOOOOO00OO0000O )#line:314
-def start ():#line:318
-    try :#line:319
-        update_the_validation ()#line:320
-        O00000O0O0OOO0OOO =os_qinglong ()#line:321
-        print (f"==========共找到{len(O00000O0O0OOO0OOO)}个账号==========")#line:322
-        for O0OOOO00OO000OO00 in O00000O0O0OOO0OOO :#line:323
-            print (f"------------正在执行第{O00000O0O0OOO0OOO.index(O0OOOO00OO000OO00) + 1}个账号------------")#line:324
-            OOOO0O0O00O00OO00 =Template (O0OOOO00OO000OO00 )#line:325
-            if OOOO0O0O00O00OO00 .base_info ():#line:327
-                OOOO0O0O00O00OO00 .LuckyBox ()#line:329
-                OOOO0O0O00O00OO00 .playInfo ()#line:331
-                OOOO0O0O00O00OO00 .snatch ()#line:333
-                OOOO0O0O00O00OO00 .snatch_record ()#line:335
-                if score_record :#line:337
-                    OOOO0O0O00O00OO00 .score_record ()#line:339
-                OOOO0O0O00O00OO00 .score_present ()#line:341
-                time .sleep (random .randint (2 ,5 ))#line:343
-            else :#line:344
-                print ('token失效')#line:345
-        print ('\n开始打印可以抢宝箱的数据')#line:346
-        for O0O0O0O0O0OO00O00 in sr :#line:347
-            print (O0O0O0O0O0OO00O00 .strip ())#line:348
-    except Exception as OO0OOOO0O0OOO0OO0 :#line:349
-        print (OO0OOOO0O0OOO0OO0 )#line:350
-def version_of_the_validation ():#line:352
-    return str ((64 -56 )/10 )#line:353
-if __name__ =='__main__':#line:356
-    start ()#line:357
+            O0O0O0OO0OOOOO0O0 ={'state':'1'}#line:118
+            O0O0O00000O0O0000 =requests .request ('post',f'{host}/api/Game/setAutoPlay',headers =O00OO0000OOO0O0OO .headers ,data =O0O0O0OO0OOOOO0O0 ).json ()#line:119
+            if 'code'in O0O0O00000O0O0000 :#line:121
+                if O0O0O00000O0O0000 ['code']==1 :#line:122
+                    print (f'【自动闯关】:{O0O0O00000O0O0000["msg"]}')#line:123
+                if O0O0O00000O0O0000 ['code']==0 :#line:124
+                    print (f'【自动闯关】:{O0O0O00000O0O0000["msg"]}')#line:125
+        except Exception as O0OO000OO0000OOOO :#line:126
+            print (O0OO000OO0000OOOO )#line:127
+    def Game_index (O0OO000O0OO0OOOO0 ,OO00O00O0O0OO000O ):#line:130
+        try :#line:131
+            O0OO000O000O00OO0 =requests .request ('post',f'{host}/api/Game/index',headers =O0OO000O0OO0OOOO0 .headers ).json ()#line:132
+            if 'code'in O0OO000O000O00OO0 :#line:134
+                if O0OO000O000O00OO0 ['code']==1 :#line:135
+                    if O0OO000O000O00OO0 ['data']['is_auto_play']:#line:136
+                        OO000O000O00O00O0 ='✅'#line:137
+                    else :#line:138
+                        OO000O000O00O00O0 ='❌'#line:139
+                    if O0OO000O000O00OO0 ['data']['is_game_ing']:#line:141
+                        OO000O00O000O0O0O ='✅'#line:142
+                    else :#line:143
+                        OO000O00O000O0O0O ='❌'#line:144
+                    if O0OO000O000O00OO0 ['data']['is_vip']:#line:145
+                        O000OOOOO0O0OO0OO ='✅'#line:146
+                    else :#line:147
+                        O000OOOOO0O0OO0OO ='❌'#line:148
+                    if '正在闯关'in O0OO000O000O00OO0 ['data']['npc_hint']:#line:149
+                        O00000O00OO00O00O =O0OO000O000O00OO0 ['data']['npc_hint'][:8 ]#line:150
+                    else :#line:151
+                        O00000O00OO00O00O =O0OO000O000O00OO0 ['data']['npc_hint'][:5 ]#line:152
+                    print (f'【游戏状态】:自动:{OO000O000O00O00O0}丨闯关:{OO000O00O000O0O0O}丨VIP:{O000OOOOO0O0OO0OO}丨{O00000O00OO00O00O}')#line:153
+                    if not O0OO000O000O00OO0 ['data']['is_auto_play']:#line:154
+                        if OO00O00O0O0OO000O =='1':#line:155
+                            O0OO000O0OO0OOOO0 .setAutoPlay ()#line:156
+        except Exception as O0O0OO00O0O0O0O0O :#line:157
+            print (O0O0OO00O0O0O0O0O )#line:158
+    def LuckyBox (OO0OOO00O0000O000 ):#line:162
+        global sr #line:163
+        try :#line:164
+            O0OO0000OOOO0O0OO =requests .request ('post',f'{host}/api/LuckyBox/index',headers =OO0OOO00O0000O000 .headers ).json ()#line:165
+            if 'code'in O0OO0000OOOO0O0OO :#line:167
+                if O0OO0000OOOO0O0OO ['code']==1 :#line:168
+                    O0000OOO000O00O00 =O0OO0000OOOO0O0OO ['data']['debris']#line:169
+                    O0O00O0O00OO0O000 =O0OO0000OOOO0O0OO ['data']['is_draw']#line:170
+                    print (f'【幸运宝箱】:碎片:{str(O0000OOO000O00O00).split(".")[0]}丨当前设置开启宝箱ID:{OO0OOO00O0000O000.box}')#line:171
+                    if not O0O00O0O00OO0O000 :#line:172
+                        O0OO0O000OOO00000 =requests .request ('post',f'{host}/api/LuckyBox/debrisDraw',headers =OO0OOO00O0000O000 .headers ).json ()#line:173
+                        if 'code'in O0OO0O000OOO00000 :#line:175
+                            if O0OO0O000OOO00000 ['code']==1 :#line:176
+                                OO000000000000OOO =O0OO0O000OOO00000 ['data']['nub']#line:177
+                                print (f'【领取碎片】:获得:{OO000000000000OOO}')#line:178
+                    for OOOO0O00000O0O00O in O0OO0000OOOO0O0OO ['data']['box_list']:#line:179
+                        OOO0O00O00O0O000O =OOOO0O00000O0O00O ['id']#line:181
+                        O0O00O0O0O0000000 =OOOO0O00000O0O00O ['name']#line:182
+                        OOO000O0OOO0OO00O =OOOO0O00000O0O00O ['inventory']#line:183
+                        OOOO000000O00O00O =OOOO0O00000O0O00O ['need_debris']#line:184
+                        if float (OOO0O00O00O0O000O )==float (OO0OOO00O0000O000 .box ):#line:185
+                            print (f'【幸运宝箱】:名称:{O0O00O0O0O0000000}丨需要碎片:{OOOO000000O00O00O}丨剩余:{OOO000O0OOO0OO00O}')#line:186
+                            if float (O0000OOO000O00O00 )>=float (OOOO000000O00O00O ):#line:187
+                                sr .append (OO0OOO00O0000O000 .token +'&'+OO0OOO00O0000O000 .box )#line:188
+                                if OOO000O0OOO0OO00O >0 :#line:189
+                                    OO00OO0O0000OO00O ={'id':OO0OOO00O0000O000 .box }#line:190
+                                    O0OOOOO0O000OOOO0 =requests .request ('post',f'{host}/api/LuckyBox/exchange',headers =OO0OOO00O0000O000 .headers ,data =OO00OO0O0000OO00O ).json ()#line:191
+                                    if 'code'in O0OOOOO0O000OOOO0 :#line:193
+                                        if O0OOOOO0O000OOOO0 ['code']==1 :#line:194
+                                            print (f'【兑换宝箱】:{O0OOOOO0O000OOOO0["msg"]}丨获得{O0OOOOO0O000OOOO0["data"]["name"]}')#line:195
+                                            OO0OOO00O0000O000 .LuckyBox ()#line:196
+        except Exception as OOO000OO0OO0OO0O0 :#line:197
+            OO0OOO00O0000O000 .LuckyBox ()#line:198
+    def score_record (OOOO00O000OO0OOOO ):#line:201
+        try :#line:202
+            OO0OOOOO0OO0O0000 ={'page':'1','limit':'15','type':'2'}#line:203
+            O0OOO0000OOO00OO0 =requests .request ('post',f'{host}/api/Score/record',headers =OOOO00O000OO0OOOO .headers ,data =OO0OOOOO0OO0O0000 ).json ()#line:204
+            if 'code'in O0OOO0000OOO00OO0 :#line:206
+                if O0OOO0000OOO00OO0 ['code']==1 :#line:207
+                    OO0000O0O0O0O00O0 =O0OOO0000OOO00OO0 ['data']['record_list']#line:208
+                    if OO0000O0O0O0O00O0 :#line:209
+                        for O000OO0OOOOO0OO00 in OO0000O0O0O0O00O0 :#line:210
+                            OO00O00O000O0O000 =O000OO0OOOOO0OO00 ['user_id']#line:211
+                            O00O0OOOO0OOO0000 =O000OO0OOOOO0OO00 ['money']#line:212
+                            OOOO0O0OOOOO0O000 =O000OO0OOOOO0OO00 ['create_time']#line:213
+                            O000O000OOOO0OOO0 =O000OO0OOOOO0OO00 ['nickname']#line:214
+                            print (f'【赠送记录】:昵称:{O000O000OOOO0OOO0}丨ID:{OO00O00O000O0O000}丨金额:{O00O0OOOO0OOO0000}丨时间:{OOOO0O0OOOOO0O000[5:16]}')#line:215
+        except Exception as OOOO0OO0000OOOOO0 :#line:216
+            print (OOOO0OO0000OOOOO0 )#line:217
+    def score_present (O0OOOO000000OOOO0 ):#line:221
+        try :#line:222
+            if float (score )>float (score_big ):#line:223
+                OO00OOOO0O00O0O0O ={'id':O0OOOO000000OOOO0 .present_id }#line:224
+                OO000O00O0O000O00 =requests .request ('post',f'{host}/api/Score/presentFindUser',headers =O0OOOO000000OOOO0 .headers ,data =OO00OOOO0O00O0O0O ).json ()#line:225
+                if 'code'in OO000O00O0O000O00 :#line:227
+                    if OO000O00O0O000O00 ['code']==1 :#line:228
+                        OOOOO000O0OOO0000 =OO000O00O0O000O00 ['data']['service_charge']#line:229
+                        OOO00OOO000OOO00O =int (float (score )/(1 +(int (OOOOO000O0OOO0000 )/100 )))#line:230
+                        if OOO00OOO000OOO00O >1 :#line:231
+                            OOO0OO00O0O000OOO ={'present_id':O0OOOO000000OOOO0 .present_id ,'present_nub':OOO00OOO000OOO00O }#line:232
+                            OO0O000O0O00O00O0 =requests .request ('post',f'{host}/api/Score/present',headers =O0OOOO000000OOOO0 .headers ,data =OOO0OO00O0O000OOO ).json ()#line:233
+                            if 'code'in OO0O000O0O00O00O0 :#line:235
+                                if OO0O000O0O00O00O0 ['code']==1 :#line:236
+                                    print (f'【赠送金币】:ID:{O0OOOO000000OOOO0.present_id}丨金币:{OOO00OOO000OOO00O}丨{OO0O000O0O00O00O0["msg"]}')#line:237
+                                elif OO0O000O0O00O00O0 ['code']==0 :#line:238
+                                    print (f'【赠送金币】:ID:{O0OOOO000000OOOO0.present_id}丨金币:{OOO00OOO000OOO00O}丨{OO0O000O0O00O00O0["msg"]}')#line:239
+                                else :#line:240
+                                    print (OO0O000O0O00O00O0 )#line:241
+        except Exception as OOO00O00O0O0OOOOO :#line:242
+            print (OOO00O00O0O0OOOOO )#line:243
+    def figure (O00O00000OO00O00O ,O0OOOO0O000O0OO0O ):#line:246
+        try :#line:247
+            O000O0OO0O0OO00O0 =requests .request ('post',f'{host}/api/figure/index',headers =O00O00000OO00O00O .headers ).json ()#line:248
+            if 'code'in O000O0OO0O0OO00O0 :#line:250
+                if O000O0OO0O0OO00O0 ['code']==1 :#line:251
+                    for OO00OO0O000000O00 in O000O0OO0O0OO00O0 ['data']['user_figure_list']:#line:252
+                        OO0O0000OOO0OO0OO =OO00OO0O000000O00 ['name']#line:253
+                        if O0OOOO0O000O0OO0O ==OO0O0000OOO0OO0OO :#line:254
+                            return True #line:255
+            return False #line:256
+        except Exception as O0O0OO0OOO0OO0000 :#line:257
+            print (O0O0OO0OOO0OO0000 )#line:258
+    def snatch (OO0OO0O0OOO00OOO0 ):#line:261
+        try :#line:262
+            O0O00O0000O00O0O0 =requests .request ('post',f'{host}/api/Snatch/index',headers =OO0OO0O0OOO00OOO0 .headers ).json ()#line:263
+            if 'code'in O0O00O0000O00O0O0 :#line:265
+                if O0O00O0000O00O0O0 ['code']==1 :#line:266
+                    O00000000OO00OOOO =O0O00O0000O00O0O0 ['data']['snatch_id']#line:267
+                    O00OO0000OO00OO00 =O0O00O0000O00O0O0 ['data']['figure_name']#line:268
+                    OO0OO0OO0OOO0OO0O =O0O00O0000O00O0O0 ['data']['now_figure_nub']#line:269
+                    OO00O0OO0O0O0O000 =O0O00O0000O00O0O0 ['data']['max_figure_nub']#line:270
+                    if OO0OO0OO0OOO0OO0O <OO00O0OO0O0O0O000 :#line:271
+                        if OO0OO0O0OOO00OOO0 .figure (O00OO0000OO00OO00 ):#line:272
+                            OO0OO0O0OOO00OOO0 .snatch_play_index (O00000000OO00OOOO )#line:273
+        except Exception as OOO0OOO00OOOOO00O :#line:274
+            print (OOO0OOO00OOOOO00O )#line:275
+    def snatch_play_index (OO0OOOO00O0O0O0O0 ,OO00000000OO0000O ):#line:278
+        try :#line:279
+            OO0O0O0OOO0O0OO0O ={'snatch_id':OO00000000OO0000O }#line:280
+            O00O00OO0O0O0O00O =requests .request ('post',f'{host}/api/Snatch/PlayIndex',headers =OO0OOOO00O0O0O0O0 .headers ,data =OO0O0O0OOO0O0OO0O ).json ()#line:281
+            if 'code'in O00O00OO0O0O0O00O :#line:283
+                if O00O00OO0O0O0O00O ['code']==1 :#line:284
+                    OO0O0OO00O000O0OO =O00O00OO0O0O0O00O ['data']['surplus_figure_nub']#line:285
+                    if OO0O0OO00O000O0OO >0 :#line:286
+                        OO0OOOO00O0O0O0O0 .snatch_play (OO00000000OO0000O )#line:287
+        except Exception as O00OO0O0O0OO00O00 :#line:288
+            print (O00OO0O0O0OO00O00 )#line:289
+    def snatch_play (OOOO0OO000O0OO0O0 ,OO00O000O0OO0O0OO ):#line:292
+        try :#line:293
+            O00OOOO00O00OO0O0 ={'snatch_id':OO00O000O0OO0O0OO ,'nub':'1'}#line:294
+            O0OOOOO00OOO0O0O0 =requests .request ('post',f'{host}/api/Snatch/play',headers =OOOO0OO000O0OO0O0 .headers ,data =O00OOOO00O00OO0O0 ).json ()#line:295
+            if 'code'in O0OOOOO00OOO0O0O0 :#line:297
+                if O0OOOOO00OOO0O0O0 ['code']==1 :#line:298
+                    print (f'【参与夺宝】:{O0OOOOO00OOO0O0O0["msg"]}')#line:299
+        except Exception as OOOO000O000OO00O0 :#line:300
+            print (OOOO000O000OO00O0 )#line:301
+    def snatch_record (O0O0OO0OOO00O000O ):#line:304
+        try :#line:305
+            O00OO0OOOOOOOO0OO =requests .request ('post',f'{host}/api/Snatch/record',headers =O0O0OO0OOO00O000O .headers ).json ()#line:306
+            if 'code'in O00OO0OOOOOOOO0OO :#line:308
+                if O00OO0OOOOOOOO0OO ['code']==1 :#line:309
+                    OOOOO0O0O00O0O0O0 =O00OO0OOOOOOOO0OO ['data']['record_list']#line:310
+                    if OOOOO0O0O00O0O0O0 :#line:311
+                        for OOOO000OO0O0OOOO0 in OOOOO0O0O00O0O0O0 :#line:312
+                            print (f'【夺宝记录】:{OOOO000OO0O0OOOO0["name"]}丨收益:{OOOO000OO0O0OOOO0["award_money"]}丨{OOOO000OO0O0OOOO0["state"]}')#line:314
+        except Exception as OO000O0OOOO000O0O :#line:315
+            print (OO000O0OOOO000O0O )#line:316
+def start ():#line:320
+    try :#line:321
+        update_the_validation ()#line:322
+        O000OO0OOOOOOO00O =os_qinglong ()#line:323
+        print (f"==========共找到{len(O000OO0OOOOOOO00O)}个账号==========")#line:324
+        for OOOO00000O0OOO0OO in O000OO0OOOOOOO00O :#line:325
+            print (f"------------正在执行第{O000OO0OOOOOOO00O.index(OOOO00000O0OOO0OO) + 1}个账号------------")#line:326
+            OO0000O0OOOO00OOO =Template (OOOO00000O0OOO0OO )#line:327
+            if OO0000O0OOOO00OOO .base_info ():#line:329
+                OO0000O0OOOO00OOO .LuckyBox ()#line:331
+                OO0000O0OOOO00OOO .playInfo ()#line:333
+                OO0000O0OOOO00OOO .snatch ()#line:335
+                OO0000O0OOOO00OOO .snatch_record ()#line:337
+                if score_record :#line:339
+                    OO0000O0OOOO00OOO .score_record ()#line:341
+                OO0000O0OOOO00OOO .score_present ()#line:343
+                time .sleep (random .randint (1 ,2 ))#line:345
+            else :#line:346
+                print ('token失效')#line:347
+        print ('\n开始打印可以抢宝箱的数据')#line:348
+        for O00OO0OO0OO00OO0O in sr :#line:349
+            print (O00OO0OO0OO00OO0O .strip ())#line:350
+    except Exception as O0O0O0OOO000000O0 :#line:351
+        print (O0O0O0OOO000000O0 )#line:352
+def version_of_the_validation ():#line:354
+    return str ((65 -56 )/10 )#line:355
+if __name__ =='__main__':#line:358
+    start ()#line:359
